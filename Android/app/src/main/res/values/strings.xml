@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Interactive blog</string>
+
+    <string name="error_permisstion">Need corresponding permissions, please open</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Complete</string>
+    <string name="confirm">OK</string>
+    <string name="refuse">Refused</string>
+    <string name="agree">Accept</string>
+
+    <string name="list_empty_create">Please create a room</string>
+    <string name="main_title">Room list</string>
+    <string name="main_create">Create a room</string>
+    <string name="main_create2">Create</string>
+    <string name="main_create_dialog_inpit_hint">Please enter the room name</string>
+    <string name="main_create_dialog_des">This application is a test product, please do not use it commercially. The longest single live broadcast is 10 minutes.</string>
+    <string name="error_room_not_exsit">The room does not exist</string>
+
+    <string name="room_name_speaker">Speaker</string>
+    <string name="room_name_listener">Listeners</string>
+    <string name="room_name_exit">Leave quietly</string>
+    <string name="room_dialog_hand_up_title">Raise hands list</string>
+    <string name="room_dialog_hand_up_agree">Agree</string>
+    <string name="room_dialog_hand_up_refuse">Refused</string>
+    <string name="room_dialog_seat_off">Step down</string>
+    <string name="room_dialog_open_audio">Open the microphone</string>
+    <string name="room_dialog_close_audio">Close the microphone</string>
+    <string name="room_dialog_close_title">Close the room</string>
+    <string name="room_dialog_close_message">Some members will be removed from the room after closing the room</string>
+    <string name="room_dialog_invite">Invite to come on stage</string>
+    <string name="room_dialog_invited">%s invites you to the stage</string>
+    <string name="invite_agree">The other party has accepted the invitation</string>
+    <string name="invite_refuse">%s rejected your invitation to take the stage</string>
+    <string name="request_handup_success">You have raised your hand, please wait for the host to respond</string>
+    <string name="error_owner_muted">You are banned by the host</string>
+
+    <string name="user_info_name">Set nickname</string>
+
+</resources>
