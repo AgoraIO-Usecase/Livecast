@@ -1,8 +1,8 @@
-# InteractivePodcast
+# Livecast
 
 GuideLine:
 *Read this in other languages: [简体中文](README.cn.md)*
-A typical **InteractivePodcast** has an anchor and several audiences.
+A typical **Livecast** has an anchor and several audiences.
 
 in which:
 - The anchor talks and the audience hear the host.
