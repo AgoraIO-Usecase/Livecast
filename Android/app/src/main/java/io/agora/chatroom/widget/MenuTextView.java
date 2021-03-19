@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -52,6 +53,7 @@ public class MenuTextView extends ConstraintLayout {
         setValue(typedArray.getString(R.styleable.menu_textiew_menu_value));
         setTitleColor(typedArray.getColor(R.styleable.menu_textiew_menu_title_color, Color.WHITE));
         setValueColor(typedArray.getColor(R.styleable.menu_textiew_menu_value_color, Color.WHITE));
+        showNextIcon(typedArray.getBoolean(R.styleable.menu_textiew_menu_show_next, true));
         typedArray.recycle();
     }
 
@@ -77,5 +79,13 @@ public class MenuTextView extends ConstraintLayout {
 
     public void setTitleColor(@ColorInt int color) {
         mDataBinding.tvTitle.setTextColor(color);
+    }
+
+    public void showNextIcon(boolean isShown) {
+        if (isShown) {
+            mDataBinding.ivNext.setVisibility(View.VISIBLE);
+        } else {
+            mDataBinding.ivNext.setVisibility(View.GONE);
+        }
     }
 }

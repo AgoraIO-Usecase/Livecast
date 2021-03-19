@@ -5,6 +5,7 @@
         <attr name="menu_value" format="string|reference" />
         <attr name="menu_title_color" format="color|reference" />
         <attr name="menu_value_color" format="color|reference" />
+        <attr name="menu_show_next" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="count_iamageview">

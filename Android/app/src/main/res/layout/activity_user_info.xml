@@ -7,6 +7,7 @@
         android:background="@color/colorPrimary">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@id/titleBar"
             style="@style/style_titlebar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,10 +35,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="20dp"
             android:divider="@drawable/shape_line"
+            android:orientation="vertical"
             android:showDividers="beginning|middle|end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,9 +49,21 @@
                 android:id="@+id/tvMenuName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                app:menu_show_next="true"
                 app:menu_title="@string/user_info_name"
                 app:menu_title_color="@android:color/white"
                 app:menu_value="name"
+                app:menu_value_color="@android:color/white" />
+
+            <io.agora.chatroom.widget.MenuTextView
+                android:id="@+id/tvMenuAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                app:menu_show_next="true"
+                app:menu_title="@string/user_info_about"
+                app:menu_title_color="@android:color/white"
                 app:menu_value_color="@android:color/white" />
         </LinearLayout>
 

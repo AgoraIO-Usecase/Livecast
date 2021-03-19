@@ -55,6 +55,7 @@ public class UserInfoActivity extends DataBindBaseActivity<ActivityUserInfoBindi
     @Override
     protected void iniListener() {
         mDataBinding.tvMenuName.setOnClickListener(this);
+        mDataBinding.tvMenuAbout.setOnClickListener(this);
     }
 
     @Override
@@ -138,6 +139,13 @@ public class UserInfoActivity extends DataBindBaseActivity<ActivityUserInfoBindi
             case R.id.tvMenuName:
                 showInputDialog((MenuTextView) v);
                 break;
+            case R.id.tvMenuAbout:
+                gotoAboutMenu();
+                break;
         }
+    }
+
+    private void gotoAboutMenu() {
+        startActivity(AboutInfoActivity.newIntent(this));
     }
 }

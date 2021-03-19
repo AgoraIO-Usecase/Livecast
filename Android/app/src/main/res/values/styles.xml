@@ -9,6 +9,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="toolbar_theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
     <style name="AppTheme.Fullscreen" parent="AppTheme">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -35,10 +39,12 @@
         <item name="android:windowIsFloating">false</item>
     </style>
 
-    <style name="style_titlebar">
+    <style name="style_titlebar" parent="Widget.AppCompat.Toolbar">
         <item name="android:id">@id/titleBar</item>
+        <item name="android:theme">@style/toolbar_theme</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="titleTextColor">@android:color/white</item>
     </style>
 </resources>

@@ -2,15 +2,19 @@ package io.agora.chatroom.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Lifecycle;
 
 import com.trello.lifecycle2.android.lifecycle.AndroidLifecycle;
 import com.trello.rxlifecycle3.LifecycleProvider;
 
+import io.agora.chatroom.R;
 import pub.devrel.easypermissions.EasyPermissions;
 
 /**
@@ -20,6 +24,8 @@ import pub.devrel.easypermissions.EasyPermissions;
  */
 public abstract class BaseActivity extends AppCompatActivity {
     protected final LifecycleProvider<Lifecycle.Event> mLifecycleProvider = AndroidLifecycle.createLifecycleProvider(this);
+
+    protected Toolbar titleBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,9 +38,30 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         setCusContentView();
+
+        titleBar = findViewById(R.id.titleBar);
+        if (titleBar != null) {
+            setSupportActionBar(titleBar);
+            ActionBar actionBar = getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(true);
+                actionBar.setDisplayShowTitleEnabled(false);
+            }
+            titleBar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    navigationOnClickListener();
+                }
+            });
+        }
+
         iniView();
         iniListener();
         iniData();
+    }
+
+    public void navigationOnClickListener() {
+        finish();
     }
 
     protected void setCusContentView() {

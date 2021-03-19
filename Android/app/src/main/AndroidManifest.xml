@@ -41,6 +41,12 @@
         <activity
             android:name=".activity.UserInfoActivity"
             android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.AboutInfoActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.TextActivity"
+            android:launchMode="singleTask" />
 
         <!-- 即时通讯和推送 START -->
         <!-- 即时通讯和推送都需要 PushService -->

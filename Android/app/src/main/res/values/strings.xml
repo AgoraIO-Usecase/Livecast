@@ -38,5 +38,20 @@
     <string name="error_owner_muted">You are banned by the host</string>
 
     <string name="user_info_name">Set nickname</string>
+    <string name="user_info_about">关于</string>
+    <string name="about_title">关于</string>
+    <string name="about_menu1">隐私条款</string>
+    <string name="about_menu2">产品免责声明</string>
+    <string name="about_menu3">注册声网账号</string>
+    <string name="about_menu4">发版时间</string>
+    <string name="about_menu5">SDK版本</string>
+    <string name="about_menu6">Livecast版本</string>
+
+    <string name="about_product_title">产品免责声明</string>
+    <string name="about_product_text">\t\t\t\tAgora Livecast（“本产品”）是由Agora提供的一款产品，Agora享有本产品的著作权和所有权。特此免费授予获得本产品和相关文档文件（以下简称“软件”）副本的任何人无限制地试用软件的权利，包括但不限于试用，复制，修改，合并，发布，分发，但本产品不得用于任何商业用途，不得再许可和/或出售该软件的副本。
+        \n\n
+        \t\t\t\t本产品按“现状”提供，没有任何形式的明示担保，包括但不限于对适配性、特定目的的适用性和非侵权性的担保。无论是由于与本产品或本产品的试用或其他方式有关的任何合同、侵权或其他形式的行为，Agora均不对任何索赔、损害或其他责任负责。
+        \n\n
+        \t\t\t\t您可以自由选择是否试用本产品提供的服务，如果您下载、安装、试用本产品中所提供的服务，即表明您信任该产品所有人，Agora对任何原因在试用本产品中提供的服务时可能对您自身或他人造成的任何形式的损失和伤害不承担任何责任。</string>
 
 </resources>
