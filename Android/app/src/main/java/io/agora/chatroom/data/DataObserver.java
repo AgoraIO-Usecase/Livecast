@@ -1,4 +1,4 @@
-package io.agora.chatroom.service.model;
+package io.agora.chatroom.data;
 
 import android.content.Context;
 
@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 
 import org.jetbrains.annotations.NotNull;
 
-import io.reactivex.CompletableObserver;
+import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -15,11 +15,11 @@ import io.reactivex.disposables.Disposable;
  * @author Aslan
  * @date 2019/9/23
  */
-public abstract class DataCompletableObserver implements CompletableObserver {
+public abstract class DataObserver<T> implements Observer<T> {
 
     private Context context;
 
-    public DataCompletableObserver(Context context) {
+    public DataObserver(Context context) {
         this.context = context;
     }
 
@@ -34,7 +34,7 @@ public abstract class DataCompletableObserver implements CompletableObserver {
 
     @Override
     public void onComplete() {
-        handleSuccess();
+
     }
 
     @Override
@@ -42,7 +42,12 @@ public abstract class DataCompletableObserver implements CompletableObserver {
 
     }
 
+    @Override
+    public void onNext(@NonNull T t) {
+        handleSuccess(t);
+    }
+
     public abstract void handleError(@NonNull BaseError e);
 
-    public abstract void handleSuccess();
+    public abstract void handleSuccess(@NonNull T t);
 }

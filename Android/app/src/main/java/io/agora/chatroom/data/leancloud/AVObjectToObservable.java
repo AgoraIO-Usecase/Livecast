@@ -1,4 +1,4 @@
-package io.agora.chatroom.service.model;
+package io.agora.chatroom.data.leancloud;
 
 import com.google.gson.Gson;
 

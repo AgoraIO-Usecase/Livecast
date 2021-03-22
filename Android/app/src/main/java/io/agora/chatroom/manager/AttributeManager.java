@@ -15,7 +15,7 @@ import cn.leancloud.livequery.AVLiveQuerySubscribeCallback;
 
 public abstract class AttributeManager<T> {
 
-    private final String TAG = AttributeManager.class.getSimpleName();
+    public static final String TAG = AttributeManager.class.getSimpleName();
 
     public static final String TAG_OBJECTID = "objectId";
     public static final String TAG_CREATEDAT = "createdAt";
@@ -32,11 +32,13 @@ public abstract class AttributeManager<T> {
         void onUpdated(T item);
 
         void onDeleted(String objectId);
+
+        void onSubscribeError();
     }
 
     public void registerObserve(AVQuery<AVObject> query, AttributeListener<T> callback) {
         Log.i(TAG, String.format("%s registerObserve", getObjectName()));
-        avLiveQuery = AVLiveQuery.initWithQuery(query);
+        final AVLiveQuery avLiveQuery = AVLiveQuery.initWithQuery(query);
         avLiveQuery.setEventHandler(new AVLiveQueryEventHandler() {
 
             @Override
@@ -65,9 +67,11 @@ public abstract class AttributeManager<T> {
             public void done(AVException e) {
                 if (null != e) {
                     Log.e(TAG, String.format("%s subscribe error: %s", getObjectName(), e.getMessage()));
-                    avLiveQuery = null;
+                    AttributeManager.this.avLiveQuery = null;
+                    callback.onSubscribeError();
                 } else {
                     Log.i(TAG, String.format("%s subscribe success", getObjectName()));
+                    AttributeManager.this.avLiveQuery = avLiveQuery;
                 }
             }
         });

@@ -29,10 +29,10 @@ import io.agora.chatroom.model.Action;
 import io.agora.chatroom.model.Member;
 import io.agora.chatroom.model.Room;
 import io.agora.chatroom.model.User;
-import io.agora.chatroom.service.model.BaseError;
-import io.agora.chatroom.service.model.DataCompletableObserver;
-import io.agora.chatroom.service.model.DataMaybeObserver;
-import io.agora.chatroom.service.model.DataObserver;
+import io.agora.chatroom.data.BaseError;
+import io.agora.chatroom.data.DataCompletableObserver;
+import io.agora.chatroom.data.DataMaybeObserver;
+import io.agora.chatroom.data.DataObserver;
 import io.agora.chatroom.util.ToastUtile;
 import io.agora.chatroom.widget.HandUpDialog;
 import io.agora.chatroom.widget.InviteMenuDialog;
@@ -556,11 +556,13 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
     @Override
     public void onMemberJoin(Member member) {
         if (member.getIsSpeaker() == 0) {
-            mSpeakerAdapter.deleteItem(member);
             mListenerAdapter.addItem(member);
         } else {
-            mSpeakerAdapter.addItem(member);
-            mListenerAdapter.deleteItem(member);
+            if (isAnchor(member)) {
+                mSpeakerAdapter.addItem(member, 0);
+            } else {
+                mSpeakerAdapter.addItem(member);
+            }
         }
     }
 
@@ -583,11 +585,22 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
         } else if (oldMember.getIsSpeaker() == 1 && newMember.getIsSpeaker() == 0) {
             mSpeakerAdapter.deleteItem(newMember);
             mListenerAdapter.addItem(newMember);
-            ToastUtile.toastShort(this, R.string.member_speaker_to_listener);
+        } else {
+            int index = mSpeakerAdapter.indexOf(newMember);
+            if (index >= 0) {
+                mSpeakerAdapter.update(index, newMember);
+            }
         }
 
-        if (oldMember.getIsMuted() == 0 && newMember.getIsMuted() == 1) {
-            ToastUtile.toastShort(this, R.string.member_muted);
+        if (isMine(newMember)) {
+            if (oldMember.getIsSpeaker() == 0 && newMember.getIsSpeaker() == 1) {
+            } else if (oldMember.getIsSpeaker() == 1 && newMember.getIsSpeaker() == 0) {
+                ToastUtile.toastShort(this, R.string.member_speaker_to_listener);
+            }
+
+            if (oldMember.getIsMuted() == 0 && newMember.getIsMuted() == 1) {
+                ToastUtile.toastShort(this, R.string.member_muted);
+            }
         }
 
         refreshVoiceView();
@@ -630,6 +643,29 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
     @Override
     public void onEnterMin() {
 
+    }
+
+    @Override
+    public void onRoomError(int error) {
+        showErrorDialog(getString(R.string.error_room1));
+    }
+
+    private AlertDialog errorDialog = null;
+
+    private void showErrorDialog(String msg) {
+        if (errorDialog != null && errorDialog.isShowing()) {
+            return;
+        }
+
+        errorDialog = new AlertDialog.Builder(this)
+                .setMessage(msg)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        exitRoom(true);
+                    }
+                })
+                .show();
     }
 
     private boolean isMine(Member member) {
