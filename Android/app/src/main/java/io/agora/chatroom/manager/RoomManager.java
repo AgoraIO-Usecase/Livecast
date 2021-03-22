@@ -240,8 +240,8 @@ public final class RoomManager {
                 .doOnNext(new Consumer<Member>() {
                     @Override
                     public void accept(Member member) throws Exception {
+                        onMemberUpdated(mMember, member);
                         mMember = member;
-                        onMemberUpdated(member);
                     }
                 });
     }
@@ -310,23 +310,21 @@ public final class RoomManager {
         this.mRoom = room;
     }
 
-    void onMemberUpdated(Member member) {
-        if (isMine(member)) {
-            this.mMember = member;
-
-            if (member.getIsSpeaker() == 0) {
-                RtcManager.Instance(mContext).stopAudio();
-            } else if (member.getIsSpeaker() == 1) {
+    void onMemberUpdated(Member oldMember, Member newMember) {
+        if (isMine(oldMember)) {
+            if (oldMember.getIsSpeaker() == 0 && newMember.getIsSpeaker() == 1) {
                 RtcManager.Instance(mContext).startAudio();
+            } else if (oldMember.getIsSpeaker() == 1 && newMember.getIsSpeaker() == 0) {
+                RtcManager.Instance(mContext).stopAudio();
             }
         }
-        membersMap.put(member.getObjectId(), member);
-        if (member.getStreamId() != null) {
-            streamIdMap.put(member.getStreamId(), member);
+        membersMap.put(newMember.getObjectId(), newMember);
+        if (newMember.getStreamId() != null) {
+            streamIdMap.put(newMember.getStreamId(), newMember);
         }
 
         for (RoomDataCallback callback : callbacks) {
-            callback.onMemberUpdated(member);
+            callback.onMemberUpdated(oldMember, newMember);
         }
     }
 
@@ -426,7 +424,6 @@ public final class RoomManager {
                     public void accept(Member member) throws Exception {
                         mMember = member;
                         mMember.setRoomId(mRoom);
-                        onMemberUpdated(member);
                     }
                 });
     }
@@ -438,7 +435,6 @@ public final class RoomManager {
                     @Override
                     public void accept(Member member) throws Exception {
                         member.setRoomId(mRoom);
-                        onMemberUpdated(member);
                     }
                 });
     }
@@ -601,6 +597,9 @@ public final class RoomManager {
         ActionService.Instance().unregisterObserve();
     }
 
+    /**
+     * 监听房间内部成员信息变化
+     */
     private void registerMemberChanged() {
         Room room = getRoom();
         Member member = getMember();
@@ -668,7 +667,8 @@ public final class RoomManager {
                                     return;
                                 }
 
-                                onMemberUpdated(member);
+                                Member old = membersMap.get(member.getObjectId());
+                                onMemberUpdated(old, member);
                             }
                         });
             }
@@ -747,7 +747,7 @@ public final class RoomManager {
 
         void onMemberLeave(Member member);
 
-        void onMemberUpdated(Member member);
+        void onMemberUpdated(Member oldMember, Member newMember);
 
         void onReceivedHandUp();
 

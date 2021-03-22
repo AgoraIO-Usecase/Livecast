@@ -3,16 +3,16 @@
     <!-- PLEASE KEEP THIS App ID IN SAFE PLACE -->
     <!-- Get your own App ID at https://dashboard.agora.io/ -->
     <!-- After you entered the App ID, remove <##> outside of Your App ID -->
-    <string name="app_id" translatable="false"><!-- Your App ID --></string>
+    <string name="app_id" translatable="false">aab8b8f5a8cd4469a63042fcfafe7063</string>
     <!-- Obtain a temp Access Token at https://dashboard.agora.io -->
     <!-- You will need to deploy your own token server for production release -->
     <!-- Leave this value empty if Security keys/Token is not enabled for your project -->
-    <string name="token" translatable="false"><!-- Your Token --></string>
+    <string name="token" translatable="false"></string>
     <!-- Obtain a temp Access Token at https://dashboard.agora.io -->
     <!-- You will need to deploy your own token server for production release -->
     <!-- Leave this value empty if Security keys/Token is not enabled for your project -->
     <string name="rtm_token" translatable="false"></string>
-    <string name="leancloud_app_id" translatable="false"><!-- Your LeanCloud App ID --></string>
-    <string name="leancloud_app_key" translatable="false"><!-- Your LeanCloud App Key --></string>
-    <string name="leancloud_server_url" translatable="false"><!-- Your LeanCloud Server Url --></string>
+    <string name="leancloud_app_id" translatable="false">HlhdxEP2mt0agmaDECdzHRrP-9Nh9j0Va</string>
+    <string name="leancloud_app_key" translatable="false">cuBS7GYWcGvOFfV9oBVXj5lf</string>
+    <string name="leancloud_server_url" translatable="false">https://hlhdxep2.lc-cn-e1-shared.com</string>
 </resources>

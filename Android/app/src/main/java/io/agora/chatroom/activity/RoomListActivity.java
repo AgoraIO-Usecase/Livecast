@@ -188,9 +188,9 @@ public class RoomListActivity extends DataBindBaseActivity<ActivityRoomListBindi
         if (RoomManager.Instance(this).isAnchor()) {
             mDataBinding.ivAudio.setVisibility(View.VISIBLE);
             if (member.getIsMuted() == 1) {
-                mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
+                mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneoff);
             } else if (member.getIsSelfMuted() == 1) {
-                mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
+                mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneoff);
             } else {
                 mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
             }
@@ -200,9 +200,9 @@ public class RoomListActivity extends DataBindBaseActivity<ActivityRoomListBindi
             } else {
                 mDataBinding.ivAudio.setVisibility(View.VISIBLE);
                 if (member.getIsMuted() == 1) {
-                    mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
+                    mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneoff);
                 } else if (member.getIsSelfMuted() == 1) {
-                    mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
+                    mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneoff);
                 } else {
                     mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
                 }
@@ -344,15 +344,28 @@ public class RoomListActivity extends DataBindBaseActivity<ActivityRoomListBindi
                 mAdapter.deleteItem(member.getRoomId());
                 mDataBinding.tvEmpty.setVisibility(mAdapter.getItemCount() <= 0 ? View.VISIBLE : View.GONE);
             }
+
+            if (RoomManager.Instance(this).isAnchor(member)) {
+                ToastUtile.toastShort(this, R.string.room_closed);
+            }
         } else {
             updateMinRoomInfo();
         }
     }
 
     @Override
-    public void onMemberUpdated(Member member) {
+    public void onMemberUpdated(Member oldMember, Member newMember) {
         if (this.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED) == false) {
             return;
+        }
+
+        if (oldMember.getIsSpeaker() == 0 && newMember.getIsSpeaker() == 1) {
+        } else if (oldMember.getIsSpeaker() == 1 && newMember.getIsSpeaker() == 0) {
+            ToastUtile.toastShort(this, R.string.member_speaker_to_listener);
+        }
+
+        if (oldMember.getIsMuted() == 0 && newMember.getIsMuted() == 1) {
+            ToastUtile.toastShort(this, R.string.member_muted);
         }
 
         refreshVoiceView();
