@@ -220,9 +220,9 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
         if (isAnchor()) {
             mDataBinding.ivAudio.setVisibility(View.VISIBLE);
             if (member.getIsMuted() == 1) {
-                mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
+                mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneoff);
             } else if (member.getIsSelfMuted() == 1) {
-                mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
+                mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneoff);
             } else {
                 mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
             }
@@ -232,9 +232,9 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
             } else {
                 mDataBinding.ivAudio.setVisibility(View.VISIBLE);
                 if (member.getIsMuted() == 1) {
-                    mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
+                    mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneoff);
                 } else if (member.getIsSelfMuted() == 1) {
-                    mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
+                    mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneoff);
                 } else {
                     mDataBinding.ivAudio.setImageResource(R.mipmap.icon_microphoneon);
                 }

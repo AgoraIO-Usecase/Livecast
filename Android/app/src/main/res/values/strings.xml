@@ -29,7 +29,7 @@
     <string name="room_dialog_open_audio">Open the microphone</string>
     <string name="room_dialog_close_audio">Close the microphone</string>
     <string name="room_dialog_close_title">Close the room</string>
-    <string name="room_dialog_close_message">Some members will be removed from the room after closing the room</string>
+    <string name="room_dialog_close_message">All members will be removed from the room after closing the room</string>
     <string name="room_dialog_invite">Invite to come on stage</string>
     <string name="room_dialog_invited">%s invites you to the stage</string>
     <string name="invite_agree">The other party has accepted the invitation</string>

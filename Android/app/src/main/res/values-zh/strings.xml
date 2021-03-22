@@ -29,7 +29,7 @@
     <string name="room_dialog_open_audio">打开麦克风</string>
     <string name="room_dialog_close_audio">关闭麦克风</string>
     <string name="room_dialog_close_title">关闭房间</string>
-    <string name="room_dialog_close_message">关闭房间后有成员将被移除房间</string>
+    <string name="room_dialog_close_message">关闭房间后所有房间成员将被移出房间</string>
     <string name="room_dialog_invite">邀请上台</string>
     <string name="room_dialog_invited">%s邀请您上台</string>
     <string name="invite_agree">对方接受了邀请</string>
