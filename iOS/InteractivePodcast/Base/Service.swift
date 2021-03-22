@@ -25,6 +25,7 @@ protocol Service {
     
     func inviteSpeaker(member: Member) -> Observable<Result<Void>>
     func muteSpeaker(member: Member) -> Observable<Result<Void>>
+    func unMuteSpeaker(member: Member) -> Observable<Result<Void>>
     func kickSpeaker(member: Member) -> Observable<Result<Void>>
     func process(handsup: Action, agree: Bool) -> Observable<Result<Void>>
     

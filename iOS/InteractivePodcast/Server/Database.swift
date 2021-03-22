@@ -309,6 +309,7 @@ extension Member {
             try object.set(Member.IS_SPEAKER, value: agree ? 1 : 0)
             if (agree) {
                 try object.set(Member.MUTED, value: 0)
+                try object.set(Member.SELF_MUTED, value: 0)
             }
             return object
         }

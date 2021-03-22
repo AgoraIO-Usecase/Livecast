@@ -178,9 +178,11 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
                     return Observable.just(result)
                 }
             }
+            .observe(on: MainScheduler.instance)
             .flatMap { [unowned self] result -> Observable<Result<Bool>> in
                 if (result.data == true) {
-                    return self.pop().asObservable().map { _ in result }
+                    Logger.log(message: "subcribeRoomEvent roomClosed", level: .info)
+                    return self.popAsObservable().map { _ in result }
                 } else {
                     self.adapter.performUpdates(animated: false)
                     return Observable.just(result)
@@ -192,6 +194,7 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
                     self.show(message: result.message ?? "出错了！", type: .error)
                 } else if (roomClosed == true) {
                     self.leaveAction?(.leave, self.viewModel.room)
+                    self.disconnect()
                 } else {
                     self.renderToolbar()
                 }
@@ -216,6 +219,10 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
         dataSourceDisposable = nil
         actionDisposable?.dispose()
         actionDisposable = nil
+    }
+    
+    private func popAsObservable() -> Observable<Bool> {
+        return super.pop().asObservable()
     }
     
     override func pop() -> Single<Bool> {
@@ -256,6 +263,9 @@ extension RoomController: RoomControlDelegate {
             if (!member.isSpeaker) {
                 InviteSpeakerDialog().show(with: member, delegate: self)
             } else if (member.id != viewModel.member.id) {
+                ManageSpeakerDialog().show(with: member, delegate: self)
+            } else {
+                // block self?
                 ManageSpeakerDialog().show(with: member, delegate: self)
             }
         }

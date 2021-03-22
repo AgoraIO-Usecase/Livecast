@@ -193,9 +193,11 @@ class HomeController: BaseViewContoller, DialogDelegate {
         case .closeRoom:
             show(message: "房间已关闭", type: .error)
             viewModel.showMiniRoom.accept(false)
+            refresh()
         case .leave:
             if (room != nil) {
                 show(message: "房间已关闭", type: .error)
+                refresh()
             }
             viewModel.showMiniRoom.accept(false)
         case .mini:

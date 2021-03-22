@@ -208,6 +208,10 @@ class RoomViewModel {
         return Server.shared().muteSpeaker(member: member)
     }
     
+    func unMuteSpeaker(member: Member) -> Observable<Result<Void>> {
+        return Server.shared().unMuteSpeaker(member: member)
+    }
+    
     func kickSpeaker(member: Member) -> Observable<Result<Void>> {
         return Server.shared().kickSpeaker(member: member)
     }

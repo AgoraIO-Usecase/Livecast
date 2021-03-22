@@ -216,6 +216,15 @@ extension Server: Service {
         return Observable.just(Result(success: true))
     }
     
+    func unMuteSpeaker(member: Member) -> Observable<Result<Void>> {
+        if let user = self.member {
+            if (rtcServer.isJoinChannel && user.isManager) {
+                return member.mute(mute: false)
+            }
+        }
+        return Observable.just(Result(success: true))
+    }
+    
     func kickSpeaker(member: Member) -> Observable<Result<Void>> {
         if let user = self.member {
             if (rtcServer.isJoinChannel && user.isManager) {

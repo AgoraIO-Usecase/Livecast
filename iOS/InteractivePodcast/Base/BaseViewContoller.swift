@@ -306,6 +306,7 @@ class BaseViewContoller: UIViewController {
     func pop() -> Single<Bool> {
         return Single.create { [unowned self] single in
             if let navigationController = self.navigationController {
+                Logger.log(message: "pop with navigationController", level: .info)
                 UIView.transition(with: self.navigationController!.view!, duration: 0.3, options: .curveEaseOut) {
                     let transition = CATransition()
                     transition.duration = 0
@@ -314,10 +315,12 @@ class BaseViewContoller: UIViewController {
                     transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
                     self.navigationController?.view.layer.add(transition, forKey: kCATransition)
                 } completion: { _ in
+                    Logger.log(message: "pop with navigationController finish", level: .info)
                     navigationController.popViewController(animated: false)
                     single(.success(true))
                 }
             } else {
+                Logger.log(message: "pop with dismiss", level: .info)
                 self.dismiss(animated: true, completion: {
                     single(.success(true))
                 })

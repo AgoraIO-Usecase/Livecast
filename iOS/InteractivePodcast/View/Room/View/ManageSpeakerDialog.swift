@@ -16,6 +16,9 @@ class ManageSpeakerDialog: Dialog {
         didSet {
             name.text = model.user.name
             avatar.image = UIImage(named: model.user.getLocalAvatar())
+            if (model.isMuted) {
+                closeMicButton.setTitle(model.isMuted ? "打开麦克风" : "关闭麦克风", for: .normal)
+            }
         }
     }
     
@@ -79,8 +82,12 @@ class ManageSpeakerDialog: Dialog {
         
         closeMicButton.rx.tap
             .throttle(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance)
-            .flatMap { [unowned self] _ in
-                return self.delegate.viewModel.muteSpeaker(member: self.model)
+            .flatMap { [unowned self] _ -> Observable<Result<Void>> in
+                if (self.model.isMuted) {
+                    return self.delegate.viewModel.unMuteSpeaker(member: self.model)
+                } else {
+                    return self.delegate.viewModel.muteSpeaker(member: self.model)
+                }
             }
             .flatMap { [unowned self] result -> Observable<Result<Void>> in
                 return result.onSuccess {
