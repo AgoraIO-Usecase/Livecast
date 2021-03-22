@@ -295,10 +295,6 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
                                             return;
                                         }
 
-                                        if (member != null) {
-                                            onMemberUpdated(member);
-                                        }
-
                                         joinRTCRoom();
                                     }
                                 });
@@ -574,18 +570,20 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
         mListenerAdapter.deleteItem(member);
 
         if (isAnchor(member)) {
+            ToastUtile.toastShort(this, R.string.room_closed);
             finish();
         }
     }
 
     @Override
-    public void onMemberUpdated(Member member) {
-        if (member.getIsSpeaker() == 0) {
-            mSpeakerAdapter.deleteItem(member);
-            mListenerAdapter.addItem(member);
-        } else {
-            mSpeakerAdapter.addItem(member);
-            mListenerAdapter.deleteItem(member);
+    public void onMemberUpdated(Member oldMember, Member newMember) {
+        if (oldMember.getIsSpeaker() == 0 && newMember.getIsSpeaker() == 1) {
+            mSpeakerAdapter.addItem(newMember);
+            mListenerAdapter.deleteItem(newMember);
+        } else if (oldMember.getIsSpeaker() == 1 && newMember.getIsSpeaker() == 0) {
+            mSpeakerAdapter.deleteItem(newMember);
+            mListenerAdapter.addItem(newMember);
+            ToastUtile.toastShort(this, R.string.member_speaker_to_listener);
         }
 
         refreshVoiceView();

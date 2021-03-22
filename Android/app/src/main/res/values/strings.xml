@@ -36,6 +36,8 @@
     <string name="invite_refuse">%s rejected your invitation to take the stage</string>
     <string name="request_handup_success">You have raised your hand, please wait for the host to respond</string>
     <string name="error_owner_muted">You are banned by the host</string>
+    <string name="room_closed">The room is closed</string>
+    <string name="member_speaker_to_listener">You have been set up as an audience by the homeowner</string>
 
     <string name="user_info_name">Set nickname</string>
     <string name="user_info_about">关于</string>

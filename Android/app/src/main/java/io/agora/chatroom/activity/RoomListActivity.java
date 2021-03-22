@@ -344,15 +344,24 @@ public class RoomListActivity extends DataBindBaseActivity<ActivityRoomListBindi
                 mAdapter.deleteItem(member.getRoomId());
                 mDataBinding.tvEmpty.setVisibility(mAdapter.getItemCount() <= 0 ? View.VISIBLE : View.GONE);
             }
+
+            if (RoomManager.Instance(this).isAnchor(member)) {
+                ToastUtile.toastShort(this, R.string.room_closed);
+            }
         } else {
             updateMinRoomInfo();
         }
     }
 
     @Override
-    public void onMemberUpdated(Member member) {
+    public void onMemberUpdated(Member oldMember, Member newMember) {
         if (this.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED) == false) {
             return;
+        }
+
+        if (oldMember.getIsSpeaker() == 0 && newMember.getIsSpeaker() == 1) {
+        } else if (oldMember.getIsSpeaker() == 1 && newMember.getIsSpeaker() == 0) {
+            ToastUtile.toastShort(this, R.string.member_speaker_to_listener);
         }
 
         refreshVoiceView();
