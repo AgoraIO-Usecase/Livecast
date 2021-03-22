@@ -359,13 +359,15 @@ public class RoomListActivity extends DataBindBaseActivity<ActivityRoomListBindi
             return;
         }
 
-        if (oldMember.getIsSpeaker() == 0 && newMember.getIsSpeaker() == 1) {
-        } else if (oldMember.getIsSpeaker() == 1 && newMember.getIsSpeaker() == 0) {
-            ToastUtile.toastShort(this, R.string.member_speaker_to_listener);
-        }
+        if (isMine(newMember)) {
+            if (oldMember.getIsSpeaker() == 0 && newMember.getIsSpeaker() == 1) {
+            } else if (oldMember.getIsSpeaker() == 1 && newMember.getIsSpeaker() == 0) {
+                ToastUtile.toastShort(this, R.string.member_speaker_to_listener);
+            }
 
-        if (oldMember.getIsMuted() == 0 && newMember.getIsMuted() == 1) {
-            ToastUtile.toastShort(this, R.string.member_muted);
+            if (oldMember.getIsMuted() == 0 && newMember.getIsMuted() == 1) {
+                ToastUtile.toastShort(this, R.string.member_muted);
+            }
         }
 
         refreshVoiceView();
@@ -424,6 +426,25 @@ public class RoomListActivity extends DataBindBaseActivity<ActivityRoomListBindi
         refreshVoiceView();
         refreshHandUpView();
         updateMinRoomInfo();
+    }
+
+    @Override
+    public void onRoomError(int error) {
+        if (this.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED) == false) {
+            return;
+        }
+    }
+
+    private boolean isMine(Member member) {
+        return RoomManager.Instance(this).isMine(member);
+    }
+
+    private boolean isAnchor() {
+        return RoomManager.Instance(this).isAnchor();
+    }
+
+    private boolean isAnchor(Member member) {
+        return RoomManager.Instance(this).isAnchor(member);
     }
 
     private void updateMinRoomInfo() {

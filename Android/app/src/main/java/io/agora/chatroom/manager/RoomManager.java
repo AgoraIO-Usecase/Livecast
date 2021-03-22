@@ -37,6 +37,10 @@ import io.reactivex.functions.Consumer;
  */
 public final class RoomManager {
 
+    private static final int ERROR_REGISTER_ANCHOR_ACTION_STATUS = 100;
+    private static final int ERROR_REGISTER_MEMBER_ACTION_STATUS = ERROR_REGISTER_ANCHOR_ACTION_STATUS + 1;
+    private static final int ERROR_REGISTER_MEMBER_CHANGED = ERROR_REGISTER_MEMBER_ACTION_STATUS + 1;
+
     private final String TAG = RoomManager.class.getSimpleName();
 
     private static RoomManager instance;
@@ -512,6 +516,7 @@ public final class RoomManager {
 
         AVQuery<AVObject> query = AVQuery.getQuery(ActionService.OBJECT_KEY);
         query.whereEqualTo(ActionService.TAG_ROOMID, roomAVObject);
+        Log.i(AttributeManager.TAG, String.format("%s registerObserve roomId= %s", ActionService.OBJECT_KEY, room.getObjectId()));
         ActionService.Instance().registerObserve(query, new AttributeManager.AttributeListener<io.agora.chatroom.model.Action>() {
             @Override
             public void onCreated(io.agora.chatroom.model.Action item) {
@@ -549,6 +554,11 @@ public final class RoomManager {
             public void onDeleted(String objectId) {
 
             }
+
+            @Override
+            public void onSubscribeError() {
+                onRoomError(ERROR_REGISTER_ANCHOR_ACTION_STATUS);
+            }
         });
     }
 
@@ -565,6 +575,7 @@ public final class RoomManager {
 
         AVQuery<AVObject> query = AVQuery.getQuery(ActionService.OBJECT_KEY);
         query.whereEqualTo(ActionService.TAG_MEMBERID, memberAVObject);
+        Log.i(AttributeManager.TAG, String.format("%s registerObserve memberId= %s", ActionService.OBJECT_KEY, member.getObjectId()));
         ActionService.Instance().registerObserve(query, new AttributeManager.AttributeListener<io.agora.chatroom.model.Action>() {
             @Override
             public void onCreated(io.agora.chatroom.model.Action item) {
@@ -590,6 +601,11 @@ public final class RoomManager {
             public void onDeleted(String objectId) {
 
             }
+
+            @Override
+            public void onSubscribeError() {
+                onRoomError(ERROR_REGISTER_MEMBER_ACTION_STATUS);
+            }
         });
     }
 
@@ -607,6 +623,7 @@ public final class RoomManager {
 
         AVQuery<AVObject> query = AVQuery.getQuery(MemberService.OBJECT_KEY);
         query.whereEqualTo(MemberService.TAG_ROOMID, roomAVObject);
+        Log.i(AttributeManager.TAG, String.format("%s registerObserve roomId= %s", MemberService.OBJECT_KEY, room.getObjectId()));
         MemberService.Instance().registerObserve(query, new AttributeManager.AttributeListener<Member>() {
             @Override
             public void onCreated(Member member) {
@@ -667,8 +684,12 @@ public final class RoomManager {
                                     return;
                                 }
 
-                                Member old = membersMap.get(member.getObjectId());
-                                onMemberUpdated(old, member);
+                                if (membersMap.containsKey(member.getObjectId())) {
+                                    Member old = membersMap.get(member.getObjectId());
+                                    onMemberUpdated(old, member);
+                                } else {
+                                    onMemberJoin(member);
+                                }
                             }
                         });
             }
@@ -684,6 +705,11 @@ public final class RoomManager {
                 }
 
                 onMemberLeave(false, objectId);
+            }
+
+            @Override
+            public void onSubscribeError() {
+                onRoomError(ERROR_REGISTER_MEMBER_CHANGED);
             }
         });
     }
@@ -734,6 +760,13 @@ public final class RoomManager {
         }
     }
 
+    void onRoomError(int error) {
+        Log.d(TAG, "onRoomError() called with: error = [" + error + "]");
+        for (RoomDataCallback callback : callbacks) {
+            callback.onRoomError(error);
+        }
+    }
+
     public void onEnterMin() {
         Log.d(TAG, "onEnterMin() called");
         for (RoomDataCallback callback : callbacks) {
@@ -762,5 +795,7 @@ public final class RoomManager {
         void onMemberInviteRefuse(Member member);
 
         void onEnterMin();
+
+        void onRoomError(int error);
     }
 }
