@@ -1,4 +1,4 @@
-package io.agora.chatroom.service.model;
+package io.agora.chatroom.data;
 
 /**
  * 基础错误类

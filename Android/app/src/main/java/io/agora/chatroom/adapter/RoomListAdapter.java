@@ -14,9 +14,9 @@ import io.agora.chatroom.data.DataRepositroy;
 import io.agora.chatroom.databinding.ItemRoomsBinding;
 import io.agora.chatroom.model.Member;
 import io.agora.chatroom.model.Room;
-import io.agora.chatroom.service.model.BaseError;
-import io.agora.chatroom.service.model.DataMaybeObserver;
-import io.agora.chatroom.service.model.DataObserver;
+import io.agora.chatroom.data.BaseError;
+import io.agora.chatroom.data.DataMaybeObserver;
+import io.agora.chatroom.data.DataObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 

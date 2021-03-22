@@ -20,8 +20,8 @@ import io.agora.chatroom.databinding.DialogHandUpBinding;
 import io.agora.chatroom.manager.RoomManager;
 import io.agora.chatroom.model.Action;
 import io.agora.chatroom.model.Room;
-import io.agora.chatroom.service.model.BaseError;
-import io.agora.chatroom.service.model.DataCompletableObserver;
+import io.agora.chatroom.data.BaseError;
+import io.agora.chatroom.data.DataCompletableObserver;
 import io.agora.chatroom.util.ToastUtile;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 

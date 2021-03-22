@@ -4,7 +4,7 @@ import android.content.Context;
 
 import java.util.List;
 
-import io.agora.chatroom.data.remote.RemoteDataSource;
+import io.agora.chatroom.data.leancloud.RemoteDataSource;
 import io.agora.chatroom.model.Action;
 import io.agora.chatroom.model.Member;
 import io.agora.chatroom.model.Room;

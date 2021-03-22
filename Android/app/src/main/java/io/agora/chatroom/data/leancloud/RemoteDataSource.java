@@ -1,4 +1,4 @@
-package io.agora.chatroom.data.remote;
+package io.agora.chatroom.data.leancloud;
 
 import android.text.TextUtils;
 
@@ -22,7 +22,6 @@ import io.agora.chatroom.service.ActionService;
 import io.agora.chatroom.service.MemberService;
 import io.agora.chatroom.service.RoomService;
 import io.agora.chatroom.service.UserService;
-import io.agora.chatroom.service.model.AVObjectToObservable;
 import io.reactivex.Completable;
 import io.reactivex.CompletableSource;
 import io.reactivex.Maybe;

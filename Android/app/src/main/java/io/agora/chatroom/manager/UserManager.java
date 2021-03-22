@@ -14,8 +14,8 @@ import java.util.Random;
 
 import io.agora.chatroom.data.DataRepositroy;
 import io.agora.chatroom.model.User;
-import io.agora.chatroom.service.model.BaseError;
-import io.agora.chatroom.service.model.DataObserver;
+import io.agora.chatroom.data.BaseError;
+import io.agora.chatroom.data.DataObserver;
 
 public final class UserManager {
     private static final String TAG = UserManager.class.getSimpleName();

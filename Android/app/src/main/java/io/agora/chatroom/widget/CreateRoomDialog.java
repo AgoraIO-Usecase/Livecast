@@ -24,8 +24,8 @@ import io.agora.chatroom.databinding.DialogCreateRoomBinding;
 import io.agora.chatroom.manager.UserManager;
 import io.agora.chatroom.model.Room;
 import io.agora.chatroom.model.User;
-import io.agora.chatroom.service.model.BaseError;
-import io.agora.chatroom.service.model.DataObserver;
+import io.agora.chatroom.data.BaseError;
+import io.agora.chatroom.data.DataObserver;
 import io.agora.chatroom.util.ToastUtile;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
