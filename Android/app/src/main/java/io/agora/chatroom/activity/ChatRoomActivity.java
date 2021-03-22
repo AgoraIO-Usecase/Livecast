@@ -586,6 +586,10 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
             ToastUtile.toastShort(this, R.string.member_speaker_to_listener);
         }
 
+        if (oldMember.getIsMuted() == 0 && newMember.getIsMuted() == 1) {
+            ToastUtile.toastShort(this, R.string.member_muted);
+        }
+
         refreshVoiceView();
         refreshHandUpView();
     }

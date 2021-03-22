@@ -38,6 +38,7 @@
     <string name="error_owner_muted">You are banned by the host</string>
     <string name="room_closed">The room is closed</string>
     <string name="member_speaker_to_listener">You have been set up as an audience by the homeowner</string>
+    <string name="member_muted">You have been temporarily banned by the homeowner</string>
 
     <string name="user_info_name">Set nickname</string>
     <string name="user_info_about">关于</string>
