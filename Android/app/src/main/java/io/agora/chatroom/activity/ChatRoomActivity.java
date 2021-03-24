@@ -20,6 +20,10 @@ import io.agora.chatroom.adapter.ChatRoomListsnerAdapter;
 import io.agora.chatroom.adapter.ChatRoomSeatUserAdapter;
 import io.agora.chatroom.base.DataBindBaseActivity;
 import io.agora.chatroom.base.OnItemClickListener;
+import io.agora.chatroom.data.BaseError;
+import io.agora.chatroom.data.DataCompletableObserver;
+import io.agora.chatroom.data.DataMaybeObserver;
+import io.agora.chatroom.data.DataObserver;
 import io.agora.chatroom.data.DataRepositroy;
 import io.agora.chatroom.databinding.ActivityChatRoomBinding;
 import io.agora.chatroom.manager.RoomManager;
@@ -29,10 +33,6 @@ import io.agora.chatroom.model.Action;
 import io.agora.chatroom.model.Member;
 import io.agora.chatroom.model.Room;
 import io.agora.chatroom.model.User;
-import io.agora.chatroom.data.BaseError;
-import io.agora.chatroom.data.DataCompletableObserver;
-import io.agora.chatroom.data.DataMaybeObserver;
-import io.agora.chatroom.data.DataObserver;
 import io.agora.chatroom.util.ToastUtile;
 import io.agora.chatroom.widget.HandUpDialog;
 import io.agora.chatroom.widget.InviteMenuDialog;
@@ -62,13 +62,14 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
     private OnItemClickListener<Member> onitemSpeaker = new OnItemClickListener<Member>() {
         @Override
         public void onItemClick(@NonNull Member data, View view, int position, long id) {
-            if (!isAnchor()) {
-                return;
-            }
-
-
-            if (isMine(data)) {
-                return;
+            if (isAnchor()) {
+                if (isMine(data)) {
+                    return;
+                }
+            } else {
+                if (!isMine(data)) {
+                    return;
+                }
             }
 
             showUserMenuDialog(data);
@@ -593,9 +594,11 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
         }
 
         if (isMine(newMember)) {
-            if (oldMember.getIsSpeaker() == 0 && newMember.getIsSpeaker() == 1) {
-            } else if (oldMember.getIsSpeaker() == 1 && newMember.getIsSpeaker() == 0) {
-                ToastUtile.toastShort(this, R.string.member_speaker_to_listener);
+            if (RoomManager.isSelfSeatOff == false) {
+                if (oldMember.getIsSpeaker() == 0 && newMember.getIsSpeaker() == 1) {
+                } else if (oldMember.getIsSpeaker() == 1 && newMember.getIsSpeaker() == 0) {
+                    ToastUtile.toastShort(this, R.string.member_speaker_to_listener);
+                }
             }
 
             if (oldMember.getIsMuted() == 0 && newMember.getIsMuted() == 1) {

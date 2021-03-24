@@ -16,14 +16,15 @@ import com.bumptech.glide.Glide;
 
 import io.agora.chatroom.R;
 import io.agora.chatroom.base.DataBindBaseDialog;
-import io.agora.chatroom.data.DataRepositroy;
-import io.agora.chatroom.databinding.DialogUserSeatMenuBinding;
-import io.agora.chatroom.manager.RtcManager;
-import io.agora.chatroom.model.Member;
-import io.agora.chatroom.model.User;
 import io.agora.chatroom.data.BaseError;
 import io.agora.chatroom.data.DataCompletableObserver;
 import io.agora.chatroom.data.DataObserver;
+import io.agora.chatroom.data.DataRepositroy;
+import io.agora.chatroom.databinding.DialogUserSeatMenuBinding;
+import io.agora.chatroom.manager.RoomManager;
+import io.agora.chatroom.manager.RtcManager;
+import io.agora.chatroom.model.Member;
+import io.agora.chatroom.model.User;
 import io.agora.chatroom.util.ToastUtile;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
@@ -143,7 +144,7 @@ public class UserSeatMenuDialog extends DataBindBaseDialog<DialogUserSeatMenuBin
     }
 
     private void seatOff() {
-        DataRepositroy.Instance(requireContext())
+        RoomManager.Instance(requireContext())
                 .seatOff(mMember)
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(mLifecycleProvider.bindToLifecycle())
@@ -155,7 +156,6 @@ public class UserSeatMenuDialog extends DataBindBaseDialog<DialogUserSeatMenuBin
 
                     @Override
                     public void handleSuccess() {
-                        mMember.setIsSpeaker(0);
                         dismiss();
                     }
                 });

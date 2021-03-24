@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 import java.io.Serializable;
 
-public class Member implements Serializable {
+public class Member implements Serializable, Cloneable {
     private String objectId;
     private Room roomId;
     private Long streamId;
@@ -106,5 +106,16 @@ public class Member implements Serializable {
                 ", isMuted=" + isMuted +
                 ", isSelfMuted=" + isSelfMuted +
                 '}';
+    }
+
+    @NonNull
+    @Override
+    public Member clone() {
+        try {
+            return (Member) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return new Member();
     }
 }

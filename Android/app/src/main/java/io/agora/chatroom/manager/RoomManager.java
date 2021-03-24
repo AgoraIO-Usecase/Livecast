@@ -16,15 +16,15 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import cn.leancloud.AVObject;
 import cn.leancloud.AVQuery;
+import io.agora.chatroom.data.BaseError;
+import io.agora.chatroom.data.DataCompletableObserver;
+import io.agora.chatroom.data.DataMaybeObserver;
 import io.agora.chatroom.data.DataRepositroy;
 import io.agora.chatroom.model.Member;
 import io.agora.chatroom.model.Room;
 import io.agora.chatroom.service.ActionService;
 import io.agora.chatroom.service.MemberService;
 import io.agora.chatroom.service.RoomService;
-import io.agora.chatroom.data.BaseError;
-import io.agora.chatroom.data.DataCompletableObserver;
-import io.agora.chatroom.data.DataMaybeObserver;
 import io.agora.rtc.IRtcEngineEventHandler;
 import io.reactivex.Completable;
 import io.reactivex.Maybe;
@@ -230,6 +230,22 @@ public final class RoomManager {
                 });
     }
 
+    public volatile static boolean isSelfSeatOff = false;
+
+    public Completable seatOff(Member member) {
+        isSelfSeatOff = true;
+        return DataRepositroy.Instance(mContext)
+                .seatOff(mMember).doOnComplete(new Action() {
+                    @Override
+                    public void run() throws Exception {
+                        Member memberNew = member.clone();
+                        memberNew.setIsSpeaker(0);
+                        onMemberUpdated(member, memberNew);
+                        isSelfSeatOff = false;
+                    }
+                });
+    }
+
     public void addRoomDataCallback(@NonNull RoomDataCallback callback) {
         this.callbacks.add(callback);
     }
@@ -322,6 +338,7 @@ public final class RoomManager {
                 RtcManager.Instance(mContext).stopAudio();
             }
         }
+
         membersMap.put(newMember.getObjectId(), newMember);
         if (newMember.getStreamId() != null) {
             streamIdMap.put(newMember.getStreamId(), newMember);

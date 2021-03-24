@@ -1,9 +1,11 @@
 package io.agora.chatroom.model;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.List;
 
-public class Room implements Serializable {
+public class Room implements Serializable, Cloneable {
     private String objectId;
     private String channelName;
     private User anchorId;
@@ -73,5 +75,16 @@ public class Room implements Serializable {
                 ", channelName='" + channelName + '\'' +
                 ", anchorId=" + anchorId +
                 '}';
+    }
+
+    @NonNull
+    @Override
+    public Room clone() {
+        try {
+            return (Room) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return new Room();
     }
 }
