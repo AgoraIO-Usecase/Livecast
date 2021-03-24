@@ -97,6 +97,7 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
                     roomSpeakerToolbar = nil
                     roomManagerToolbar?.removeFromSuperview()
                     roomManagerToolbar = nil
+                    show(message: "你已被房主设置为听众", type: .error)
                 }
                 
                 roomListenerToolbar?.subcribeUIEvent()

@@ -100,6 +100,9 @@ class RoomSpeakerToolbar: UIView {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [unowned self] muted in
                 self.isMuted = muted
+                if (self.delegate.viewModel.member.isMuted) {
+                    self.delegate.show(message: "你已被房主禁麦", type: .error)
+                }
             })
             .disposed(by: disposeBag)
         
