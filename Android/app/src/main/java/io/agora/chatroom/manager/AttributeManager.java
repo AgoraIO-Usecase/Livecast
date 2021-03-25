@@ -1,5 +1,6 @@
 package io.agora.chatroom.manager;
 
+import android.os.Handler;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -36,6 +37,8 @@ public abstract class AttributeManager<T> {
         void onSubscribeError();
     }
 
+    private Handler mHandler = new Handler();
+
     public void registerObserve(AVQuery<AVObject> query, AttributeListener<T> callback) {
         Log.i(TAG, String.format("%s registerObserve", getObjectName()));
         final AVLiveQuery avLiveQuery = AVLiveQuery.initWithQuery(query);
@@ -62,6 +65,15 @@ public abstract class AttributeManager<T> {
                 callback.onDeleted(objectId);
             }
         });
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                Log.e(TAG, String.format("%s subscribe error: timeout", getObjectName()));
+                callback.onSubscribeError();
+            }
+        };
+        mHandler.postDelayed(runnable, 5000L);
         avLiveQuery.subscribeInBackground(new AVLiveQuerySubscribeCallback() {
             @Override
             public void done(AVException e) {
@@ -73,6 +85,7 @@ public abstract class AttributeManager<T> {
                     Log.i(TAG, String.format("%s subscribe success", getObjectName()));
                     AttributeManager.this.avLiveQuery = avLiveQuery;
                 }
+                mHandler.removeCallbacks(runnable);
             }
         });
     }
