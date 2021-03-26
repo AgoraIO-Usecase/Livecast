@@ -362,6 +362,7 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
     private void closeInviteDialog() {
         if (inviteDialog != null && inviteDialog.isShowing()) {
             inviteDialog.dismiss();
+            inviteDialog = null;
         }
     }
 
@@ -384,6 +385,10 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
     }
 
     private void onRTCRoomJoined() {
+        if (isAnchor()) {
+            RtcManager.Instance(this).startAudio();
+        }
+
         joinRoom();
     }
 

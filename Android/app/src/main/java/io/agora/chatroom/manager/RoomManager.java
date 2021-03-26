@@ -235,7 +235,7 @@ public final class RoomManager {
     public Completable seatOff(Member member) {
         isSelfSeatOff = true;
         return DataRepositroy.Instance(mContext)
-                .seatOff(mMember).doOnComplete(new Action() {
+                .seatOff(member).doOnComplete(new Action() {
                     @Override
                     public void run() throws Exception {
                         Member memberNew = member.clone();
@@ -339,6 +339,9 @@ public final class RoomManager {
             }
         }
 
+        if (isMine(newMember)) {
+            mMember = newMember;
+        }
         membersMap.put(newMember.getObjectId(), newMember);
         if (newMember.getStreamId() != null) {
             streamIdMap.put(newMember.getStreamId(), newMember);
