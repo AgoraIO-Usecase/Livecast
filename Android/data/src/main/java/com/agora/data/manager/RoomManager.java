@@ -35,9 +35,8 @@ public final class RoomManager implements IRoomProxy {
 
     private Logger.Builder mLogger = XLog.tag("RoomManager");
 
-    public static final int ERROR_REGISTER_ANCHOR_ACTION_STATUS = 100;
-    public static final int ERROR_REGISTER_MEMBER_ACTION_STATUS = ERROR_REGISTER_ANCHOR_ACTION_STATUS + 1;
-    public static final int ERROR_REGISTER_MEMBER_CHANGED = ERROR_REGISTER_MEMBER_ACTION_STATUS + 1;
+    public static final int ERROR_REGISTER_LEANCLOUD = 1000;
+    public static final int ERROR_REGISTER_LEANCLOUD_EXCEEDED_QUOTA = ERROR_REGISTER_LEANCLOUD + 1;
 
     private volatile static RoomManager instance;
 

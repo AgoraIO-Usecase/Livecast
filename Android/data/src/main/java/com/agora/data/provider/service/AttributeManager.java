@@ -17,6 +17,9 @@ import cn.leancloud.livequery.AVLiveQuerySubscribeCallback;
 
 public abstract class AttributeManager<T> {
 
+    public static final int ERROR_DEFAULT = 1000;
+    public static final int ERROR_EXCEEDED_QUOTA = ERROR_DEFAULT + 1;
+
     public static final String TAG = AttributeManager.class.getSimpleName();
 
     public static final String TAG_OBJECTID = "objectId";
@@ -35,7 +38,7 @@ public abstract class AttributeManager<T> {
 
         void onDeleted(String objectId);
 
-        void onSubscribeError();
+        void onSubscribeError(int error);
     }
 
     private Handler mHandler = new Handler(Looper.myLooper());
@@ -72,7 +75,7 @@ public abstract class AttributeManager<T> {
             @Override
             public void run() {
                 Log.e(TAG, String.format("%s subscribe error: timeout", getObjectName()));
-                callback.onSubscribeError();
+                callback.onSubscribeError(ERROR_DEFAULT);
             }
         };
         mHandler.postDelayed(runnable, 5000L);
@@ -82,6 +85,11 @@ public abstract class AttributeManager<T> {
                 if (null != e) {
                     Log.e(TAG, String.format("%s subscribe error: %s", getObjectName(), e.getMessage()));
                     avLiveQuery = null;
+                    if (e.getCode() == AVException.EXCEEDED_QUOTA) {
+                        callback.onSubscribeError(ERROR_EXCEEDED_QUOTA);
+                    } else {
+                        callback.onSubscribeError(ERROR_DEFAULT);
+                    }
                 } else {
                     Log.i(TAG, String.format("%s subscribe success", getObjectName()));
                 }

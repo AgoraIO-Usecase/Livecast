@@ -435,8 +435,12 @@ class MessageSource extends BaseMessageSource {
             }
 
             @Override
-            public void onSubscribeError() {
-                iRoomProxy.onRoomError(RoomManager.ERROR_REGISTER_ANCHOR_ACTION_STATUS);
+            public void onSubscribeError(int error) {
+                if (error == AttributeManager.ERROR_EXCEEDED_QUOTA) {
+                    iRoomProxy.onRoomError(RoomManager.ERROR_REGISTER_LEANCLOUD_EXCEEDED_QUOTA);
+                } else {
+                    iRoomProxy.onRoomError(RoomManager.ERROR_REGISTER_LEANCLOUD);
+                }
             }
         });
     }
@@ -485,8 +489,12 @@ class MessageSource extends BaseMessageSource {
             }
 
             @Override
-            public void onSubscribeError() {
-                iRoomProxy.onRoomError(RoomManager.ERROR_REGISTER_MEMBER_ACTION_STATUS);
+            public void onSubscribeError(int error) {
+                if (error == AttributeManager.ERROR_EXCEEDED_QUOTA) {
+                    iRoomProxy.onRoomError(RoomManager.ERROR_REGISTER_LEANCLOUD_EXCEEDED_QUOTA);
+                } else {
+                    iRoomProxy.onRoomError(RoomManager.ERROR_REGISTER_LEANCLOUD);
+                }
             }
         });
     }
@@ -576,8 +584,12 @@ class MessageSource extends BaseMessageSource {
             }
 
             @Override
-            public void onSubscribeError() {
-                iRoomProxy.onRoomError(RoomManager.ERROR_REGISTER_MEMBER_CHANGED);
+            public void onSubscribeError(int error) {
+                if (error == AttributeManager.ERROR_EXCEEDED_QUOTA) {
+                    iRoomProxy.onRoomError(RoomManager.ERROR_REGISTER_LEANCLOUD_EXCEEDED_QUOTA);
+                } else {
+                    iRoomProxy.onRoomError(RoomManager.ERROR_REGISTER_LEANCLOUD);
+                }
             }
         });
     }

@@ -82,11 +82,13 @@ public final class RtcManager {
     }
 
     public void setClientRole(int role) {
+        Log.d(TAG, "setClientRole() called with: role = [" + role + "]");
         if (mRtcEngine != null)
             mRtcEngine.setClientRole(role);
     }
 
     public void startAudio() {
+        Log.d(TAG, "startAudio() called");
         if (mRtcEngine == null) {
             return;
         }
@@ -96,6 +98,7 @@ public final class RtcManager {
     }
 
     public void stopAudio() {
+        Log.d(TAG, "stopAudio() called");
         if (mRtcEngine == null) {
             return;
         }
@@ -105,6 +108,7 @@ public final class RtcManager {
     }
 
     public void muteRemoteVideoStream(int uid, boolean muted) {
+        Log.d(TAG, "muteRemoteVideoStream() called with: uid = [" + uid + "], muted = [" + muted + "]");
         if (mRtcEngine == null) {
             return;
         }
@@ -113,6 +117,7 @@ public final class RtcManager {
     }
 
     public void muteLocalAudioStream(boolean muted) {
+        Log.d(TAG, "muteLocalAudioStream() called with: muted = [" + muted + "]");
         if (mRtcEngine == null) {
             return;
         }

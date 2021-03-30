@@ -19,8 +19,9 @@
     <string name="main_create_dialog_des">This application is a test product, please do not use it commercially. The longest single live broadcast is 10 minutes.</string>
     <string name="error_room_not_exsit">The room does not exist</string>
 
-    <string name="error_room1">Subscription room information is abnormal. Please join again</string>
-    <string name="error_room2">The room is abnormal, please join again</string>
+    <string name="error_room_default">房间异常，请重新加入</string>
+    <string name="error_room_registe_leancloud">LeanCloud订阅异常，请重新加入</string>
+    <string name="error_room_registe_leancloud_over">LeanCloud超过开发版应用的功能限制</string>
     <string name="room_name_speaker">Speaker</string>
     <string name="room_name_listener">Listeners</string>
     <string name="room_name_exit">Leave quietly</string>

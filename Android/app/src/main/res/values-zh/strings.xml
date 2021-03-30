@@ -19,8 +19,9 @@
     <string name="main_create_dialog_des">本应用为测试产品，请勿商用。单次直播最长10分钟。</string>
     <string name="error_room_not_exsit">房间不存在</string>
 
-    <string name="error_room1">订阅房间信息异常，请重新加入</string>
-    <string name="error_room2">房间异常，请重新加入</string>
+    <string name="error_room_default">房间异常，请重新加入</string>
+    <string name="error_room_registe_leancloud">LeanCloud订阅异常，请重新加入</string>
+    <string name="error_room_registe_leancloud_over">LeanCloud超过开发版应用的功能限制</string>
     <string name="room_name_speaker">演讲者</string>
     <string name="room_name_listener">听众</string>
     <string name="room_name_exit">悄悄离开</string>

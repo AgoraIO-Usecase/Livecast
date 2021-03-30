@@ -418,6 +418,13 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
         if (isOwner()) {
             mDataBinding.ivNews.setVisibility(View.VISIBLE);
             mDataBinding.ivExit.setVisibility(View.VISIBLE);
+
+            Member member = RoomManager.Instance(this).getMine();
+            if (member != null) {
+                if (member.getIsSpeaker() == 1) {
+                    RtcManager.Instance(this).startAudio();
+                }
+            }
         } else {
             mDataBinding.ivNews.setVisibility(View.GONE);
             mDataBinding.ivExit.setVisibility(View.INVISIBLE);
@@ -696,7 +703,13 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
 
     @Override
     public void onRoomError(int error) {
-        showErrorDialog(getString(R.string.error_room1));
+        if (error == RoomManager.ERROR_REGISTER_LEANCLOUD) {
+            showErrorDialog(getString(R.string.error_room_registe_leancloud));
+        } else if (error == RoomManager.ERROR_REGISTER_LEANCLOUD_EXCEEDED_QUOTA) {
+            showErrorDialog(getString(R.string.error_room_registe_leancloud_over));
+        } else {
+            showErrorDialog(getString(R.string.error_room_default));
+        }
     }
 
     private AlertDialog errorDialog = null;
