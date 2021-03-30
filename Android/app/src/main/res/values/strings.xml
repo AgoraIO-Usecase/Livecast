@@ -21,7 +21,7 @@
 
     <string name="error_room_default">房间异常，请重新加入</string>
     <string name="error_room_registe_leancloud">LeanCloud订阅异常，请重新加入</string>
-    <string name="error_room_registe_leancloud_over">LeanCloud超过开发版应用的功能限制</string>
+    <string name="error_room_registe_leancloud_over">LeanCloud今日已超过开发版应用的功能限制</string>
     <string name="room_name_speaker">Speaker</string>
     <string name="room_name_listener">Listeners</string>
     <string name="room_name_exit">Leave quietly</string>
