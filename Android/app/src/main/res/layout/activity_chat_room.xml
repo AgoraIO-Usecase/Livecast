@@ -145,7 +145,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/llExit"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <io.agora.chatroom.widget.CountImageView
+            <io.agora.interactivepodcast.widget.CountImageView
                 android:id="@+id/ivNews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -45,7 +45,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvName">
 
-            <io.agora.chatroom.widget.MenuTextView
+            <io.agora.interactivepodcast.widget.MenuTextView
                 android:id="@+id/tvMenuName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                 app:menu_value="name"
                 app:menu_value_color="@android:color/white" />
 
-            <io.agora.chatroom.widget.MenuTextView
+            <io.agora.interactivepodcast.widget.MenuTextView
                 android:id="@+id/tvMenuAbout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

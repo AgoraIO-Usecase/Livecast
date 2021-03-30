@@ -37,7 +37,7 @@
     <string name="invite_agree">对方接受了邀请</string>
     <string name="invite_refuse">%s拒绝了您的上台邀请</string>
     <string name="request_handup_success">您已举手，请等待房主回应</string>
-    <string name="error_owner_muted">您被房主禁言了</string>
+    <string name="handup_refuse">房主拒绝了您的举手申请</string>
     <string name="room_closed">房间已关闭</string>
     <string name="member_speaker_to_listener">你已被房主设置为听众</string>
     <string name="member_muted">你被房主临时禁言了</string>

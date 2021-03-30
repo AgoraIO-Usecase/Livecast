@@ -8,10 +8,10 @@
 前往 GitHub 下载或克隆 [InteractivePodcast](https://github.com/AgoraIO-Usecase/InteractivePodcast) 示例项目。
 
 #### 注册Agora
-前往 [Agora官网](https://console.agora.io/) 注册项目，生产appId，然后替换 **strings_config.xml** 中 **app_id**。
+前往 [Agora官网](https://console.agora.io/) 注册项目，生产appId，然后替换工程**data**中 **strings_config.xml** 中 **app_id**。
 
 #### 注册Leanclould
-前往 [Leancloud官网](https://www.leancloud.cn/) 注册项目，生产 appId、appKey、server_url，然后替换 **strings_config.xml** 中 **leancloud_app_id**、**leancloud_app_key**、**leancloud_server_url**。
+前往 [Leancloud官网](https://www.leancloud.cn/) 注册项目，生产 appId、appKey、server_url，然后替换工程**data**中  **strings_config.xml** 中 **leancloud_app_id**、**leancloud_app_key**、**leancloud_server_url**。
 
 #### 运行示例项目
 1. 开启 Android 设备的开发者选项，通过 USB 连接线将 Android 设备接入电脑。

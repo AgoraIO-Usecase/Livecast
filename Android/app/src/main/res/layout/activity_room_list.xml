@@ -86,7 +86,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <io.agora.chatroom.widget.RoomListMinMembersView
+            <io.agora.interactivepodcast.widget.RoomListMinMembersView
                 android:id="@+id/members"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -118,7 +118,7 @@
                 android:padding="2dp"
                 android:src="@mipmap/icon_exit" />
 
-            <io.agora.chatroom.widget.CountImageView
+            <io.agora.interactivepodcast.widget.CountImageView
                 android:id="@+id/ivNews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

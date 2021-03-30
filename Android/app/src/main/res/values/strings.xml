@@ -37,7 +37,7 @@
     <string name="invite_agree">The other party has accepted the invitation</string>
     <string name="invite_refuse">%s rejected your invitation to take the stage</string>
     <string name="request_handup_success">You have raised your hand, please wait for the host to respond</string>
-    <string name="error_owner_muted">You are banned by the host</string>
+    <string name="handup_refuse">The host has rejected your raise of hand application</string>
     <string name="room_closed">The room is closed</string>
     <string name="member_speaker_to_listener">You have been set up as an audience by the homeowner</string>
     <string name="member_muted">You have been temporarily banned by the homeowner</string>
