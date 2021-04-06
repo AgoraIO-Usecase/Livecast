@@ -703,13 +703,7 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
 
     @Override
     public void onRoomError(int error) {
-        if (error == RoomManager.ERROR_REGISTER_LEANCLOUD) {
-            showErrorDialog(getString(R.string.error_room_registe_leancloud));
-        } else if (error == RoomManager.ERROR_REGISTER_LEANCLOUD_EXCEEDED_QUOTA) {
-            showErrorDialog(getString(R.string.error_room_registe_leancloud_over));
-        } else {
-            showErrorDialog(getString(R.string.error_room_default));
-        }
+        showErrorDialog(getString(R.string.error_room_default, String.valueOf(error)));
     }
 
     private AlertDialog errorDialog = null;
