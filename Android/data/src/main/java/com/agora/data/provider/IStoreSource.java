@@ -17,7 +17,7 @@ public interface IStoreSource {
 
     Observable<User> update(@NonNull User user);
 
-    Observable<List<Room>> getRooms();
+    Maybe<List<Room>> getRooms();
 
     Observable<Room> getRoomCountInfo(@NonNull Room room);
 

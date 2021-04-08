@@ -10,9 +10,11 @@ import android.view.View;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 import com.agora.data.BaseError;
 import com.agora.data.DataRepositroy;
+import com.agora.data.manager.RoomManager;
 import com.agora.data.manager.UserManager;
 import com.agora.data.model.User;
 import com.agora.data.observer.DataObserver;
@@ -23,6 +25,7 @@ import io.agora.baselibrary.util.ToastUtile;
 import io.agora.interactivepodcast.R;
 import io.agora.interactivepodcast.databinding.ActivityUserInfoBinding;
 import io.agora.interactivepodcast.widget.MenuTextView;
+import io.agora.rtc.Constants;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
 /**
@@ -56,6 +59,7 @@ public class UserInfoActivity extends DataBindBaseActivity<ActivityUserInfoBindi
     protected void iniListener() {
         mDataBinding.tvMenuName.setOnClickListener(this);
         mDataBinding.tvMenuAbout.setOnClickListener(this);
+        mDataBinding.audienceLatencyLevel.setOnClickListener(this);
     }
 
     @Override
@@ -74,6 +78,13 @@ public class UserInfoActivity extends DataBindBaseActivity<ActivityUserInfoBindi
 
             setUserInfo(temp);
         });
+
+        int audienceLatencyLevel = PreferenceManager.getDefaultSharedPreferences(this).getInt(RoomManager.TAG_AUDIENCELATENCYLEVEL, Constants.AUDIENCE_LATENCY_LEVEL_ULTRA_LOW_LATENCY);
+        if (audienceLatencyLevel == Constants.AUDIENCE_LATENCY_LEVEL_ULTRA_LOW_LATENCY) {
+            mDataBinding.audienceLatencyLevel.setChecked(true);
+        } else {
+            mDataBinding.audienceLatencyLevel.setChecked(false);
+        }
     }
 
     private void setUserInfo(@NonNull User user) {
@@ -140,6 +151,12 @@ public class UserInfoActivity extends DataBindBaseActivity<ActivityUserInfoBindi
             showInputDialog((MenuTextView) v);
         } else if (id == R.id.tvMenuAbout) {
             gotoAboutMenu();
+        } else if (id == R.id.audienceLatencyLevel) {
+            boolean value = mDataBinding.audienceLatencyLevel.isChecked();
+            PreferenceManager.getDefaultSharedPreferences(this)
+                    .edit()
+                    .putInt(RoomManager.TAG_AUDIENCELATENCYLEVEL, value ? Constants.AUDIENCE_LATENCY_LEVEL_ULTRA_LOW_LATENCY : Constants.AUDIENCE_LATENCY_LEVEL_LOW_LATENCY)
+                    .apply();
         }
     }
 

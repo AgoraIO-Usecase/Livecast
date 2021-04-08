@@ -27,6 +27,17 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    flavorDimensions "test"
+    productFlavors {
+        leancloud {
+            buildConfigField "String", "DATA_PROVIDER", '"LeanCloud"'
+        }
+
+        firebase {
+            buildConfigField "String", "DATA_PROVIDER", '"FireBase"'
+        }
+    }
 }
 
 dependencies {
@@ -38,8 +49,12 @@ dependencies {
     api 'io.agora.rtc:full-sdk:3.3.0'
 
     //leancloud
-    implementation 'cn.leancloud:storage-android:7.2.2'
-    implementation 'cn.leancloud:realtime-android:7.2.2'
+    leancloudImplementation 'cn.leancloud:storage-android:7.2.2'
+    leancloudImplementation 'cn.leancloud:realtime-android:7.2.2'
+
+    //firebase
+    firebaseImplementation platform('com.google.firebase:firebase-bom:26.7.0')
+    firebaseImplementation 'com.google.firebase:firebase-firestore'
 
     api project(':baselibrary')
 }

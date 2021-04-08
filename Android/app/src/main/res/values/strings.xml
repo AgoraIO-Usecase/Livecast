@@ -1,49 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Interactive blog</string>
+    <string name="app_name">Livecast</string>
 
     <string name="error_permisstion">Need corresponding permissions, please open</string>
 
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="done">Complete</string>
+    <string name="done">Done</string>
     <string name="confirm">OK</string>
-    <string name="refuse">Refused</string>
+    <string name="refuse">Reject</string>
     <string name="agree">Accept</string>
 
-    <string name="list_empty_create">Please create a room</string>
+    <string name="list_empty_create">Create a room to start</string>
     <string name="main_title">Room list</string>
     <string name="main_create">Create a room</string>
     <string name="main_create2">Create</string>
     <string name="main_create_dialog_inpit_hint">Please enter the room name</string>
-    <string name="main_create_dialog_des">This application is a test product, please do not use it commercially. The longest single live broadcast is 10 minutes.</string>
+    <string name="main_create_dialog_des">The max duration per session is 10 minutes.</string>
     <string name="error_room_not_exsit">The room does not exist</string>
 
     <string name="error_room_default">房间异常(%s)</string>
     <string name="room_name_speaker">Speaker</string>
-    <string name="room_name_listener">Listeners</string>
+    <string name="room_name_listener">Audience</string>
     <string name="room_name_exit">Leave quietly</string>
     <string name="room_dialog_hand_up_title">Raise hands list</string>
     <string name="room_dialog_hand_up_agree">Agree</string>
-    <string name="room_dialog_hand_up_refuse">Refused</string>
-    <string name="room_dialog_seat_off">Step down</string>
-    <string name="room_dialog_open_audio">Open the microphone</string>
-    <string name="room_dialog_close_audio">Close the microphone</string>
-    <string name="room_dialog_close_title">Close the room</string>
-    <string name="room_dialog_close_message">All members will be removed from the room after closing the room</string>
-    <string name="room_dialog_invite">Invite to come on stage</string>
-    <string name="room_dialog_invited">%s invites you to the stage</string>
-    <string name="invite_agree">The other party has accepted the invitation</string>
-    <string name="invite_refuse">%s rejected your invitation to take the stage</string>
-    <string name="request_handup_success">You have raised your hand, please wait for the host to respond</string>
-    <string name="handup_refuse">The host has rejected your raise of hand application</string>
-    <string name="room_closed">The room is closed</string>
-    <string name="member_speaker_to_listener">You have been set up as an audience by the homeowner</string>
-    <string name="member_muted">You have been temporarily banned by the homeowner</string>
+    <string name="room_dialog_hand_up_refuse">Reject</string>
+    <string name="room_dialog_seat_off">Become audience</string>
+    <string name="room_dialog_open_audio">Turn on mic</string>
+    <string name="room_dialog_close_audio">Turn off mic</string>
+    <string name="room_dialog_close_title">Close room</string>
+    <string name="room_dialog_close_message">Ending the room will remove everyone and close the room</string>
+    <string name="room_dialog_invite">Invite to speak</string>
+    <string name="room_dialog_invited">%s invites you to speak</string>
+    <string name="invite_refuse">%s 拒绝了您的上台邀请</string>
+    <string name="invite_agree">%s 同意了您的上台邀请</string>
+    <string name="request_handup_success">You have raised hands to speak. Please wait.</string>
+    <string name="handup_refuse">Your request to speak has been rejected</string>
+    <string name="room_closed">Room closed</string>
+    <string name="member_speaker_to_listener">You\'ve been set as audience</string>
+    <string name="member_muted">You\'ve been muted.</string>
 
-    <string name="user_info_name">Set nickname</string>
-    <string name="user_info_about">关于</string>
-    <string name="about_title">关于</string>
+    <string name="user_info_name">Profile name</string>
+    <string name="user_info_about">About</string>
+    <string name="user_info_1">极速直播</string>
+    <string name="about_title">About</string>
     <string name="about_menu1">隐私条款</string>
     <string name="about_menu2">产品免责声明</string>
     <string name="about_menu3">注册声网账号</string>

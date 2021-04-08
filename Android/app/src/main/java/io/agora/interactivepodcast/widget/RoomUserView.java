@@ -14,12 +14,12 @@ import androidx.core.content.ContextCompat;
 import androidx.core.util.ObjectsCompat;
 import androidx.databinding.DataBindingUtil;
 
-import com.agora.data.model.Member;
-import com.agora.data.model.User;
 import com.bumptech.glide.Glide;
 
 import io.agora.interactivepodcast.R;
 import io.agora.interactivepodcast.databinding.LayoutRoomUserBinding;
+import com.agora.data.model.Member;
+import com.agora.data.model.User;
 
 /**
  * 房间用户信息view

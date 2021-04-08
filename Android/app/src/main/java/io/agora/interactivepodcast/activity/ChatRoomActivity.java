@@ -420,10 +420,14 @@ public class ChatRoomActivity extends DataBindBaseActivity<ActivityChatRoomBindi
             mDataBinding.ivExit.setVisibility(View.VISIBLE);
 
             Member member = RoomManager.Instance(this).getMine();
-            if (member != null) {
-                if (member.getIsSpeaker() == 1) {
-                    RtcManager.Instance(this).startAudio();
-                }
+            if (member == null) {
+                return;
+            }
+
+            if (member.getIsSpeaker() == 1) {
+                RoomManager.Instance(this).startLivePlay();
+            } else {
+                RoomManager.Instance(this).stopLivePlay();
             }
         } else {
             mDataBinding.ivNews.setVisibility(View.GONE);

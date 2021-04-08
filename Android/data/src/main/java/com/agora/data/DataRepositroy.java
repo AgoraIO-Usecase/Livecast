@@ -55,7 +55,7 @@ public class DataRepositroy implements IStoreSource, IMessageSource {
     }
 
     @Override
-    public Observable<List<Room>> getRooms() {
+    public Maybe<List<Room>> getRooms() {
         return mDataProvider.getStoreSource().getRooms();
     }
 

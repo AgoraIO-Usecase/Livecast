@@ -33,16 +33,17 @@
     <string name="room_dialog_close_message">关闭房间后所有房间成员将被移出房间</string>
     <string name="room_dialog_invite">邀请上台</string>
     <string name="room_dialog_invited">%s邀请您上台</string>
-    <string name="invite_agree">对方接受了邀请</string>
-    <string name="invite_refuse">%s拒绝了您的上台邀请</string>
+    <string name="invite_refuse">%s 拒绝了您的上台邀请</string>
+    <string name="invite_agree">%s 同意了您的上台邀请</string>
     <string name="request_handup_success">您已举手，请等待房主回应</string>
-    <string name="handup_refuse">房主拒绝了您的举手申请</string>
+    <string name="handup_refuse">你的上台申请被拒绝了</string>
     <string name="room_closed">房间已关闭</string>
     <string name="member_speaker_to_listener">你已被房主设置为听众</string>
     <string name="member_muted">你被房主临时禁言了</string>
 
     <string name="user_info_name">设置昵称</string>
     <string name="user_info_about">关于</string>
+    <string name="user_info_1">极速直播</string>
     <string name="about_title">关于</string>
     <string name="about_menu1">隐私条款</string>
     <string name="about_menu2">产品免责声明</string>
@@ -57,5 +58,4 @@
         \t\t\t\t本产品按“现状”提供，没有任何形式的明示担保，包括但不限于对适配性、特定目的的适用性和非侵权性的担保。无论是由于与本产品或本产品的试用或其他方式有关的任何合同、侵权或其他形式的行为，Agora均不对任何索赔、损害或其他责任负责。
         \n\n
         \t\t\t\t您可以自由选择是否试用本产品提供的服务，如果您下载、安装、试用本产品中所提供的服务，即表明您信任该产品所有人，Agora对任何原因在试用本产品中提供的服务时可能对您自身或他人造成的任何形式的损失和伤害不承担任何责任。</string>
-
 </resources>

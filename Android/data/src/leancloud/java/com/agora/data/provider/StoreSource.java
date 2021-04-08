@@ -87,13 +87,14 @@ class StoreSource implements IStoreSource {
     }
 
     @Override
-    public Observable<List<Room>> getRooms() {
+    public Maybe<List<Room>> getRooms() {
         AVQuery<AVObject> query = AVQuery.getQuery(RoomService.OBJECT_KEY);
         query.include(RoomService.ANCHOR_ID_KEY);
         query.limit(10);
         query.orderByDescending(RoomService.TAG_CREATEDAT);
         return query.findInBackground()
                 .subscribeOn(Schedulers.io())
+                .firstElement()
                 .concatMap(avObjects -> {
                     List<Room> rooms = new ArrayList<>();
                     for (AVObject object : avObjects) {
@@ -104,7 +105,7 @@ class StoreSource implements IStoreSource {
                         room.setAnchorId(user);
                         rooms.add(room);
                     }
-                    return Observable.just(rooms);
+                    return Maybe.just(rooms);
                 });
     }
 

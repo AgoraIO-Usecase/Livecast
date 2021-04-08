@@ -9,13 +9,13 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingUtil;
 
-import com.agora.data.model.Member;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 import io.agora.interactivepodcast.R;
 import io.agora.interactivepodcast.databinding.LayoutRoomListMemebrsBinding;
+import com.agora.data.model.Member;
 
 /**
  * 房间列表显示成员view

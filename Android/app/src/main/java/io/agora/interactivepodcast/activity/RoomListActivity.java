@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.ObjectsCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -20,7 +21,7 @@ import com.agora.data.model.Member;
 import com.agora.data.model.Room;
 import com.agora.data.model.User;
 import com.agora.data.observer.DataCompletableObserver;
-import com.agora.data.observer.DataObserver;
+import com.agora.data.observer.DataMaybeObserver;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -123,7 +124,7 @@ public class RoomListActivity extends DataBindBaseActivity<ActivityRoomListBindi
                 .getRooms()
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(mLifecycleProvider.bindToLifecycle())
-                .subscribe(new DataObserver<List<Room>>(this) {
+                .subscribe(new DataMaybeObserver<List<Room>>(this) {
                     @Override
                     public void handleError(@NonNull BaseError e) {
                         mDataBinding.swipeRefreshLayout.setRefreshing(false);
@@ -131,9 +132,14 @@ public class RoomListActivity extends DataBindBaseActivity<ActivityRoomListBindi
                     }
 
                     @Override
-                    public void handleSuccess(@NonNull List<Room> rooms) {
+                    public void handleSuccess(@Nullable List<Room> rooms) {
                         mDataBinding.swipeRefreshLayout.setRefreshing(false);
-                        mAdapter.setDatas(rooms);
+
+                        if (rooms == null) {
+                            mAdapter.clear();
+                        } else {
+                            mAdapter.setDatas(rooms);
+                        }
                         mDataBinding.tvEmpty.setVisibility(mAdapter.getItemCount() <= 0 ? View.VISIBLE : View.GONE);
                     }
                 });

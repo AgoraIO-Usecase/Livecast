@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.ObjectsCompat;
+import androidx.preference.PreferenceManager;
 
 import com.agora.data.BaseError;
 import com.agora.data.DataRepositroy;
@@ -22,7 +23,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import io.agora.rtc.Constants;
 import io.agora.rtc.IRtcEngineEventHandler;
+import io.agora.rtc.models.ClientRoleOptions;
 import io.reactivex.Completable;
 import io.reactivex.Maybe;
 import io.reactivex.Observable;
@@ -32,6 +35,8 @@ import io.reactivex.functions.Consumer;
  * 负责房间内数据的管理以及事件通知
  */
 public final class RoomManager implements IRoomProxy {
+
+    public static final String TAG_AUDIENCELATENCYLEVEL = "audienceLatencyLevel";
 
     private Logger.Builder mLogger = XLog.tag("RoomManager");
 
@@ -159,14 +164,14 @@ public final class RoomManager implements IRoomProxy {
                 .doOnNext(new Consumer<Member>() {
                     @Override
                     public void accept(Member member) throws Exception {
-                        mLogger.d("joinRoom() called member={}", member);
+                        mLogger.d("joinRoom() called member= [%s]", member);
                         mMine = member;
                     }
                 });
     }
 
     public void onJoinRoom(Room room, Member member) {
-        mLogger.d("onJoinRoom() called room={} member={}", room, member);
+        mLogger.d("onJoinRoom() called room= [%s] member= [%s]", room, member);
         this.mRoom = room;
         this.mMine = member;
         isLeaving = false;
@@ -178,8 +183,7 @@ public final class RoomManager implements IRoomProxy {
         mLogger.d("onJoinRoom() called");
         isLeaving = true;
 
-        RtcManager.Instance(mContext).stopAudio();
-
+        RoomManager.Instance(mContext).stopLivePlay();
         RtcManager.Instance(mContext).leaveChannel();
         DataRepositroy.Instance(mContext)
                 .leaveRoom(mRoom, mMine)
@@ -257,6 +261,20 @@ public final class RoomManager implements IRoomProxy {
         return mRoom;
     }
 
+    public void startLivePlay() {
+        RtcManager.Instance(mContext).startAudio();
+        RtcManager.Instance(mContext).setClientRole(IRtcEngineEventHandler.ClientRole.CLIENT_ROLE_BROADCASTER);
+    }
+
+    public void stopLivePlay() {
+        RtcManager.Instance(mContext).stopAudio();
+
+        int audienceLatencyLevel = PreferenceManager.getDefaultSharedPreferences(mContext).getInt(TAG_AUDIENCELATENCYLEVEL, Constants.AUDIENCE_LATENCY_LEVEL_ULTRA_LOW_LATENCY);
+        ClientRoleOptions mClientRoleOptions = new ClientRoleOptions();
+        mClientRoleOptions.audienceLatencyLevel = audienceLatencyLevel;
+        RtcManager.Instance(mContext).setClientRole(IRtcEngineEventHandler.ClientRole.CLIENT_ROLE_AUDIENCE, mClientRoleOptions);
+    }
+
     public Maybe<Member> getMember(String userId) {
         return DataRepositroy.Instance(mContext)
                 .getMember(mRoom.getObjectId(), userId)
@@ -275,7 +293,7 @@ public final class RoomManager implements IRoomProxy {
                 .doOnComplete(new io.reactivex.functions.Action() {
                     @Override
                     public void run() throws Exception {
-                        RtcManager.Instance(mContext).startAudio();
+                        startLivePlay();
                         onInviteAgree(member);
                     }
                 });
@@ -413,9 +431,9 @@ public final class RoomManager implements IRoomProxy {
 
         if (isMine(old)) {
             if (old.getIsSpeaker() == 1) {
-                RtcManager.Instance(mContext).startAudio();
+                startLivePlay();
             } else {
-                RtcManager.Instance(mContext).stopAudio();
+                stopLivePlay();
             }
         }
         mainThreadDispatch.onRoleChanged(isMine, old);
