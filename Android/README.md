@@ -13,11 +13,15 @@
 #### 注册Leanclould
 前往 [Leancloud官网](https://www.leancloud.cn/) 注册项目，生产 appId、appKey、server_url，然后替换工程**data**中  **strings_config.xml** 中 **leancloud_app_id**、**leancloud_app_key**、**leancloud_server_url**。
 
+#### 注册Firebase
+前往 [Firebase官网](https://firebase.google.com/) 注册项目，生产文件 **google-services.json**，然后放到app工程下面。
+
 #### 运行示例项目
 1. 开启 Android 设备的开发者选项，通过 USB 连接线将 Android 设备接入电脑。
 2. 在 Android Studio 中，点击 Sync Project with Gradle Files 按钮，同步项目。
-3. 点击 Run app 按钮。运行一段时间后，应用就安装到 Android 设备上了。
-4. 打开应用，即可使用。
+3. 在 Android Studio 左下角侧边栏中，点击 Build Variants 选择对应的平台。
+4. 点击 Run app 按钮。运行一段时间后，应用就安装到 Android 设备上了。
+5. 打开应用，即可使用。
 
 ![房间列表](./pic/1.png)
 ![房间](./pic/2.png)
