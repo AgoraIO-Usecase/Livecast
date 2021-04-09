@@ -49,7 +49,7 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
     private var actionDisposable: Disposable? = nil
     
     var viewModel: RoomViewModel = RoomViewModel()
-    
+
     private func renderToolbar() {
         switch viewModel.role {
         case .manager:
@@ -112,7 +112,7 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
             .subscribe(onNext: { [unowned self] _ in
                 Logger.log(message: "pushViewController \(self.navigationController != nil)", level: .info)
                 self.navigationController?.pushViewController(
-                    MeController.instance(with: self.viewModel.account),
+                    MeController.instance(),
                     animated: true
                 )
             })
@@ -245,6 +245,10 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
         subcribeRoomEvent()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
     static func instance(leaveAction: @escaping ((LeaveRoomAction, Room?) -> Void)) -> RoomController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "RoomController") as! RoomController
@@ -291,5 +295,11 @@ extension RoomController: ListAdapterDataSource {
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return nil
+    }
+}
+
+extension RoomController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        false
     }
 }

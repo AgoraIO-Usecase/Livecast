@@ -16,12 +16,19 @@ class Server: NSObject {
     
     var account: User? = nil
     var member: Member? = nil
+    var setting: LocalSetting = CoreData.getSetting() ?? LocalSetting()
     //var room: Room? = nil
     private var rtcServer: RtcServer = RtcServer()
     private var scheduler = SerialDispatchQueueScheduler(internalSerialQueueName: "rtc")
 }
 
 extension Server: Service {
+    func updateSetting() {
+        if (rtcServer.isJoinChannel) {
+            rtcServer.setClientRole(rtcServer.role!, setting.audienceLatency)
+        }
+    }
+    
     func getAccount() -> Observable<Result<User>> {
         if (account == nil) {
             let user = CoreData.getAccount()
@@ -103,7 +110,7 @@ extension Server: Service {
                         return result.onSuccess { Room.getRoom(by: room.id) }
                     }
                     .concatMap { result -> Observable<Result<Void>> in
-                        return result.onSuccess { self.rtcServer.joinChannel(member: member, channel: room.id) }
+                        return result.onSuccess { self.rtcServer.joinChannel(member: member, channel: room.id, setting: self.setting) }
                     }
                     .concatMap { result -> Observable<Result<Void>> in
                         member.room = room
@@ -178,7 +185,7 @@ extension Server: Service {
                             me.isSelfMuted = old.isSelfMuted
                             old.isMuted = me.isMuted
                             old.isSpeaker = me.isSpeaker
-                            self.rtcServer.setClientRole(me.isSpeaker ? .broadcaster : .audience)
+                            self.rtcServer.setClientRole(me.isSpeaker ? .broadcaster : .audience, self.setting.audienceLatency)
                             self.rtcServer.muteLocalMicrophone(mute: me.isMuted || me.isSelfMuted)
                         }
 //                        uids.forEach { speaker in

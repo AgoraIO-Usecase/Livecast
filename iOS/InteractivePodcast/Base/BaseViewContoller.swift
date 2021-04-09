@@ -37,6 +37,7 @@ class BaseViewContoller: UIViewController {
     let disposeBag = DisposeBag()
     private var dialogBackgroundMaskView: UIView?
     private var onDismiss: (() -> Void)? = nil
+    var enableSwipeGesture: Bool = true
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -45,6 +46,13 @@ class BaseViewContoller: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if (enableSwipeGesture) {
+            self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        }
     }
 
     private func _showMaskView(dialog: UIView, alpha: CGFloat = 0.3) {

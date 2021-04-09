@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4366A53589F3B05904DC0B4D /* Pods_InteractivePodcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929627DE4BB206EBE1025C0E /* Pods_InteractivePodcast.framework */; };
 		57048E8725F4ADA5007AF429 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57048E8625F4ADA5007AF429 /* Server.swift */; };
 		570BF25725EF3B9B00A9DEEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BF25625EF3B9B00A9DEEB /* AppDelegate.swift */; };
 		570BF25E25EF3B9B00A9DEEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BF25C25EF3B9B00A9DEEB /* Main.storyboard */; };
@@ -40,7 +39,6 @@
 		5716AE3B25F1FBD3008F8693 /* CreateRoomDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5716AE3A25F1FBD3008F8693 /* CreateRoomDialog.xib */; };
 		574419DF25FB669B0017AC19 /* HandsupListDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419DE25FB669B0017AC19 /* HandsupListDialog.swift */; };
 		574419E325FB99900017AC19 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419E225FB99900017AC19 /* RoundButton.swift */; };
-		574419E725FBBFB40017AC19 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419E625FBBFB40017AC19 /* Database.swift */; };
 		574419EA25FCC6E30017AC19 /* InviteSpeakerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419E925FCC6E30017AC19 /* InviteSpeakerDialog.swift */; };
 		574419EE25FCD2810017AC19 /* ManageSpeakerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419ED25FCD2810017AC19 /* ManageSpeakerDialog.swift */; };
 		574419F125FCF5040017AC19 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419F025FCF5040017AC19 /* Dialog.swift */; };
@@ -51,24 +49,94 @@
 		57441A1225FE57CE0017AC19 /* ListenerMiniToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57441A1125FE57CE0017AC19 /* ListenerMiniToolbar.swift */; };
 		574B444225FF5A0300CF17B4 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574B444125FF5A0300CF17B4 /* WaterfallLayout.swift */; };
 		574B445225FF7F6600CF17B4 /* RoundImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574B445125FF7F6600CF17B4 /* RoundImageButton.swift */; };
+		57737778261C1081008A3CAD /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571199F325FA09EB00B6AA95 /* IconButton.swift */; };
+		57737779261C1081008A3CAD /* ListenersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4C5D225F722CB004CC3FE /* ListenersController.swift */; };
+		5773777A261C1081008A3CAD /* BaseUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571199E225F9DEF800B6AA95 /* BaseUICollectionViewCell.swift */; };
+		5773777B261C1081008A3CAD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571199D125F9BE4500B6AA95 /* Colors.swift */; };
+		5773777C261C1081008A3CAD /* CreateRoomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716AE3725F1FBA8008F8693 /* CreateRoomDialog.swift */; };
+		5773777D261C1081008A3CAD /* ListenerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4C5E025F745CA004CC3FE /* ListenerView.swift */; };
+		5773777E261C1081008A3CAD /* RtcServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F5F4025F4B06200A12F7B /* RtcServer.swift */; };
+		5773777F261C1081008A3CAD /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574B444125FF5A0300CF17B4 /* WaterfallLayout.swift */; };
+		57737780261C1081008A3CAD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 577BA40A26021B020089177C /* Model.xcdatamodeld */; };
+		57737781261C1081008A3CAD /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4C5D725F739E5004CC3FE /* LabelCell.swift */; };
+		57737782261C1081008A3CAD /* RoundLableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571199F625FA16F600B6AA95 /* RoundLableView.swift */; };
+		57737783261C1081008A3CAD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE734525EFAE480091B57E /* Service.swift */; };
+		57737784261C1081008A3CAD /* InviteSpeakerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419E925FCC6E30017AC19 /* InviteSpeakerDialog.swift */; };
+		57737785261C1081008A3CAD /* HandsupListDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419DE25FB669B0017AC19 /* HandsupListDialog.swift */; };
+		57737787261C1081008A3CAD /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5712501A25F28FF200D128F1 /* NotificationView.swift */; };
+		57737788261C1081008A3CAD /* MeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5712502925F3B62000D128F1 /* MeController.swift */; };
+		57737789261C1081008A3CAD /* RoomManagerToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571199F025FA093800B6AA95 /* RoomManagerToolbar.swift */; };
+		5773778A261C1081008A3CAD /* RoomListenerToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571199FA25FA24CE00B6AA95 /* RoomListenerToolbar.swift */; };
+		5773778B261C1081008A3CAD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BF2A825EF91B700A9DEEB /* HomeViewModel.swift */; };
+		5773778C261C1081008A3CAD /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BF27D25EF3F6A00A9DEEB /* Logger.swift */; };
+		5773778D261C1081008A3CAD /* RoomSpeakerToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571199FD25FA26C000B6AA95 /* RoomSpeakerToolbar.swift */; };
+		5773778E261C1081008A3CAD /* MiniRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419F625FD22150017AC19 /* MiniRoomView.swift */; };
+		5773778F261C1081008A3CAD /* ListenerMiniToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57441A1125FE57CE0017AC19 /* ListenerMiniToolbar.swift */; };
+		57737790261C1081008A3CAD /* InvitedDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419F325FD058F0017AC19 /* InvitedDialog.swift */; };
+		57737791261C1081008A3CAD /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419F025FCF5040017AC19 /* Dialog.swift */; };
+		57737792261C1081008A3CAD /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419E225FB99900017AC19 /* RoundButton.swift */; };
+		57737793261C1081008A3CAD /* HomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716AE1A25F0B026008F8693 /* HomeCardView.swift */; };
+		57737794261C1081008A3CAD /* SpeakersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E2B05D25F77CA900719E54 /* SpeakersController.swift */; };
+		57737795261C1081008A3CAD /* ManageSpeakerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419ED25FCD2810017AC19 /* ManageSpeakerDialog.swift */; };
+		57737796261C1081008A3CAD /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5712502625F3AAE300D128F1 /* ProcessingView.swift */; };
+		57737797261C1081008A3CAD /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571199CB25F8F7FE00B6AA95 /* IconView.swift */; };
+		57737798261C1081008A3CAD /* ManagerMiniToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57441A0B25FE4CF10017AC19 /* ManagerMiniToolbar.swift */; };
+		57737799261C1081008A3CAD /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571199AC25F89DAB00B6AA95 /* SpeakerView.swift */; };
+		5773779A261C1081008A3CAD /* RoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5712502025F361D100D128F1 /* RoomController.swift */; };
+		5773779B261C1081008A3CAD /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57048E8625F4ADA5007AF429 /* Server.swift */; };
+		5773779C261C1081008A3CAD /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BF28525EF5C5100A9DEEB /* HomeController.swift */; };
+		5773779E261C1081008A3CAD /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BF2A425EF6FAC00A9DEEB /* Extension.swift */; };
+		5773779F261C1081008A3CAD /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571199CE25F9034C00B6AA95 /* RoundImageView.swift */; };
+		577377A0261C1081008A3CAD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BF27A25EF3F1C00A9DEEB /* Config.swift */; };
+		577377A1261C1081008A3CAD /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5712502C25F3C11A00D128F1 /* RoomViewModel.swift */; };
+		577377A2261C1081008A3CAD /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5712501D25F2939C00D128F1 /* Notification.swift */; };
+		577377A3261C1081008A3CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BF25625EF3B9B00A9DEEB /* AppDelegate.swift */; };
+		577377A4261C1081008A3CAD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F5F4325F4C75400A12F7B /* Model.swift */; };
+		577377A5261C1081008A3CAD /* BaseViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716AE3425F1E3CC008F8693 /* BaseViewContoller.swift */; };
+		577377A6261C1081008A3CAD /* SpeakerMiniToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57441A0E25FE56770017AC19 /* SpeakerMiniToolbar.swift */; };
+		577377A7261C1081008A3CAD /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4C5DA25F73BBD004CC3FE /* SectionController.swift */; };
+		577377A8261C1081008A3CAD /* RoundImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574B445125FF7F6600CF17B4 /* RoundImageButton.swift */; };
+		577377A9261C1081008A3CAD /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F5F4625F4CAD900A12F7B /* CoreData.swift */; };
+		577377AA261C1081008A3CAD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F5F5B25F4DA7000A12F7B /* Utils.swift */; };
+		577377AE261C1081008A3CAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BF26425EF3BA100A9DEEB /* LaunchScreen.storyboard */; };
+		577377AF261C1081008A3CAD /* CreateRoomDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5716AE3A25F1FBD3008F8693 /* CreateRoomDialog.xib */; };
+		577377B0261C1081008A3CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570BF26225EF3BA100A9DEEB /* Assets.xcassets */; };
+		577377B1261C1081008A3CAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BF25C25EF3B9B00A9DEEB /* Main.storyboard */; };
 		577BA40C26021B020089177C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 577BA40A26021B020089177C /* Model.xcdatamodeld */; };
 		578F5F4125F4B06200A12F7B /* RtcServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F5F4025F4B06200A12F7B /* RtcServer.swift */; };
 		578F5F4425F4C75400A12F7B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F5F4325F4C75400A12F7B /* Model.swift */; };
 		578F5F4725F4CAD900A12F7B /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F5F4625F4CAD900A12F7B /* CoreData.swift */; };
 		578F5F5C25F4DA7000A12F7B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F5F5B25F4DA7000A12F7B /* Utils.swift */; };
 		57CE734625EFAE480091B57E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE734525EFAE480091B57E /* Service.swift */; };
+		57D768A9261C356C0074BBD9 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D768A8261C356C0074BBD9 /* Firebase.swift */; };
+		57D768AD261C3B6B0074BBD9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D768AC261C3B6B0074BBD9 /* Database.swift */; };
+		57D768AE261C3B6B0074BBD9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D768AC261C3B6B0074BBD9 /* Database.swift */; };
+		57D76939261DB9490074BBD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57D76938261DB9490074BBD9 /* GoogleService-Info.plist */; };
+		57DBFE85261EEA83004235C0 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFE84261EEA83004235C0 /* AboutController.swift */; };
+		57DBFE86261EEA83004235C0 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFE84261EEA83004235C0 /* AboutController.swift */; };
+		57DBFE8A261F0117004235C0 /* DisclaimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFE89261F0117004235C0 /* DisclaimerController.swift */; };
+		57DBFE8B261F0117004235C0 /* DisclaimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFE89261F0117004235C0 /* DisclaimerController.swift */; };
+		57DBFE8F261F08C9004235C0 /* disclaimer in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFE8E261F08C9004235C0 /* disclaimer */; };
+		57DBFE90261F08C9004235C0 /* disclaimer in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFE8E261F08C9004235C0 /* disclaimer */; };
+		57DBFE96261F1DF3004235C0 /* ChangeNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFE95261F1DF3004235C0 /* ChangeNameController.swift */; };
+		57DBFE97261F1DF3004235C0 /* ChangeNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFE95261F1DF3004235C0 /* ChangeNameController.swift */; };
+		57DBFEA026201E6D004235C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 570BF26725EF3BA100A9DEEB /* Info.plist */; };
+		57DBFEA326201E6D004235C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 570BF26725EF3BA100A9DEEB /* Info.plist */; };
 		57E2B05E25F77CA900719E54 /* SpeakersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E2B05D25F77CA900719E54 /* SpeakersController.swift */; };
 		57F4C5D325F722CB004CC3FE /* ListenersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4C5D225F722CB004CC3FE /* ListenersController.swift */; };
 		57F4C5D825F739E5004CC3FE /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4C5D725F739E5004CC3FE /* LabelCell.swift */; };
 		57F4C5DB25F73BBD004CC3FE /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4C5DA25F73BBD004CC3FE /* SectionController.swift */; };
 		57F4C5E125F745CA004CC3FE /* ListenerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4C5E025F745CA004CC3FE /* ListenerView.swift */; };
 		57FA4E6725F3E745005E2087 /* LeanCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FA4E6625F3E745005E2087 /* LeanCloud.swift */; };
+		8665B6307A34EE9B906F5382 /* Pods_InteractivePodcast_Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EEAF9B85F66522FEC306129 /* Pods_InteractivePodcast_Firebase.framework */; };
+		D676EAAEF0A81D40933293FA /* Pods_InteractivePodcast_LeanCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82630EAD1BA89DA0D98B45BF /* Pods_InteractivePodcast_LeanCloud.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		087DDD0E2D42F9CF63D556F7 /* Pods-InteractivePodcast_LeanCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InteractivePodcast_LeanCloud.debug.xcconfig"; path = "Target Support Files/Pods-InteractivePodcast_LeanCloud/Pods-InteractivePodcast_LeanCloud.debug.xcconfig"; sourceTree = "<group>"; };
 		3292C7381E09CAE127599E2F /* Pods-InteractivePodcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InteractivePodcast.release.xcconfig"; path = "Target Support Files/Pods-InteractivePodcast/Pods-InteractivePodcast.release.xcconfig"; sourceTree = "<group>"; };
 		57048E8625F4ADA5007AF429 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
-		570BF25325EF3B9B00A9DEEB /* InteractivePodcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteractivePodcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		570BF25325EF3B9B00A9DEEB /* InteractivePodcast_LeanCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteractivePodcast_LeanCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		570BF25625EF3B9B00A9DEEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		570BF25D25EF3B9B00A9DEEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		570BF26225EF3BA100A9DEEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,7 +169,6 @@
 		5716AE3A25F1FBD3008F8693 /* CreateRoomDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateRoomDialog.xib; sourceTree = "<group>"; };
 		574419DE25FB669B0017AC19 /* HandsupListDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsupListDialog.swift; sourceTree = "<group>"; };
 		574419E225FB99900017AC19 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		574419E625FBBFB40017AC19 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		574419E925FCC6E30017AC19 /* InviteSpeakerDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteSpeakerDialog.swift; sourceTree = "<group>"; };
 		574419ED25FCD2810017AC19 /* ManageSpeakerDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSpeakerDialog.swift; sourceTree = "<group>"; };
 		574419F025FCF5040017AC19 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
@@ -112,12 +179,20 @@
 		57441A1125FE57CE0017AC19 /* ListenerMiniToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerMiniToolbar.swift; sourceTree = "<group>"; };
 		574B444125FF5A0300CF17B4 /* WaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
 		574B445125FF7F6600CF17B4 /* RoundImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageButton.swift; sourceTree = "<group>"; };
+		577377B6261C1081008A3CAD /* InteractivePodcast_Firebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteractivePodcast_Firebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		577BA40B26021B020089177C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		578F5F4025F4B06200A12F7B /* RtcServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RtcServer.swift; sourceTree = "<group>"; };
 		578F5F4325F4C75400A12F7B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		578F5F4625F4CAD900A12F7B /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		578F5F5B25F4DA7000A12F7B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		57CE734525EFAE480091B57E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		57D768A8261C356C0074BBD9 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		57D768AC261C3B6B0074BBD9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		57D76938261DB9490074BBD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "InteractivePodcast/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		57DBFE84261EEA83004235C0 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
+		57DBFE89261F0117004235C0 /* DisclaimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerController.swift; sourceTree = "<group>"; };
+		57DBFE8E261F08C9004235C0 /* disclaimer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = disclaimer; sourceTree = "<group>"; };
+		57DBFE95261F1DF3004235C0 /* ChangeNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameController.swift; sourceTree = "<group>"; };
 		57E2B05D25F77CA900719E54 /* SpeakersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersController.swift; sourceTree = "<group>"; };
 		57F4C5D225F722CB004CC3FE /* ListenersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenersController.swift; sourceTree = "<group>"; };
 		57F4C5D725F739E5004CC3FE /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
@@ -125,9 +200,13 @@
 		57F4C5E025F745CA004CC3FE /* ListenerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerView.swift; sourceTree = "<group>"; };
 		57FA4E6625F3E745005E2087 /* LeanCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanCloud.swift; sourceTree = "<group>"; };
 		6CF8E7D70AAACF816C60B951 /* Pods-InteractivePodcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InteractivePodcast.debug.xcconfig"; path = "Target Support Files/Pods-InteractivePodcast/Pods-InteractivePodcast.debug.xcconfig"; sourceTree = "<group>"; };
-		929627DE4BB206EBE1025C0E /* Pods_InteractivePodcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InteractivePodcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EEAF9B85F66522FEC306129 /* Pods_InteractivePodcast_Firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InteractivePodcast_Firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82630EAD1BA89DA0D98B45BF /* Pods_InteractivePodcast_LeanCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InteractivePodcast_LeanCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		997AFFF0EB64DEA47B345155 /* Pods-clubhouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clubhouse.debug.xcconfig"; path = "Target Support Files/Pods-clubhouse/Pods-clubhouse.debug.xcconfig"; sourceTree = "<group>"; };
+		9B4D59449203874279D4E88B /* Pods-InteractivePodcast_Firebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InteractivePodcast_Firebase.release.xcconfig"; path = "Target Support Files/Pods-InteractivePodcast_Firebase/Pods-InteractivePodcast_Firebase.release.xcconfig"; sourceTree = "<group>"; };
 		AB17B36C0D5CAA7B155DE2AF /* Pods-clubhouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clubhouse.release.xcconfig"; path = "Target Support Files/Pods-clubhouse/Pods-clubhouse.release.xcconfig"; sourceTree = "<group>"; };
+		D86F39F0A234BA477E8EAAEF /* Pods-InteractivePodcast_Firebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InteractivePodcast_Firebase.debug.xcconfig"; path = "Target Support Files/Pods-InteractivePodcast_Firebase/Pods-InteractivePodcast_Firebase.debug.xcconfig"; sourceTree = "<group>"; };
+		E968902271CC120A8B714A40 /* Pods-InteractivePodcast_LeanCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InteractivePodcast_LeanCloud.release.xcconfig"; path = "Target Support Files/Pods-InteractivePodcast_LeanCloud/Pods-InteractivePodcast_LeanCloud.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +214,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4366A53589F3B05904DC0B4D /* Pods_InteractivePodcast.framework in Frameworks */,
+				D676EAAEF0A81D40933293FA /* Pods_InteractivePodcast_LeanCloud.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		577377AB261C1081008A3CAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8665B6307A34EE9B906F5382 /* Pods_InteractivePodcast_Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +236,10 @@
 				AB17B36C0D5CAA7B155DE2AF /* Pods-clubhouse.release.xcconfig */,
 				6CF8E7D70AAACF816C60B951 /* Pods-InteractivePodcast.debug.xcconfig */,
 				3292C7381E09CAE127599E2F /* Pods-InteractivePodcast.release.xcconfig */,
+				D86F39F0A234BA477E8EAAEF /* Pods-InteractivePodcast_Firebase.debug.xcconfig */,
+				9B4D59449203874279D4E88B /* Pods-InteractivePodcast_Firebase.release.xcconfig */,
+				087DDD0E2D42F9CF63D556F7 /* Pods-InteractivePodcast_LeanCloud.debug.xcconfig */,
+				E968902271CC120A8B714A40 /* Pods-InteractivePodcast_LeanCloud.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -156,6 +247,7 @@
 		570BF24A25EF3B9B00A9DEEB = {
 			isa = PBXGroup;
 			children = (
+				57D76938261DB9490074BBD9 /* GoogleService-Info.plist */,
 				570BF25525EF3B9B00A9DEEB /* InteractivePodcast */,
 				570BF25425EF3B9B00A9DEEB /* Products */,
 				1DF3896E980E4FEBD6F0C50E /* Pods */,
@@ -166,7 +258,8 @@
 		570BF25425EF3B9B00A9DEEB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				570BF25325EF3B9B00A9DEEB /* InteractivePodcast.app */,
+				570BF25325EF3B9B00A9DEEB /* InteractivePodcast_LeanCloud.app */,
+				577377B6261C1081008A3CAD /* InteractivePodcast_Firebase.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,6 +284,7 @@
 		570BF27925EF3EFF00A9DEEB /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				57D768AC261C3B6B0074BBD9 /* Database.swift */,
 				570BF27A25EF3F1C00A9DEEB /* Config.swift */,
 				570BF27D25EF3F6A00A9DEEB /* Logger.swift */,
 				570BF2A425EF6FAC00A9DEEB /* Extension.swift */,
@@ -240,7 +334,11 @@
 		570BF28425EF5C1800A9DEEB /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				57DBFE8E261F08C9004235C0 /* disclaimer */,
 				5712502925F3B62000D128F1 /* MeController.swift */,
+				57DBFE84261EEA83004235C0 /* AboutController.swift */,
+				57DBFE89261F0117004235C0 /* DisclaimerController.swift */,
+				57DBFE95261F1DF3004235C0 /* ChangeNameController.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -271,7 +369,7 @@
 				57048E8625F4ADA5007AF429 /* Server.swift */,
 				578F5F4025F4B06200A12F7B /* RtcServer.swift */,
 				578F5F4625F4CAD900A12F7B /* CoreData.swift */,
-				574419E625FBBFB40017AC19 /* Database.swift */,
+				57D768A8261C356C0074BBD9 /* Firebase.swift */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -309,7 +407,8 @@
 		D062594AED268ED8E7F93C0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				929627DE4BB206EBE1025C0E /* Pods_InteractivePodcast.framework */,
+				7EEAF9B85F66522FEC306129 /* Pods_InteractivePodcast_Firebase.framework */,
+				82630EAD1BA89DA0D98B45BF /* Pods_InteractivePodcast_LeanCloud.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -317,9 +416,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		570BF25225EF3B9B00A9DEEB /* InteractivePodcast */ = {
+		570BF25225EF3B9B00A9DEEB /* InteractivePodcast_LeanCloud */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 570BF26A25EF3BA100A9DEEB /* Build configuration list for PBXNativeTarget "InteractivePodcast" */;
+			buildConfigurationList = 570BF26A25EF3BA100A9DEEB /* Build configuration list for PBXNativeTarget "InteractivePodcast_LeanCloud" */;
 			buildPhases = (
 				259F19FE3F41E86CE7008C82 /* [CP] Check Pods Manifest.lock */,
 				570BF24F25EF3B9B00A9DEEB /* Sources */,
@@ -331,9 +430,28 @@
 			);
 			dependencies = (
 			);
-			name = InteractivePodcast;
+			name = InteractivePodcast_LeanCloud;
 			productName = clubhouse;
-			productReference = 570BF25325EF3B9B00A9DEEB /* InteractivePodcast.app */;
+			productReference = 570BF25325EF3B9B00A9DEEB /* InteractivePodcast_LeanCloud.app */;
+			productType = "com.apple.product-type.application";
+		};
+		57737775261C1081008A3CAD /* InteractivePodcast_Firebase */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 577377B3261C1081008A3CAD /* Build configuration list for PBXNativeTarget "InteractivePodcast_Firebase" */;
+			buildPhases = (
+				57737776261C1081008A3CAD /* [CP] Check Pods Manifest.lock */,
+				57737777261C1081008A3CAD /* Sources */,
+				577377AB261C1081008A3CAD /* Frameworks */,
+				577377AD261C1081008A3CAD /* Resources */,
+				577377B2261C1081008A3CAD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InteractivePodcast_Firebase;
+			productName = clubhouse;
+			productReference = 577377B6261C1081008A3CAD /* InteractivePodcast_Firebase.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -363,7 +481,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				570BF25225EF3B9B00A9DEEB /* InteractivePodcast */,
+				570BF25225EF3B9B00A9DEEB /* InteractivePodcast_LeanCloud */,
+				57737775261C1081008A3CAD /* InteractivePodcast_Firebase */,
 			);
 		};
 /* End PBXProject section */
@@ -373,10 +492,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57DBFE8F261F08C9004235C0 /* disclaimer in Resources */,
 				570BF26625EF3BA100A9DEEB /* LaunchScreen.storyboard in Resources */,
+				57DBFEA026201E6D004235C0 /* Info.plist in Resources */,
 				5716AE3B25F1FBD3008F8693 /* CreateRoomDialog.xib in Resources */,
 				570BF26325EF3BA100A9DEEB /* Assets.xcassets in Resources */,
 				570BF25E25EF3B9B00A9DEEB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		577377AD261C1081008A3CAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				577377AE261C1081008A3CAD /* LaunchScreen.storyboard in Resources */,
+				577377AF261C1081008A3CAD /* CreateRoomDialog.xib in Resources */,
+				57D76939261DB9490074BBD9 /* GoogleService-Info.plist in Resources */,
+				577377B0261C1081008A3CAD /* Assets.xcassets in Resources */,
+				577377B1261C1081008A3CAD /* Main.storyboard in Resources */,
+				57DBFE90261F08C9004235C0 /* disclaimer in Resources */,
+				57DBFEA326201E6D004235C0 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +533,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-InteractivePodcast-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-InteractivePodcast_LeanCloud-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -411,15 +546,54 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-InteractivePodcast/Pods-InteractivePodcast-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-InteractivePodcast_LeanCloud/Pods-InteractivePodcast_LeanCloud-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-InteractivePodcast/Pods-InteractivePodcast-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-InteractivePodcast_LeanCloud/Pods-InteractivePodcast_LeanCloud-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InteractivePodcast/Pods-InteractivePodcast-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InteractivePodcast_LeanCloud/Pods-InteractivePodcast_LeanCloud-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57737776261C1081008A3CAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InteractivePodcast_Firebase-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		577377B2261C1081008A3CAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InteractivePodcast_Firebase/Pods-InteractivePodcast_Firebase-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InteractivePodcast_Firebase/Pods-InteractivePodcast_Firebase-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InteractivePodcast_Firebase/Pods-InteractivePodcast_Firebase-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -429,6 +603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57DBFE96261F1DF3004235C0 /* ChangeNameController.swift in Sources */,
 				571199F425FA09EB00B6AA95 /* IconButton.swift in Sources */,
 				57F4C5D325F722CB004CC3FE /* ListenersController.swift in Sources */,
 				571199E325F9DEF800B6AA95 /* BaseUICollectionViewCell.swift in Sources */,
@@ -443,7 +618,6 @@
 				57CE734625EFAE480091B57E /* Service.swift in Sources */,
 				574419EA25FCC6E30017AC19 /* InviteSpeakerDialog.swift in Sources */,
 				574419DF25FB669B0017AC19 /* HandsupListDialog.swift in Sources */,
-				574419E725FBBFB40017AC19 /* Database.swift in Sources */,
 				5712501B25F28FF300D128F1 /* NotificationView.swift in Sources */,
 				5712502A25F3B62000D128F1 /* MeController.swift in Sources */,
 				571199F125FA093800B6AA95 /* RoomManagerToolbar.swift in Sources */,
@@ -456,10 +630,12 @@
 				574419F425FD058F0017AC19 /* InvitedDialog.swift in Sources */,
 				574419F125FCF5040017AC19 /* Dialog.swift in Sources */,
 				574419E325FB99900017AC19 /* RoundButton.swift in Sources */,
+				57DBFE8A261F0117004235C0 /* DisclaimerController.swift in Sources */,
 				5716AE1B25F0B026008F8693 /* HomeCardView.swift in Sources */,
 				57E2B05E25F77CA900719E54 /* SpeakersController.swift in Sources */,
 				574419EE25FCD2810017AC19 /* ManageSpeakerDialog.swift in Sources */,
 				5712502725F3AAE300D128F1 /* ProcessingView.swift in Sources */,
+				57D768AD261C3B6B0074BBD9 /* Database.swift in Sources */,
 				571199CC25F8F7FE00B6AA95 /* IconView.swift in Sources */,
 				57441A0C25FE4CF10017AC19 /* ManagerMiniToolbar.swift in Sources */,
 				571199AD25F89DAB00B6AA95 /* SpeakerView.swift in Sources */,
@@ -480,6 +656,68 @@
 				574B445225FF7F6600CF17B4 /* RoundImageButton.swift in Sources */,
 				578F5F4725F4CAD900A12F7B /* CoreData.swift in Sources */,
 				578F5F5C25F4DA7000A12F7B /* Utils.swift in Sources */,
+				57DBFE85261EEA83004235C0 /* AboutController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57737777261C1081008A3CAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57DBFE97261F1DF3004235C0 /* ChangeNameController.swift in Sources */,
+				57737778261C1081008A3CAD /* IconButton.swift in Sources */,
+				57737779261C1081008A3CAD /* ListenersController.swift in Sources */,
+				5773777A261C1081008A3CAD /* BaseUICollectionViewCell.swift in Sources */,
+				5773777B261C1081008A3CAD /* Colors.swift in Sources */,
+				5773777C261C1081008A3CAD /* CreateRoomDialog.swift in Sources */,
+				5773777D261C1081008A3CAD /* ListenerView.swift in Sources */,
+				5773777E261C1081008A3CAD /* RtcServer.swift in Sources */,
+				5773777F261C1081008A3CAD /* WaterfallLayout.swift in Sources */,
+				57737780261C1081008A3CAD /* Model.xcdatamodeld in Sources */,
+				57737781261C1081008A3CAD /* LabelCell.swift in Sources */,
+				57737782261C1081008A3CAD /* RoundLableView.swift in Sources */,
+				57737783261C1081008A3CAD /* Service.swift in Sources */,
+				57737784261C1081008A3CAD /* InviteSpeakerDialog.swift in Sources */,
+				57737785261C1081008A3CAD /* HandsupListDialog.swift in Sources */,
+				57737787261C1081008A3CAD /* NotificationView.swift in Sources */,
+				57737788261C1081008A3CAD /* MeController.swift in Sources */,
+				57737789261C1081008A3CAD /* RoomManagerToolbar.swift in Sources */,
+				5773778A261C1081008A3CAD /* RoomListenerToolbar.swift in Sources */,
+				5773778B261C1081008A3CAD /* HomeViewModel.swift in Sources */,
+				5773778C261C1081008A3CAD /* Logger.swift in Sources */,
+				5773778D261C1081008A3CAD /* RoomSpeakerToolbar.swift in Sources */,
+				57D768A9261C356C0074BBD9 /* Firebase.swift in Sources */,
+				5773778E261C1081008A3CAD /* MiniRoomView.swift in Sources */,
+				5773778F261C1081008A3CAD /* ListenerMiniToolbar.swift in Sources */,
+				57737790261C1081008A3CAD /* InvitedDialog.swift in Sources */,
+				57737791261C1081008A3CAD /* Dialog.swift in Sources */,
+				57DBFE8B261F0117004235C0 /* DisclaimerController.swift in Sources */,
+				57737792261C1081008A3CAD /* RoundButton.swift in Sources */,
+				57737793261C1081008A3CAD /* HomeCardView.swift in Sources */,
+				57737794261C1081008A3CAD /* SpeakersController.swift in Sources */,
+				57737795261C1081008A3CAD /* ManageSpeakerDialog.swift in Sources */,
+				57737796261C1081008A3CAD /* ProcessingView.swift in Sources */,
+				57737797261C1081008A3CAD /* IconView.swift in Sources */,
+				57737798261C1081008A3CAD /* ManagerMiniToolbar.swift in Sources */,
+				57737799261C1081008A3CAD /* SpeakerView.swift in Sources */,
+				5773779A261C1081008A3CAD /* RoomController.swift in Sources */,
+				5773779B261C1081008A3CAD /* Server.swift in Sources */,
+				5773779C261C1081008A3CAD /* HomeController.swift in Sources */,
+				5773779E261C1081008A3CAD /* Extension.swift in Sources */,
+				5773779F261C1081008A3CAD /* RoundImageView.swift in Sources */,
+				577377A0261C1081008A3CAD /* Config.swift in Sources */,
+				577377A1261C1081008A3CAD /* RoomViewModel.swift in Sources */,
+				577377A2261C1081008A3CAD /* Notification.swift in Sources */,
+				577377A3261C1081008A3CAD /* AppDelegate.swift in Sources */,
+				577377A4261C1081008A3CAD /* Model.swift in Sources */,
+				577377A5261C1081008A3CAD /* BaseViewContoller.swift in Sources */,
+				577377A6261C1081008A3CAD /* SpeakerMiniToolbar.swift in Sources */,
+				577377A7261C1081008A3CAD /* SectionController.swift in Sources */,
+				577377A8261C1081008A3CAD /* RoundImageButton.swift in Sources */,
+				577377A9261C1081008A3CAD /* CoreData.swift in Sources */,
+				57D768AE261C3B6B0074BBD9 /* Database.swift in Sources */,
+				577377AA261C1081008A3CAD /* Utils.swift in Sources */,
+				57DBFE86261EEA83004235C0 /* AboutController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,19 +861,25 @@
 		};
 		570BF26B25EF3BA100A9DEEB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CF8E7D70AAACF816C60B951 /* Pods-InteractivePodcast.debug.xcconfig */;
+			baseConfigurationReference = 087DDD0E2D42F9CF63D556F7 /* Pods-InteractivePodcast_LeanCloud.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "LEANCLOUD=1";
 				INFOPLIST_FILE = InteractivePodcast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D LEANCLOUD";
 				PRODUCT_BUNDLE_IDENTIFIER = io.agora.InteractivePodcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -646,19 +890,83 @@
 		};
 		570BF26C25EF3BA100A9DEEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3292C7381E09CAE127599E2F /* Pods-InteractivePodcast.release.xcconfig */;
+			baseConfigurationReference = E968902271CC120A8B714A40 /* Pods-InteractivePodcast_LeanCloud.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "LEANCLOUD=1";
 				INFOPLIST_FILE = InteractivePodcast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D LEANCLOUD";
+				PRODUCT_BUNDLE_IDENTIFIER = io.agora.InteractivePodcast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		577377B4261C1081008A3CAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D86F39F0A234BA477E8EAAEF /* Pods-InteractivePodcast_Firebase.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "FIREBASE=1";
+				INFOPLIST_FILE = InteractivePodcast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D FIREBASE";
+				PRODUCT_BUNDLE_IDENTIFIER = io.agora.InteractivePodcast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		577377B5261C1081008A3CAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B4D59449203874279D4E88B /* Pods-InteractivePodcast_Firebase.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "FIREBASE=1";
+				INFOPLIST_FILE = InteractivePodcast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D FIREBASE";
 				PRODUCT_BUNDLE_IDENTIFIER = io.agora.InteractivePodcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -679,11 +987,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		570BF26A25EF3BA100A9DEEB /* Build configuration list for PBXNativeTarget "InteractivePodcast" */ = {
+		570BF26A25EF3BA100A9DEEB /* Build configuration list for PBXNativeTarget "InteractivePodcast_LeanCloud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				570BF26B25EF3BA100A9DEEB /* Debug */,
 				570BF26C25EF3BA100A9DEEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		577377B3261C1081008A3CAD /* Build configuration list for PBXNativeTarget "InteractivePodcast_Firebase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				577377B4261C1081008A3CAD /* Debug */,
+				577377B5261C1081008A3CAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

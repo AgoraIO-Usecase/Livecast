@@ -27,10 +27,14 @@ class SpeakerGroup: NSObject, ListDiffable {
     let list: Array<Member>
     
     init(list: Array<Member>) {
-        self.list = list
-        self.list.forEach { speaker in
-            Logger.log(message: "\(speaker.user.name) \(speaker.isMuted) \(speaker.isSelfMuted)", level: .info)
+        var managers = list.filter { member in
+            return member.isManager
         }
+        let others = list.filter { member in
+            return !member.isManager
+        }
+        managers.append(contentsOf: others)
+        self.list = managers
     }
     
     func diffIdentifier() -> NSObjectProtocol {

@@ -24,7 +24,7 @@ class HomeController: BaseViewContoller, DialogDelegate {
             
             listView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
             listView.collectionViewLayout = layout
-            listView.register(HomeCardView.self, forCellWithReuseIdentifier: "HomeCardView")
+            listView.register(HomeCardView.self, forCellWithReuseIdentifier: NSStringFromClass(HomeCardView.self))
             listView.dataSource = self
         }
     }
@@ -50,7 +50,7 @@ class HomeController: BaseViewContoller, DialogDelegate {
             }
             .subscribe(onNext: { [unowned self] _ in
                 self.navigationController?.pushViewController(
-                    MeController.instance(with: self.viewModel.account()!),
+                    MeController.instance(),
                     animated: true
                 )
             })
@@ -212,7 +212,7 @@ extension HomeController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let card: HomeCardView = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCardView", for: indexPath) as! HomeCardView
+        let card: HomeCardView = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(HomeCardView.self), for: indexPath) as! HomeCardView
         card.delegate = self
         card.room = viewModel.roomList[indexPath.item]
         return card

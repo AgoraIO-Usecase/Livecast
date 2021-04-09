@@ -33,7 +33,7 @@ struct Result<T> {
 class User {
     var id: String
     var name: String
-    let avatar: String?
+    var avatar: String?
     
     init(id: String, name: String, avatar: String?) {
         self.id = id
@@ -136,5 +136,13 @@ class Action {
         self.status = status
         self.member = member
         self.room = room
+    }
+}
+
+class LocalSetting {
+    var audienceLatency: Bool
+    
+    init(audienceLatency: Bool = false) {
+        self.audienceLatency = audienceLatency
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AgoraRtcKit
 
 struct BuildConfig {
     static let AppId = ""
@@ -14,4 +15,12 @@ struct BuildConfig {
     static let LeanCloudAppId = ""
     static let LeanCloudAppKey = ""
     static let LeanCloudServerUrl = ""
+    
+    static let PrivacyPolicy = "https://www.agora.io/cn/privacy-policy/"
+    static let SignupUrl = "https://sso.agora.io/cn/v3/signup"
+    static let PublishTime = "2021.XX.XX"
+    static let SdkVersion = AgoraRtcEngineKit.getSdkVersion()
+    static var AppVersion: String? {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
 }
