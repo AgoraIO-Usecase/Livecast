@@ -17,7 +17,7 @@ class ManageSpeakerDialog: Dialog {
             name.text = model.user.name
             avatar.image = UIImage(named: model.user.getLocalAvatar())
             if (model.isMuted) {
-                closeMicButton.setTitle(model.isMuted ? "打开麦克风" : "关闭麦克风", for: .normal)
+                closeMicButton.setTitle(model.isMuted ? "Turn on mic".localized : "Turn off mic".localized, for: .normal)
             }
         }
     }
@@ -38,7 +38,7 @@ class ManageSpeakerDialog: Dialog {
     var kickButton: UIButton = {
         let view = RoundButton()
         view.borderColor = "#AA4E5E76"
-        view.setTitle("下台", for: .normal)
+        view.setTitle("Become audience".localized, for: .normal)
         view.setTitleColor(UIColor(hex: Colors.White), for: .normal)
         view.backgroundColor = .clear
         view.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -48,7 +48,7 @@ class ManageSpeakerDialog: Dialog {
     var closeMicButton: UIButton = {
         let view = RoundButton()
         view.borderColor = "#AA4E5E76"
-        view.setTitle("关闭麦克风", for: .normal)
+        view.setTitle("Turn off mic".localized, for: .normal)
         view.setTitleColor(UIColor(hex: Colors.White), for: .normal)
         view.backgroundColor = .clear
         view.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -75,7 +75,7 @@ class ManageSpeakerDialog: Dialog {
             }
             .subscribe(onNext: { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)
@@ -96,7 +96,7 @@ class ManageSpeakerDialog: Dialog {
             }
             .subscribe(onNext: { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)

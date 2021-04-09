@@ -16,13 +16,34 @@ class Utils {
         case reachableViaWiFi
     }
     
-    static let names = [
-        "最长的电影",
-        "Good voice",
-        "Bad day",
-        "好故事不容错过",
-        "Greatest talk show"
+    static let namesData: [String: [String]] = [
+        "cn": [
+            "最长的电影",
+            "Good voice",
+            "Bad day",
+            "好故事不容错过",
+            "Greatest talk show"
+        ],
+        "default": [
+            "The longest movie",
+            "Good voice",
+            "Bad day",
+            "Good story not to be missed",
+            "Greatest talk show"
+        ]
     ]
+    
+    static func getCurrentLanguage() -> String {
+        let preferredLang = Bundle.main.preferredLocalizations.first! as NSString
+        switch String(describing: preferredLang) {
+        case "en-US", "en-CN":
+            return "en"
+        case "zh-Hans-US", "zh-Hans-CN", "zh-Hant-CN", "zh-TW", "zh-HK", "zh-Hans":
+            return "cn"
+        default:
+            return "en"
+        }
+    }
     
     static func randomAvatar() -> String {
         let value = Int.random(in: 1...14)
@@ -41,6 +62,8 @@ class Utils {
     }
     
     static func randomRoomName() -> String {
+        let language = getCurrentLanguage()
+        let names = namesData[language] ?? namesData["default"]!
         let index = Int(arc4random_uniform(UInt32(names.count)))
         return names[index]
     }

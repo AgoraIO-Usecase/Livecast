@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  InteractivePodcast
+
+  Created by XUCH on 2021/4/9.
+  
+*/
+
+"Enter a room name" = "请输入房间名";
+"unknown error" = "出错了";
+"Needs Network permission" = "请在设置中打开“互动播客”的网络权限";
+"Leave room" = "离开房间";
+"Room closed" = "房间已关闭";
+"Leaving the room ends the session and removes everyone" = "离开房间后，所有成员将被移除房间，房间将关闭";
+"declines your request" = "拒绝了您的上台邀请";
+"approves your request" = "同意了您的上台邀请";
+"Request received. Please wait ..." = "你已举手，请等待房主回应";
+"Close room" = "关闭房间";
+"Audience" = "听众";
+"Leave quietly" = "悄悄离开";
+"You've been muted" = "你已被房主禁麦";
+"You've been set as audience" = "你已被房主设置为听众";
+"Raised hands" = "举手列表";
+"Decline" = "拒绝";
+"Agree" = "同意";
+"Invite to speak" = "邀请上台";
+"Turn on mic" = "打开麦克风";
+"Turn off mic" = "关闭麦克风";
+"Become audience" = "下台";
+"invite you to speak" = "邀请你上台";
+"please input profile name" = "昵称不能为空";
+
+"Cancel" = "取消";
+"Ok" = "确定";
+"Invalid Argument" = "参数无效";
+"SDK Not Ready" = "SDK 初始化失败";
+"SDK Refused" = "调用被拒绝";
+"SDK Not Initialized" = "SDK 尚未初始化";
+"Unknown Error" = "未知错误";

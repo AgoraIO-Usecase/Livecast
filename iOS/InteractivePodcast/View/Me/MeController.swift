@@ -65,7 +65,7 @@ class MeController: BaseViewContoller {
             }
             .subscribe(onNext: { result in
                 if (!result.success) {
-                    self.show(message: result.message ?? "出错了", type: .error)
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
                 } else {
                     Server.shared().updateSetting()
                 }

@@ -35,7 +35,7 @@ class InviteSpeakerDialog: Dialog {
     var button: UIButton = {
         let view = RoundButton()
         view.borderColor = Colors.Yellow
-        view.setTitle("邀请上台", for: .normal)
+        view.setTitle("Invite to speak".localized, for: .normal)
         view.setTitleColor(UIColor(hex: Colors.Black), for: .normal)
         view.backgroundColor = UIColor(hex: Colors.Yellow)
         view.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -60,7 +60,7 @@ class InviteSpeakerDialog: Dialog {
             }
             .subscribe(onNext: { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)

@@ -208,26 +208,26 @@ extension RtcServer: ErrorDescription {
         case RtcServerError.join:
             switch code {
             case -2:
-                return "参数无效"
+                return "Invalid Argument".localized
             case -3:
-                return "SDK 初始化失败"
+                return "SDK Not Ready".localized
             case -5:
-                return "调用被拒绝"
+                return "SDK Refused".localized
             case -7:
-                return "SDK 尚未初始化"
+                return "SDK Not Initialized".localized
             default:
-                return "未知错误"
+                return "Unknown Error".localized
             }
         case RtcServerError.register:
-            return "未知错误"
+            return "Unknown Error".localized
         case RtcServerError.leave:
             switch code {
             case -2:
-                return "参数无效"
+                return "Invalid Argument".localized
             case -7:
-                return "SDK 尚未初始化"
+                return "SDK Not Initialized".localized
             default:
-                return "未知错误"
+                return "Unknown Error".localized
             }
         }
     }

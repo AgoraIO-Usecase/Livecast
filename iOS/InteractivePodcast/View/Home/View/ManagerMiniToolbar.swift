@@ -73,7 +73,7 @@ class ManagerMiniToolbar: UIStackView {
         exitView.rx.tap
             .throttle(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance)
             .concatMap { [unowned self] _ in
-                return self.delegate.showAlert(title: "离开房间", message: "离开房间后，所有成员将被移出房间\n房间将关闭")
+                return self.delegate.showAlert(title: "Leave room".localized, message: "Leaving the room ends the session and removes everyone".localized)
             }
             .filter { close in
                 return close
@@ -83,7 +83,7 @@ class ManagerMiniToolbar: UIStackView {
             }
             .filter { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
                 return result.success
             }
@@ -101,7 +101,7 @@ class ManagerMiniToolbar: UIStackView {
             }
             .subscribe(onNext: { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)
@@ -127,13 +127,13 @@ class ManagerMiniToolbar: UIStackView {
     
     func onReceivedAction(_ result: Result<Action>) {
         if (!result.success) {
-            Logger.log(message: result.message ?? "出错了！", level: .error)
+            Logger.log(message: result.message ?? "unknown error".localized, level: .error)
         } else {
             if let action = result.data {
                 switch action.action {
                 case .invite:
                     if (action.status == .refuse) {
-                        self.delegate.show(message: "\(action.member.user.name) 拒绝了你的上台邀请", type: .error)
+                        self.delegate.show(message: "\(action.member.user.name) \("declines your request".localized)", type: .error)
                     }
                 default:
                     Logger.log(message: "\(action.member.user.name)", level: .info)
@@ -143,25 +143,6 @@ class ManagerMiniToolbar: UIStackView {
     }
     
     func subcribeRoomEvent() {
-//        actionDisposable = self.delegate.viewModel.actionsSource()
-//            .observe(on: MainScheduler.instance)
-//            .subscribe(onNext: { [unowned self] result in
-//                if (!result.success) {
-//                    Logger.log(message: result.message ?? "出错了！", level: .error)
-//                } else {
-//                    if let action = result.data {
-//                        switch action.action {
-//                        case .invite:
-//                            if (action.status == .refuse) {
-//                                self.delegate.show(message: "\(action.member.user.name) 拒绝了你的上台邀请", type: .error)
-//                            }
-//                        default:
-//                            Logger.log(message: "\(action.member.user.name)", level: .info)
-//                        }
-//                    }
-//                }
-//            })
-        
         self.delegate.viewModel.onHandsupListChange
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [unowned self] list in

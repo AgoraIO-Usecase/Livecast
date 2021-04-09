@@ -29,7 +29,7 @@ class AboutController: BaseViewContoller {
         itemView0.addGestureRecognizer(tapItem0)
         tapItem0.rx.event
             .subscribe(onNext: { _ in
-                if let url = URL(string: "https://www.agora.io/cn/privacy-policy/") {
+                if let url = URL(string: BuildConfig.PrivacyPolicy) {
                     UIApplication.shared.open(url)
                 }
             })
@@ -47,7 +47,7 @@ class AboutController: BaseViewContoller {
         itemView2.addGestureRecognizer(tapItem2)
         tapItem2.rx.event
             .subscribe(onNext: { _ in
-                if let url = URL(string: "https://sso.agora.io/cn/v3/signup") {
+                if let url = URL(string: BuildConfig.SignupUrl) {
                     UIApplication.shared.open(url)
                 }
             })

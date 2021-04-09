@@ -201,10 +201,6 @@ extension Server: Service {
             }
     }
     
-//    func subscribeSpeakers(room: Room) -> Observable<Result<Array<User>>> {
-//        return Observable.just(Result(success: false, message: "error"))
-//    }
-    
     func inviteSpeaker(member: Member) -> Observable<Result<Void>> {
         if let user = self.member {
             if (rtcServer.isJoinChannel && user.isManager) {

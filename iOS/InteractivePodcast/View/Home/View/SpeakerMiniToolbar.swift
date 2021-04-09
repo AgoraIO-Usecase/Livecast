@@ -65,7 +65,7 @@ class SpeakerMiniToolbar: UIStackView {
             }
             .filter { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
                 return result.success
             }
@@ -86,7 +86,7 @@ class SpeakerMiniToolbar: UIStackView {
             }
             .subscribe(onNext: { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)

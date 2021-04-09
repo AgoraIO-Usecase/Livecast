@@ -163,7 +163,7 @@ class Database {
                     Logger.log(message: "liveQueryEvent \(className) event", level: .info)
                 } else {
                     Logger.log(message: "subscribe0 \(className) error: snapshot is nil", level: .error)
-                    observer.onNext(Result(success: false, message: "出错了"))
+                    observer.onNext(Result(success: false, message: "unknown error".localized))
                     observer.onCompleted()
                 }
             }

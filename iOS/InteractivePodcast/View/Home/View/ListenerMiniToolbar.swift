@@ -59,9 +59,9 @@ class ListenerMiniToolbar: UIStackView {
             }
             .subscribe(onNext: { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 } else {
-                    self.delegate.show(message: "你已举手，请等待房主回应", type: .info)
+                    self.delegate.show(message: "Request received. Please wait ...".localized, type: .info)
                 }
             })
             .disposed(by: disposeBag)
@@ -73,7 +73,7 @@ class ListenerMiniToolbar: UIStackView {
             }
             .filter { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
                 return result.success
             }
@@ -89,7 +89,7 @@ class ListenerMiniToolbar: UIStackView {
     
     func onReceivedAction(_ result: Result<Action>) {
         if (!result.success) {
-            Logger.log(message: result.message ?? "出错了！", level: .error)
+            Logger.log(message: result.message ?? "unknown error".localized, level: .error)
         } else {
             if let action = result.data {
                 switch action.action {
@@ -104,12 +104,5 @@ class ListenerMiniToolbar: UIStackView {
         }
     }
     
-    func subcribeRoomEvent() {
-//        self.delegate.viewModel.actionsSource()
-//            .observe(on: MainScheduler.instance)
-//            .subscribe(onNext: { [unowned self] result in
-//                
-//            })
-//            .disposed(by: disposeBag)
-    }
+    func subcribeRoomEvent() {}
 }

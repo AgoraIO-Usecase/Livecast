@@ -91,7 +91,7 @@ class HomeController: BaseViewContoller, DialogDelegate {
                     self.emptyView.isHidden = self.viewModel.roomList.count != 0
                     self.listView.reloadData()
                 } else {
-                    self.show(message: result.message ?? "出错了", type: .error)
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)
@@ -124,7 +124,7 @@ class HomeController: BaseViewContoller, DialogDelegate {
                 if (result.success) {
                     self.refreshControl.sendActions(for: .valueChanged)
                 } else {
-                    self.show(message: result.message ?? "出错了", type: .error)
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)
@@ -145,7 +145,7 @@ class HomeController: BaseViewContoller, DialogDelegate {
                         self.reloadButton.isHidden = true
                         self.initAppData()
                     } else {
-                        self.show(message: "请在设置中打开“互动播客”的网络权限", type: .error)
+                        self.show(message: "Needs Network permission".localized, type: .error)
                     }
                 })
                 .disposed(by: disposeBag)
@@ -191,12 +191,12 @@ class HomeController: BaseViewContoller, DialogDelegate {
         //self.refresh()
         switch action {
         case .closeRoom:
-            show(message: "房间已关闭", type: .error)
+            show(message: "Room closed".localized, type: .error)
             viewModel.showMiniRoom.accept(false)
             refresh()
         case .leave:
             if (room != nil) {
-                show(message: "房间已关闭", type: .error)
+                show(message: "Room closed".localized, type: .error)
                 refresh()
             }
             viewModel.showMiniRoom.accept(false)
@@ -258,7 +258,7 @@ extension HomeController: HomeCardDelegate {
                     //roomController.navigationController = self.navigationController
                     self.push(controller: roomController)
                 } else {
-                    self.show(message: result.message ?? "出错了", type: .error)
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             } onDisposed: {
                 self.show(processing: false)
@@ -283,7 +283,7 @@ extension HomeController: CreateRoomDelegate {
         if (name?.isEmpty == false) {
             return viewModel.createRoom(with: name!)
         } else {
-            return Observable.just(Result<Room>(success: false, message: "房间名称不能为空！"))
+            return Observable.just(Result<Room>(success: false, message: "Enter a room name".localized))
         }
     }
 }

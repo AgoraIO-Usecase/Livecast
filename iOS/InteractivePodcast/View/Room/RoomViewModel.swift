@@ -157,7 +157,7 @@ class RoomViewModel {
                         self.memberList.append(
                             contentsOf: [
                                 speakerGroup,
-                                "听众",
+                                "Audience".localized,
                                 listenerGroup
                             ]
                         )
@@ -165,9 +165,8 @@ class RoomViewModel {
                         self.roomManager = nil
                         self.memberList.append(
                             contentsOf: [
-                                "演讲者",
                                 SpeakerGroup(list: []),
-                                "听众",
+                                "Audience".localized,
                                 MemberGroup(list: [])
                             ]
                         )

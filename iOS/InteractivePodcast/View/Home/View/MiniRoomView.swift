@@ -124,7 +124,7 @@ class MiniRoomView: Dialog {
             .subscribe(onNext: { [unowned self] result in
                 let roomClosed = result.data
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 } else if (roomClosed == true) {
                     self.dismiss(controller: self.delegate)
                 } else {
@@ -203,6 +203,7 @@ class MiniRoomView: Dialog {
                     managerToolbar = nil
                     speakerMiniToolbar?.removeFromSuperview()
                     speakerMiniToolbar = nil
+                    show(message: "You've been set as audience".localized, type: .error)
                 }
                 
                 listenerMiniToolbar!.subcribeUIEvent()
@@ -272,7 +273,7 @@ class MiniRoomView: Dialog {
     
     func onChange(room: Room) -> Observable<Bool> {
         if (viewModel.isManager && viewModel.room.id != room.id) {
-            return showAlert(title: "离开房间", message: "离开房间后，所有成员将被移出房间\n房间将关闭")
+            return showAlert(title: "Leave room".localized, message: "Leaving the room ends the session and removes everyone".localized)
                 .filter { close in close }
         } else {
             return Observable.just(true)

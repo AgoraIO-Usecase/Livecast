@@ -91,12 +91,12 @@ class Database {
                         }
                     } catch {
                         Logger.log(message: "query0 \(className) error:\(error)", level: .error)
-                        single(.success(Result(success:false, message: "出错了")))
+                        single(.success(Result(success:false, message: "unknown error".localized)))
                     }
                 })
             } catch {
                 Logger.log(message: "query1 \(className) error:\(error)", level: .error)
-                single(.success(Result(success:false, message: "出错了")))
+                single(.success(Result(success:false, message: "unknown error".localized)))
             }
             return Disposables.create()
         }.asObservable()
@@ -151,7 +151,7 @@ class Database {
                 })
             } catch {
                 Logger.log(message: "delete \(className) error:\(error)", level: .error)
-                single(.success(Result(success:false, message: "出错了")))
+                single(.success(Result(success:false, message: "unknown error".localized)))
             }
             return Disposables.create()
         }.asObservable()
@@ -175,7 +175,7 @@ class Database {
                         let result = try onEvent(event)
                         observer.onNext(Result<T>(success: result != nil, data: result))
                     } catch {
-                        observer.onNext(Result<T>(success: false, message: "出错了"))
+                        observer.onNext(Result<T>(success: false, message: "unknown error".localized))
                     }
                     
                 })
@@ -194,7 +194,7 @@ class Database {
                 }
             } catch {
                 Logger.log(message: "subscribe0 \(className) error:\(error)", level: .error)
-                observer.onNext(Result(success: false, message: "出错了"))
+                observer.onNext(Result(success: false, message: "unknown error".localized))
                 observer.onCompleted()
             }
             return Disposables.create {

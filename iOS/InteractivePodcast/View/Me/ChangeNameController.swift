@@ -36,10 +36,10 @@ class ChangeNameController: BaseViewContoller {
                         self.show(processing: true)
                         return Server.shared().account!.update(name: name.trimmingCharacters(in: [" "]))
                     } else {
-                        return Observable.just(Result(success: false, message: "昵称不能为空！"))
+                        return Observable.just(Result(success: false, message: "please input profile name".localized))
                     }
                 }
-                return Observable.just(Result(success: false, message: "昵称不能为空！"))
+                return Observable.just(Result(success: false, message: "please input profile name".localized))
             }
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { result in
@@ -47,7 +47,7 @@ class ChangeNameController: BaseViewContoller {
                 if (result.success) {
                     self.navigationController?.popViewController(animated: true)
                 } else {
-                    self.show(message: result.message ?? "出错了", type: .error)
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)

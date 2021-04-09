@@ -36,7 +36,6 @@
 		5716AE1B25F0B026008F8693 /* HomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716AE1A25F0B026008F8693 /* HomeCardView.swift */; };
 		5716AE3525F1E3CC008F8693 /* BaseViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716AE3425F1E3CC008F8693 /* BaseViewContoller.swift */; };
 		5716AE3825F1FBA8008F8693 /* CreateRoomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716AE3725F1FBA8008F8693 /* CreateRoomDialog.swift */; };
-		5716AE3B25F1FBD3008F8693 /* CreateRoomDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5716AE3A25F1FBD3008F8693 /* CreateRoomDialog.xib */; };
 		574419DF25FB669B0017AC19 /* HandsupListDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419DE25FB669B0017AC19 /* HandsupListDialog.swift */; };
 		574419E325FB99900017AC19 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419E225FB99900017AC19 /* RoundButton.swift */; };
 		574419EA25FCC6E30017AC19 /* InviteSpeakerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574419E925FCC6E30017AC19 /* InviteSpeakerDialog.swift */; };
@@ -99,7 +98,6 @@
 		577377A9261C1081008A3CAD /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F5F4625F4CAD900A12F7B /* CoreData.swift */; };
 		577377AA261C1081008A3CAD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F5F5B25F4DA7000A12F7B /* Utils.swift */; };
 		577377AE261C1081008A3CAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BF26425EF3BA100A9DEEB /* LaunchScreen.storyboard */; };
-		577377AF261C1081008A3CAD /* CreateRoomDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5716AE3A25F1FBD3008F8693 /* CreateRoomDialog.xib */; };
 		577377B0261C1081008A3CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570BF26225EF3BA100A9DEEB /* Assets.xcassets */; };
 		577377B1261C1081008A3CAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BF25C25EF3B9B00A9DEEB /* Main.storyboard */; };
 		577BA40C26021B020089177C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 577BA40A26021B020089177C /* Model.xcdatamodeld */; };
@@ -116,12 +114,16 @@
 		57DBFE86261EEA83004235C0 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFE84261EEA83004235C0 /* AboutController.swift */; };
 		57DBFE8A261F0117004235C0 /* DisclaimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFE89261F0117004235C0 /* DisclaimerController.swift */; };
 		57DBFE8B261F0117004235C0 /* DisclaimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFE89261F0117004235C0 /* DisclaimerController.swift */; };
-		57DBFE8F261F08C9004235C0 /* disclaimer in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFE8E261F08C9004235C0 /* disclaimer */; };
-		57DBFE90261F08C9004235C0 /* disclaimer in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFE8E261F08C9004235C0 /* disclaimer */; };
 		57DBFE96261F1DF3004235C0 /* ChangeNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFE95261F1DF3004235C0 /* ChangeNameController.swift */; };
 		57DBFE97261F1DF3004235C0 /* ChangeNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFE95261F1DF3004235C0 /* ChangeNameController.swift */; };
-		57DBFEA026201E6D004235C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 570BF26725EF3BA100A9DEEB /* Info.plist */; };
-		57DBFEA326201E6D004235C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 570BF26725EF3BA100A9DEEB /* Info.plist */; };
+		57DBFEAF262021BC004235C0 /* CreateRoomDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFEB2262021BC004235C0 /* CreateRoomDialog.xib */; };
+		57DBFEB0262021BC004235C0 /* CreateRoomDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFEB2262021BC004235C0 /* CreateRoomDialog.xib */; };
+		57DBFF0326202695004235C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFF0126202695004235C0 /* Localizable.strings */; };
+		57DBFF0426202695004235C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFF0126202695004235C0 /* Localizable.strings */; };
+		57DBFF0E262027F5004235C0 /* disclaimer in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFF11262027F5004235C0 /* disclaimer */; };
+		57DBFF0F262027F5004235C0 /* disclaimer in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFF11262027F5004235C0 /* disclaimer */; };
+		57DBFF2326202A2A004235C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFF2626202A2A004235C0 /* InfoPlist.strings */; };
+		57DBFF2426202A2A004235C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57DBFF2626202A2A004235C0 /* InfoPlist.strings */; };
 		57E2B05E25F77CA900719E54 /* SpeakersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E2B05D25F77CA900719E54 /* SpeakersController.swift */; };
 		57F4C5D325F722CB004CC3FE /* ListenersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4C5D225F722CB004CC3FE /* ListenersController.swift */; };
 		57F4C5D825F739E5004CC3FE /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F4C5D725F739E5004CC3FE /* LabelCell.swift */; };
@@ -141,7 +143,6 @@
 		570BF25D25EF3B9B00A9DEEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		570BF26225EF3BA100A9DEEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		570BF26525EF3BA100A9DEEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		570BF26725EF3BA100A9DEEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		570BF27A25EF3F1C00A9DEEB /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = SOURCE_ROOT; };
 		570BF27D25EF3F6A00A9DEEB /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		570BF28525EF5C5100A9DEEB /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -166,7 +167,6 @@
 		5716AE1A25F0B026008F8693 /* HomeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardView.swift; sourceTree = "<group>"; };
 		5716AE3425F1E3CC008F8693 /* BaseViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewContoller.swift; sourceTree = "<group>"; };
 		5716AE3725F1FBA8008F8693 /* CreateRoomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomDialog.swift; sourceTree = "<group>"; };
-		5716AE3A25F1FBD3008F8693 /* CreateRoomDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateRoomDialog.xib; sourceTree = "<group>"; };
 		574419DE25FB669B0017AC19 /* HandsupListDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsupListDialog.swift; sourceTree = "<group>"; };
 		574419E225FB99900017AC19 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		574419E925FCC6E30017AC19 /* InviteSpeakerDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteSpeakerDialog.swift; sourceTree = "<group>"; };
@@ -191,8 +191,21 @@
 		57D76938261DB9490074BBD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "InteractivePodcast/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57DBFE84261EEA83004235C0 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		57DBFE89261F0117004235C0 /* DisclaimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerController.swift; sourceTree = "<group>"; };
-		57DBFE8E261F08C9004235C0 /* disclaimer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = disclaimer; sourceTree = "<group>"; };
 		57DBFE95261F1DF3004235C0 /* ChangeNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameController.swift; sourceTree = "<group>"; };
+		57DBFEAE26202160004235C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		57DBFEB1262021BC004235C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreateRoomDialog.xib; sourceTree = "<group>"; };
+		57DBFEB6262021C2004235C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CreateRoomDialog.strings; sourceTree = "<group>"; };
+		57DBFEE926202633004235C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57DBFF0226202695004235C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		57DBFF10262027F5004235C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text; name = Base; path = Base.lproj/disclaimer; sourceTree = "<group>"; };
+		57DBFF14262027FA004235C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/disclaimer; sourceTree = "<group>"; };
+		57DBFF172620296E004235C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CreateRoomDialog.strings"; sourceTree = "<group>"; };
+		57DBFF182620296E004235C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		57DBFF192620296E004235C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		57DBFF1A2620296E004235C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		57DBFF1B2620296E004235C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text; name = "zh-Hans"; path = "zh-Hans.lproj/disclaimer"; sourceTree = "<group>"; };
+		57DBFF2526202A2A004235C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		57DBFF2926202A2F004235C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		57E2B05D25F77CA900719E54 /* SpeakersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersController.swift; sourceTree = "<group>"; };
 		57F4C5D225F722CB004CC3FE /* ListenersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenersController.swift; sourceTree = "<group>"; };
 		57F4C5D725F739E5004CC3FE /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
@@ -267,6 +280,7 @@
 		570BF25525EF3B9B00A9DEEB /* InteractivePodcast */ = {
 			isa = PBXGroup;
 			children = (
+				57DBFF0126202695004235C0 /* Localizable.strings */,
 				5712502F25F3D79100D128F1 /* Server */,
 				5712501625F28E4000D128F1 /* Component */,
 				570BF28025EF59B500A9DEEB /* View */,
@@ -275,8 +289,9 @@
 				570BF25C25EF3B9B00A9DEEB /* Main.storyboard */,
 				570BF26225EF3BA100A9DEEB /* Assets.xcassets */,
 				570BF26425EF3BA100A9DEEB /* LaunchScreen.storyboard */,
-				570BF26725EF3BA100A9DEEB /* Info.plist */,
 				577BA40A26021B020089177C /* Model.xcdatamodeld */,
+				57DBFEE926202633004235C0 /* Info.plist */,
+				57DBFF2626202A2A004235C0 /* InfoPlist.strings */,
 			);
 			path = InteractivePodcast;
 			sourceTree = "<group>";
@@ -334,7 +349,7 @@
 		570BF28425EF5C1800A9DEEB /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				57DBFE8E261F08C9004235C0 /* disclaimer */,
+				57DBFF11262027F5004235C0 /* disclaimer */,
 				5712502925F3B62000D128F1 /* MeController.swift */,
 				57DBFE84261EEA83004235C0 /* AboutController.swift */,
 				57DBFE89261F0117004235C0 /* DisclaimerController.swift */,
@@ -379,7 +394,7 @@
 			children = (
 				5716AE1A25F0B026008F8693 /* HomeCardView.swift */,
 				5716AE3725F1FBA8008F8693 /* CreateRoomDialog.swift */,
-				5716AE3A25F1FBD3008F8693 /* CreateRoomDialog.xib */,
+				57DBFEB2262021BC004235C0 /* CreateRoomDialog.xib */,
 				574419F625FD22150017AC19 /* MiniRoomView.swift */,
 				57441A0B25FE4CF10017AC19 /* ManagerMiniToolbar.swift */,
 				57441A0E25FE56770017AC19 /* SpeakerMiniToolbar.swift */,
@@ -475,6 +490,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 570BF24A25EF3B9B00A9DEEB;
 			productRefGroup = 570BF25425EF3B9B00A9DEEB /* Products */;
@@ -492,10 +508,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57DBFE8F261F08C9004235C0 /* disclaimer in Resources */,
+				57DBFF0E262027F5004235C0 /* disclaimer in Resources */,
+				57DBFF2326202A2A004235C0 /* InfoPlist.strings in Resources */,
 				570BF26625EF3BA100A9DEEB /* LaunchScreen.storyboard in Resources */,
-				57DBFEA026201E6D004235C0 /* Info.plist in Resources */,
-				5716AE3B25F1FBD3008F8693 /* CreateRoomDialog.xib in Resources */,
+				57DBFEAF262021BC004235C0 /* CreateRoomDialog.xib in Resources */,
+				57DBFF0326202695004235C0 /* Localizable.strings in Resources */,
 				570BF26325EF3BA100A9DEEB /* Assets.xcassets in Resources */,
 				570BF25E25EF3B9B00A9DEEB /* Main.storyboard in Resources */,
 			);
@@ -506,12 +523,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				577377AE261C1081008A3CAD /* LaunchScreen.storyboard in Resources */,
-				577377AF261C1081008A3CAD /* CreateRoomDialog.xib in Resources */,
+				57DBFF2426202A2A004235C0 /* InfoPlist.strings in Resources */,
+				57DBFEB0262021BC004235C0 /* CreateRoomDialog.xib in Resources */,
 				57D76939261DB9490074BBD9 /* GoogleService-Info.plist in Resources */,
 				577377B0261C1081008A3CAD /* Assets.xcassets in Resources */,
+				57DBFF0426202695004235C0 /* Localizable.strings in Resources */,
 				577377B1261C1081008A3CAD /* Main.storyboard in Resources */,
-				57DBFE90261F08C9004235C0 /* disclaimer in Resources */,
-				57DBFEA326201E6D004235C0 /* Info.plist in Resources */,
+				57DBFF0F262027F5004235C0 /* disclaimer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,6 +746,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				570BF25D25EF3B9B00A9DEEB /* Base */,
+				57DBFEAE26202160004235C0 /* en */,
+				57DBFF182620296E004235C0 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -736,8 +756,47 @@
 			isa = PBXVariantGroup;
 			children = (
 				570BF26525EF3BA100A9DEEB /* Base */,
+				57DBFF192620296E004235C0 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		57DBFEB2262021BC004235C0 /* CreateRoomDialog.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57DBFEB1262021BC004235C0 /* Base */,
+				57DBFEB6262021C2004235C0 /* en */,
+				57DBFF172620296E004235C0 /* zh-Hans */,
+			);
+			name = CreateRoomDialog.xib;
+			sourceTree = "<group>";
+		};
+		57DBFF0126202695004235C0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57DBFF0226202695004235C0 /* Base */,
+				57DBFF1A2620296E004235C0 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		57DBFF11262027F5004235C0 /* disclaimer */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57DBFF10262027F5004235C0 /* Base */,
+				57DBFF14262027FA004235C0 /* en */,
+				57DBFF1B2620296E004235C0 /* zh-Hans */,
+			);
+			name = disclaimer;
+			sourceTree = "<group>";
+		};
+		57DBFF2626202A2A004235C0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57DBFF2526202A2A004235C0 /* en */,
+				57DBFF2926202A2F004235C0 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -747,6 +806,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -808,6 +868,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

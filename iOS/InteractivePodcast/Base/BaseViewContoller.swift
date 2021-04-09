@@ -295,11 +295,11 @@ class BaseViewContoller: UIViewController {
     func showAlert(title: String, message: String) -> Observable<Bool> {
         return Single.create { single in
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "取消", style: .cancel) { _ in
+            let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel) { _ in
                 single(.success(false))
             }
             alertController.addAction(cancel)
-            let ok = UIAlertAction(title: "确定", style: .default) { _ in
+            let ok = UIAlertAction(title: "Ok".localized, style: .default) { _ in
                 single(.success(true))
             }
             alertController.addAction(ok)
