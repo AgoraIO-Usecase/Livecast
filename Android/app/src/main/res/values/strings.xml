@@ -19,7 +19,7 @@
     <string name="main_create_dialog_des">The max duration per session is 10 minutes.</string>
     <string name="error_room_not_exsit">The room does not exist</string>
 
-    <string name="error_room_default">房间异常(%s)</string>
+    <string name="error_room_default">Room exception(%s)</string>
     <string name="room_name_speaker">Speaker</string>
     <string name="room_name_listener">Audience</string>
     <string name="room_name_exit">Leave quietly</string>
@@ -33,8 +33,8 @@
     <string name="room_dialog_close_message">Ending the room will remove everyone and close the room</string>
     <string name="room_dialog_invite">Invite to speak</string>
     <string name="room_dialog_invited">%s invites you to speak</string>
-    <string name="invite_refuse">%s 拒绝了您的上台邀请</string>
-    <string name="invite_agree">%s 同意了您的上台邀请</string>
+    <string name="invite_refuse">%s declines your request</string>
+    <string name="invite_agree">%s approves your request</string>
     <string name="request_handup_success">You have raised hands to speak. Please wait.</string>
     <string name="handup_refuse">Your request to speak has been rejected</string>
     <string name="room_closed">Room closed</string>
@@ -45,18 +45,18 @@
     <string name="user_info_about">About</string>
     <string name="user_info_1">极速直播</string>
     <string name="about_title">About</string>
-    <string name="about_menu1">隐私条款</string>
-    <string name="about_menu2">产品免责声明</string>
-    <string name="about_menu3">注册声网账号</string>
-    <string name="about_menu4">发版时间</string>
-    <string name="about_menu5">SDK版本</string>
-    <string name="about_menu6">Livecast版本</string>
+    <string name="about_menu1">Privacy policy</string>
+    <string name="about_menu2">"Product disclaimer "</string>
+    <string name="about_menu3">Sign up Agora.io</string>
+    <string name="about_menu4">Released on</string>
+    <string name="about_menu5">SDK version</string>
+    <string name="about_menu6">Livecast version</string>
 
-    <string name="about_product_title">产品免责声明</string>
-    <string name="about_product_text">\t\t\t\tAgora Livecast（“本产品”）是由Agora提供的一款产品，Agora享有本产品的著作权和所有权。特此免费授予获得本产品和相关文档文件（以下简称“软件”）副本的任何人无限制地试用软件的权利，包括但不限于试用，复制，修改，合并，发布，分发，但本产品不得用于任何商业用途，不得再许可和/或出售该软件的副本。
-        \n\n
-        \t\t\t\t本产品按“现状”提供，没有任何形式的明示担保，包括但不限于对适配性、特定目的的适用性和非侵权性的担保。无论是由于与本产品或本产品的试用或其他方式有关的任何合同、侵权或其他形式的行为，Agora均不对任何索赔、损害或其他责任负责。
-        \n\n
-        \t\t\t\t您可以自由选择是否试用本产品提供的服务，如果您下载、安装、试用本产品中所提供的服务，即表明您信任该产品所有人，Agora对任何原因在试用本产品中提供的服务时可能对您自身或他人造成的任何形式的损失和伤害不承担任何责任。</string>
+    <string name="about_product_title">Product disclaimer</string>
+    <string name="about_product_text">\t\t\t\tAgora Livecast ("this product") is a product provided by Agora . Agora enjoys the copyright and ownership of this product. It is hereby granted free of charge to anyone who obtains a copy of this product and related documentation (hereinafter referred to as "software") to try the software without limitation, including but not limited to trial, copy, modify, merge, publish, distribute, but this product shall not be used For any commercial use, you may not sublicense and / or sell copies of the software.
+    \n\n
+        \t\t\t\tThis product is provided "as is" without any express warranty, including but not limited to guarantees of suitability, suitability for specific purposes, and non-infringement. Whether it is due to any contract, infringement or other forms of conduct related to this product or the trial of this product or other methods, Agora will not be responsible for any claims, damages or other liabilities.
+    \n\n
+        \t\t\t\tYou are free to choose whether to try the services provided by this product. If you download, install, or try the services provided in this product, it means that you trust the owner of the product, and Agora shall not be responsible for any form of loss or injury caused by yourself or others when you try the services provided in this product for any reason.</string>
 
 </resources>
