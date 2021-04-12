@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  InteractivePodcast
+
+  Created by XC on 2021/4/9.
+  
+*/
+CFBundleDisplayName = "Livecast";
+NSMicrophoneUsageDescription = "Microphone permissions";

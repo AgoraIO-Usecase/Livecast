@@ -20,7 +20,7 @@ class HandsupListDialog: Dialog {
         view.font = UIFont.systemFont(ofSize: 18)
         view.textAlignment = .center
         view.textColor = UIColor(hex: Colors.White)
-        view.text = "举手列表"
+        view.text = "Raised hands".localized
         return view
     }()
     
@@ -148,7 +148,7 @@ class HandsupCellView: UITableViewCell {
     var rejectButton: UIButton = {
         let view = RoundButton()
         view.borderColor = "#AA4E5E76"
-        view.setTitle("拒绝", for: .normal)
+        view.setTitle("Decline".localized, for: .normal)
         view.setTitleColor(UIColor(hex: Colors.White), for: .normal)
         view.backgroundColor = .clear
         view.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -157,7 +157,7 @@ class HandsupCellView: UITableViewCell {
     
     var agreeButton: UIButton = {
         let view = RoundButton()
-        view.setTitle("同意", for: .normal)
+        view.setTitle("Agree".localized, for: .normal)
         view.setTitleColor(UIColor(hex: Colors.Black), for: .normal)
         view.backgroundColor = UIColor(hex: Colors.Yellow)
         view.titleLabel?.font = UIFont.systemFont(ofSize: 15)

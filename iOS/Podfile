@@ -1,16 +1,24 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '11.0'
 
-target 'InteractivePodcast' do
-  # Comment the next line if you don't want to use dynamic frameworks
+def commonPods
   use_frameworks!
-
-  # Pods for clubhouse
   pod 'AgoraAudio_iOS'
-  pod 'LeanCloud'
   pod 'RxSwift', '6.1.0'
   pod 'RxCocoa', '6.1.0'
   pod 'RxRelay', '6.1.0'
   pod 'IGListKit', '~> 4.0.0'
-  #pod 'WaterfallLayout', '~> 0.2'
+end
+
+target 'InteractivePodcast_LeanCloud' do
+  commonPods
+  use_frameworks!
+  pod 'LeanCloud'
+end
+
+target 'InteractivePodcast_Firebase' do
+  commonPods
+  use_frameworks!
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 end

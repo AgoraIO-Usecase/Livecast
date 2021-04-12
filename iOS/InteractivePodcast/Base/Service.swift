@@ -11,6 +11,8 @@ import RxSwift
 protocol Service {
     var account: User? { get set }
     var member: Member? { get set }
+    var setting: LocalSetting { get set }
+    func updateSetting()
     
     func getAccount() -> Observable<Result<User>>
     func getRooms() -> Observable<Result<Array<Room>>>

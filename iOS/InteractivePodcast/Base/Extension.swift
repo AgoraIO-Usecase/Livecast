@@ -7,6 +7,10 @@
 
 import UIKit
 
+extension String {
+    var localized: String { NSLocalizedString(self, comment: "") }
+}
+
 extension UIColor {
     convenience init(hex: String, alpha: CGFloat? = nil) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

@@ -26,7 +26,8 @@ class RtcServer: NSObject {
     var channel: String? = nil
     var members: [UInt] = []
     var speakers = [UInt: Bool]()
-    var role: AgoraClientRole = .audience
+    var role: AgoraClientRole? = nil
+    var audienceLatencyLevel: AgoraAudienceLatencyLevelType? = nil
     var muted: Bool = false
     
     var isJoinChannel: Bool {
@@ -39,34 +40,50 @@ class RtcServer: NSObject {
         super.init()
         let config = AgoraRtcEngineConfig()
         config.appId = BuildConfig.AppId
+        #if LEANCLOUD
+            config.areaCode = AgoraAreaCode.CN.rawValue
+        #endif
+        #if FIREBASE
+            config.areaCode = AgoraAreaCode.GLOB.rawValue
+        #endif
         rtcEngine = AgoraRtcEngineKit.sharedEngine(with: config, delegate: self)
-        rtcEngine?.setChannelProfile(.liveBroadcasting)
-        rtcEngine?.setAudioProfile(.musicHighQualityStereo, scenario: .chatRoomEntertainment)
-        rtcEngine?.enableAudioVolumeIndication(500, smooth: 3, report_vad: false)
+        if let engine = rtcEngine {
+            engine.setChannelProfile(.liveBroadcasting)
+            engine.setAudioProfile(.musicHighQualityStereo, scenario: .chatRoomEntertainment)
+            engine.enableAudioVolumeIndication(500, smooth: 3, report_vad: false)
+        }
     }
     
-    func setClientRole(_ role: AgoraClientRole) {
+    func setClientRole(_ role: AgoraClientRole, _ audienceLatencyLevel: Bool) {
         Logger.log(message: "rtc setClientRole \(role.rawValue)", level: .info)
-        if (self.role == role) {
+        let _audienceLatencyLevel: AgoraAudienceLatencyLevelType = audienceLatencyLevel ? .lowLatency : .ultraLowLatency
+        if (self.role == role && self.audienceLatencyLevel == _audienceLatencyLevel) {
             return
         }
         self.role = role
+        self.audienceLatencyLevel = _audienceLatencyLevel
         guard let rtc = self.rtcEngine else {
             return
         }
-        rtc.setClientRole(role)
+        let option = AgoraClientRoleOptions()
+        option.audienceLatencyLevel = _audienceLatencyLevel
+        Logger.log(message: "setClientRole audienceLatencyLevel: \(_audienceLatencyLevel.rawValue)", level: .info)
+        rtc.setClientRole(role, options: option)
     }
     
-    func joinChannel(member: Member, channel: String) -> Observable<Result<Void>> {
+    func joinChannel(member: Member, channel: String, setting: LocalSetting) -> Observable<Result<Void>> {
         guard let rtc = self.rtcEngine else {
             return Observable.just(Result(success: false, message: "rtcEngine is nil!"))
         }
+        self.role = nil
+        self.audienceLatencyLevel = nil
+        
         self.members.removeAll()
         self.isManager = member.isManager
         if (member.isSpeaker) {
-            setClientRole(.broadcaster)
+            setClientRole(.broadcaster, setting.audienceLatency)
         } else {
-            setClientRole(.audience)
+            setClientRole(.audience, setting.audienceLatency)
         }
         muteLocalMicrophone(mute: member.isSelfMuted)
         let code = rtc.joinChannel(byToken: BuildConfig.Token, channelId: channel, info: nil, uid: 0, options: AgoraRtcChannelMediaOptions())
@@ -191,26 +208,26 @@ extension RtcServer: ErrorDescription {
         case RtcServerError.join:
             switch code {
             case -2:
-                return "参数无效"
+                return "Invalid Argument".localized
             case -3:
-                return "SDK 初始化失败"
+                return "SDK Not Ready".localized
             case -5:
-                return "调用被拒绝"
+                return "SDK Refused".localized
             case -7:
-                return "SDK 尚未初始化"
+                return "SDK Not Initialized".localized
             default:
-                return "未知错误"
+                return "Unknown Error".localized
             }
         case RtcServerError.register:
-            return "未知错误"
+            return "Unknown Error".localized
         case RtcServerError.leave:
             switch code {
             case -2:
-                return "参数无效"
+                return "Invalid Argument".localized
             case -7:
-                return "SDK 尚未初始化"
+                return "SDK Not Initialized".localized
             default:
-                return "未知错误"
+                return "Unknown Error".localized
             }
         }
     }

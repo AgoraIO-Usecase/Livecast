@@ -13,7 +13,7 @@ class InvitedDialog: Dialog {
     weak var delegate: RoomDelegate!
     var action: Action! {
         didSet {
-            message.text = "\(self.delegate.viewModel.roomManager?.user.name ?? "") 邀请你上台"
+            message.text = "\(self.delegate.viewModel.roomManager?.user.name ?? "") \("invite you to speak".localized)"
         }
     }
     
@@ -28,7 +28,7 @@ class InvitedDialog: Dialog {
     var rejectButton: UIButton = {
         let view = RoundButton()
         view.borderColor = Colors.White
-        view.setTitle("拒绝", for: .normal)
+        view.setTitle("Decline".localized, for: .normal)
         view.setTitleColor(UIColor(hex: Colors.White), for: .normal)
         view.backgroundColor = .clear
         view.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -37,7 +37,7 @@ class InvitedDialog: Dialog {
     
     var agreeButton: UIButton = {
         let view = RoundButton()
-        view.setTitle("同意", for: .normal)
+        view.setTitle("Agree".localized, for: .normal)
         view.borderColor = Colors.Yellow
         view.setTitleColor(UIColor(hex: Colors.Black), for: .normal)
         view.backgroundColor = UIColor(hex: Colors.Yellow)
@@ -83,7 +83,7 @@ class InvitedDialog: Dialog {
             }
             .subscribe(onNext: { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error, duration: 1.5)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error, duration: 1.5)
                 }
             })
             .disposed(by: disposeBag)
@@ -100,7 +100,7 @@ class InvitedDialog: Dialog {
             }
             .subscribe(onNext: { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error, duration: 1.5)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error, duration: 1.5)
                 }
             })
             .disposed(by: disposeBag)

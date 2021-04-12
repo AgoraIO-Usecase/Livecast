@@ -16,7 +16,7 @@ class RoomSpeakerToolbar: UIView {
     var returnView: IconButton = {
        let view = IconButton()
         view.icon = "iconExit"
-        view.label = "悄悄离开"
+        view.label = "Leave quietly".localized
         return view
     }()
     
@@ -66,7 +66,7 @@ class RoomSpeakerToolbar: UIView {
             }
             .filter { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
                 return result.success
             }
@@ -89,7 +89,7 @@ class RoomSpeakerToolbar: UIView {
             }
             .subscribe(onNext: { [unowned self] result in
                 if (!result.success) {
-                    self.delegate.show(message: result.message ?? "出错了！", type: .error)
+                    self.delegate.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)
@@ -101,7 +101,7 @@ class RoomSpeakerToolbar: UIView {
             .subscribe(onNext: { [unowned self] muted in
                 self.isMuted = muted
                 if (self.delegate.viewModel.member.isMuted) {
-                    self.delegate.show(message: "你已被房主禁麦", type: .error)
+                    self.delegate.show(message: "You've been muted".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)

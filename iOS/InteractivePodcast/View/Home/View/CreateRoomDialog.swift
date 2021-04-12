@@ -63,7 +63,7 @@ class CreateRoomDialog: UIView {
             createButton.setTitle("", for: .disabled)
             
             inputRoomView.attributedPlaceholder = NSAttributedString(
-                string: "请输入房间名",
+                string: "Enter a room name".localized,
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
             )
             inputRoomView.superview!.rounded(color: "#373337", borderWidth: 1, radius: 5)

@@ -11,8 +11,15 @@
 #### 注册Agora
 前往 [Agora官网](https://console.agora.io/) 注册项目，生产appId，然后替换 **Config.swift** 中 **AppId**。
 
-#### 注册Leanclould
+#### Targets
+- InteractivePodcast_LeanCloud, 数据源基于 Leancloud, 实现参考 [LeanCloud.swift](./InteractivePodcast/Server/LeanCloud.swift)
+- InteractivePodcast_Firebase, 数据源基于 Firebase, 实现参考 [Firebase.swift](./InteractivePodcast/Server/Firebase.swift)
+
+##### 注册Leancloud
 前往 [Leancloud官网](https://www.leancloud.cn/) 注册项目，生产 appId、appKey、server_url，然后替换 **Config.swift** 中 **LeanCloudAppId**、**LeanCloudAppKey**、**LeanCloudServerUrl**。
+
+##### 注册Firebase
+前往 [Firebase官网](https://firebase.google.com/) 注册项目，生成文件 **GoogleService-Info.plist**，然后放到 InteractivePodcast 根目录下面。
 
 #### 运行示例项目
 1. 在iOS项目路径下，使用 "pod install" 命令去链接所有需要依赖的库。

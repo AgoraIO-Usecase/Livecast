@@ -1,0 +1,66 @@
+
+/* Class = "UILabel"; text = "Voice"; ObjectID = "0vx-sM-h1i"; */
+"0vx-sM-h1i.text" = "Voice";
+
+/* Class = "UILabel"; text = "SDK 版本"; ObjectID = "2VG-wK-I62"; */
+"2VG-wK-I62.text" = "SDK version";
+
+/* Class = "UILabel"; text = "注册声网帐号"; ObjectID = "3EI-bS-Qsf"; */
+"3EI-bS-Qsf.text" = "Sign up Agora.io";
+
+/* Class = "UILabel"; text = "隐私条例"; ObjectID = "3az-QY-H7g"; */
+"3az-QY-H7g.text" = "Privacy policy";
+
+/* Class = "UILabel"; text = "2021.XX.XX"; ObjectID = "8ow-NV-9Oc"; */
+"8ow-NV-9Oc.text" = "2021.XX.XX";
+
+/* Class = "UILabel"; text = "XXX"; ObjectID = "9Vo-F6-FaU"; */
+"9Vo-F6-FaU.text" = "XXX";
+
+/* Class = "UILabel"; text = "Livecast 版本"; ObjectID = "DSW-Gq-mNh"; */
+"DSW-Gq-mNh.text" = "Livecast version";
+
+/* Class = "UIButton"; normalTitle = "确定"; ObjectID = "FIq-T3-GPl"; */
+"FIq-T3-GPl.normalTitle" = "Save";
+
+/* Class = "UIButton"; normalTitle = "重新加载"; ObjectID = "RCB-eC-ukW"; */
+"RCB-eC-ukW.normalTitle" = "Reload";
+
+/* Class = "UILabel"; text = "关于"; ObjectID = "Thf-wc-qgx"; */
+"Thf-wc-qgx.text" = "About";
+
+/* Class = "UILabel"; text = "设置昵称"; ObjectID = "UjL-Dm-9NO"; */
+"UjL-Dm-9NO.text" = "Input name";
+
+/* Class = "UILabel"; text = "极速直播"; ObjectID = "Xi5-aV-AKX"; */
+"Xi5-aV-AKX.text" = "Interactive Live";
+
+/* Class = "UILabel"; text = "请创建一个房间"; ObjectID = "diO-Ht-LRb"; */
+"diO-Ht-LRb.text" = "Create a room to start";
+
+/* Class = "UILabel"; text = "产品免责声明"; ObjectID = "fzv-mK-Teh"; */
+"fzv-mK-Teh.text" = "Product disclaimer";
+
+/* Class = "UILabel"; text = "Voice"; ObjectID = "hEz-bX-bUR"; */
+"hEz-bX-bUR.text" = "Voice";
+
+/* Class = "UILabel"; text = "房间列表"; ObjectID = "of2-b3-vwN"; */
+"of2-b3-vwN.text" = "Room list";
+
+/* Class = "UILabel"; text = "关于"; ObjectID = "pUO-dY-X2W"; */
+"pUO-dY-X2W.text" = "About";
+
+/* Class = "UILabel"; text = "产品免责声明"; ObjectID = "ql6-zd-cE0"; */
+"ql6-zd-cE0.text" = "Product disclaimer";
+
+/* Class = "UILabel"; text = "发版时间"; ObjectID = "rS9-ph-349"; */
+"rS9-ph-349.text" = "Released on";
+
+/* Class = "UILabel"; text = "XXX"; ObjectID = "uCy-HT-RDi"; */
+"uCy-HT-RDi.text" = "XXX";
+
+/* Class = "UILabel"; text = "设置昵称"; ObjectID = "vbM-fK-3oQ"; */
+"vbM-fK-3oQ.text" = "Profile name";
+
+/* Class = "UILabel"; text = "Voice的聊天世界"; ObjectID = "woQ-J8-bHu"; */
+"woQ-J8-bHu.text" = "Voice chat";

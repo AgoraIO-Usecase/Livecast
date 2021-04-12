@@ -14,41 +14,73 @@ class MeController: BaseViewContoller {
     
     @IBOutlet weak var avatarView: UIImageView!
     @IBOutlet weak var nameView: UILabel!
-    @IBOutlet weak var inputNameView: UITextField!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nickNameView: UILabel!
+    @IBOutlet weak var backButton: UIView!
+    @IBOutlet weak var setNameView: UIView!
+    @IBOutlet weak var aboutView: UIView!
+    @IBOutlet weak var audienceLatencyLevelView: UISwitch!
     
-    private var account: User!
+    private var account: User = Server.shared().account!
+    private var setting: LocalSetting = Server.shared().setting
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nameView.text = account.name
+        nickNameView.text = account.name
         avatarView.image = UIImage(named: account.getLocalAvatar())
-        inputNameView.becomeFirstResponder()
+        audienceLatencyLevelView.setOn(setting.audienceLatency, animated: false)
         
-        backButton.rx.tap
-            .flatMap { _ -> Observable<Result<Void>> in
-                if let name = self.inputNameView.text {
-                    if (!name.isEmpty) {
-                        return self.account.update(name: name.trimmingCharacters(in: [" "]))
-                    }
-                }
-                return Observable.just(Result(success: true))
-            }
-            .observe(on: MainScheduler.instance)
+        let tapBack = UITapGestureRecognizer()
+        backButton.addGestureRecognizer(tapBack)
+        tapBack.rx.event
             .subscribe(onNext: { _ in
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
+        
+        let tapSetName = UITapGestureRecognizer()
+        setNameView.addGestureRecognizer(tapSetName)
+        tapSetName.rx.event
+            .subscribe(onNext: { _ in
+                self.navigationController?.pushViewController(ChangeNameController.instance(), animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        let tapAbout = UITapGestureRecognizer()
+        aboutView.addGestureRecognizer(tapAbout)
+        tapAbout.rx.event
+            .subscribe(onNext: { _ in
+                self.navigationController?.pushViewController(AboutController.instance(), animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        audienceLatencyLevelView.rx.isOn
+            .asObservable()
+            .filter { isOn -> Bool in
+                return isOn != self.setting.audienceLatency
+            }
+            .flatMap { isOn -> Observable<Result<LocalSetting>> in
+                self.setting.audienceLatency = isOn
+                return CoreData.saveSetting(setting: self.setting)
+            }
+            .subscribe(onNext: { result in
+                if (!result.success) {
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
+                } else {
+                    Server.shared().updateSetting()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        inputNameView.endEditing(true)
+    override func viewDidAppear(_ animated: Bool) {
+        nameView.text = account.name
+        nickNameView.text = account.name
     }
     
-    static func instance(with account: User) -> MeController {
+    static func instance() -> MeController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "MeController") as! MeController
-        controller.account = account
         return controller
     }
 }

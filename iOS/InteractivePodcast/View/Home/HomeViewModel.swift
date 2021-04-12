@@ -50,13 +50,13 @@ class HomeViewModel {
             }.subscribe(on: scheduler)
     }
     
-    func _dataSource() -> Observable<Result<Array<Room>>> {
-        return Observable.just(Result(success: true, data: [
-            Room(id: "u01", channelName: "Post vday 互相表白大会", anchor: account()!),
-            Room(id: "u02", channelName: "Inez Garcia", anchor: account()!),
-            Room(id: "u03", channelName: "Top 3 Greatet Rappers of All Time", anchor: account()!)
-        ])).delay(DispatchTimeInterval.seconds(3), scheduler: scheduler)
-    }
+//    func _dataSource() -> Observable<Result<Array<Room>>> {
+//        return Observable.just(Result(success: true, data: [
+//            Room(id: "u01", channelName: "Post vday 互相表白大会", anchor: account()!),
+//            Room(id: "u02", channelName: "Inez Garcia", anchor: account()!),
+//            Room(id: "u03", channelName: "Top 3 Greatet Rappers of All Time", anchor: account()!)
+//        ])).delay(DispatchTimeInterval.seconds(3), scheduler: scheduler)
+//    }
     
     func createRoom(with name: String) -> Observable<Result<Room>> {
         let account = self.account()

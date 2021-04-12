@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  InteractivePodcast
+
+  Created by XC on 2021/4/9.
+  
+*/
+CFBundleDisplayName = "互动播客";
+NSMicrophoneUsageDescription = "麦克风权限";

@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "创建"; ObjectID = "Ha8-bC-IPY"; */
+"Ha8-bC-IPY.normalTitle" = "Create";
+
+/* Class = "UIButton"; normalTitle = "取消"; ObjectID = "JKD-wp-9mU"; */
+"JKD-wp-9mU.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "创建房间"; ObjectID = "ROJ-Db-NZe"; */
+"ROJ-Db-NZe.text" = "Create a room";
+
+/* Class = "UITextField"; placeholder = "请输入房间名"; ObjectID = "UmQ-ye-m9O"; */
+"UmQ-ye-m9O.placeholder" = "Enter a room name";
+
+/* Class = "UILabel"; text = "本应用为测试产品，请勿商用。单次直播最长10分钟"; ObjectID = "h2E-cp-P7s"; */
+"h2E-cp-P7s.text" = "The max duration per session is 10 minutes.";

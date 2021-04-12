@@ -24,7 +24,7 @@ class HomeController: BaseViewContoller, DialogDelegate {
             
             listView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
             listView.collectionViewLayout = layout
-            listView.register(HomeCardView.self, forCellWithReuseIdentifier: "HomeCardView")
+            listView.register(HomeCardView.self, forCellWithReuseIdentifier: NSStringFromClass(HomeCardView.self))
             listView.dataSource = self
         }
     }
@@ -50,7 +50,7 @@ class HomeController: BaseViewContoller, DialogDelegate {
             }
             .subscribe(onNext: { [unowned self] _ in
                 self.navigationController?.pushViewController(
-                    MeController.instance(with: self.viewModel.account()!),
+                    MeController.instance(),
                     animated: true
                 )
             })
@@ -91,7 +91,7 @@ class HomeController: BaseViewContoller, DialogDelegate {
                     self.emptyView.isHidden = self.viewModel.roomList.count != 0
                     self.listView.reloadData()
                 } else {
-                    self.show(message: result.message ?? "出错了", type: .error)
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)
@@ -124,7 +124,7 @@ class HomeController: BaseViewContoller, DialogDelegate {
                 if (result.success) {
                     self.refreshControl.sendActions(for: .valueChanged)
                 } else {
-                    self.show(message: result.message ?? "出错了", type: .error)
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             })
             .disposed(by: disposeBag)
@@ -145,7 +145,7 @@ class HomeController: BaseViewContoller, DialogDelegate {
                         self.reloadButton.isHidden = true
                         self.initAppData()
                     } else {
-                        self.show(message: "请在设置中打开“互动播客”的网络权限", type: .error)
+                        self.show(message: "Needs Network permission".localized, type: .error)
                     }
                 })
                 .disposed(by: disposeBag)
@@ -191,12 +191,12 @@ class HomeController: BaseViewContoller, DialogDelegate {
         //self.refresh()
         switch action {
         case .closeRoom:
-            show(message: "房间已关闭", type: .error)
+            show(message: "Room closed".localized, type: .error)
             viewModel.showMiniRoom.accept(false)
             refresh()
         case .leave:
             if (room != nil) {
-                show(message: "房间已关闭", type: .error)
+                show(message: "Room closed".localized, type: .error)
                 refresh()
             }
             viewModel.showMiniRoom.accept(false)
@@ -212,7 +212,7 @@ extension HomeController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let card: HomeCardView = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCardView", for: indexPath) as! HomeCardView
+        let card: HomeCardView = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(HomeCardView.self), for: indexPath) as! HomeCardView
         card.delegate = self
         card.room = viewModel.roomList[indexPath.item]
         return card
@@ -258,7 +258,7 @@ extension HomeController: HomeCardDelegate {
                     //roomController.navigationController = self.navigationController
                     self.push(controller: roomController)
                 } else {
-                    self.show(message: result.message ?? "出错了", type: .error)
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
             } onDisposed: {
                 self.show(processing: false)
@@ -283,7 +283,7 @@ extension HomeController: CreateRoomDelegate {
         if (name?.isEmpty == false) {
             return viewModel.createRoom(with: name!)
         } else {
-            return Observable.just(Result<Room>(success: false, message: "房间名称不能为空！"))
+            return Observable.just(Result<Room>(success: false, message: "Enter a room name".localized))
         }
     }
 }

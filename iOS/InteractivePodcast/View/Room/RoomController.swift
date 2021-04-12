@@ -49,7 +49,7 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
     private var actionDisposable: Disposable? = nil
     
     var viewModel: RoomViewModel = RoomViewModel()
-    
+
     private func renderToolbar() {
         switch viewModel.role {
         case .manager:
@@ -97,7 +97,7 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
                     roomSpeakerToolbar = nil
                     roomManagerToolbar?.removeFromSuperview()
                     roomManagerToolbar = nil
-                    show(message: "你已被房主设置为听众", type: .error)
+                    show(message: "You've been set as audience".localized, type: .error)
                 }
                 
                 roomListenerToolbar?.subcribeUIEvent()
@@ -112,7 +112,7 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
             .subscribe(onNext: { [unowned self] _ in
                 Logger.log(message: "pushViewController \(self.navigationController != nil)", level: .info)
                 self.navigationController?.pushViewController(
-                    MeController.instance(with: self.viewModel.account),
+                    MeController.instance(),
                     animated: true
                 )
             })
@@ -125,7 +125,7 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
             }
             .filter { [unowned self] result in
                 if (!result.success) {
-                    self.show(message: result.message ?? "出错了！", type: .error)
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
                 return result.success
             }
@@ -141,7 +141,7 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
             .throttle(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance)
             .concatMap { [unowned self] _ -> Observable<Bool> in
                 if (self.viewModel.isManager) {
-                    return self.showAlert(title: "关闭房间", message: "关闭房间后所有成员将被移出房间")
+                    return self.showAlert(title: "Close room".localized, message: "Leaving the room ends the session and removes everyone".localized)
                 } else {
                     return Observable.just(true)
                 }
@@ -154,7 +154,7 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
             }
             .filter { [unowned self] result in
                 if (!result.success) {
-                    self.show(message: result.message ?? "出错了！", type: .error)
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
                 }
                 return result.success
             }
@@ -192,7 +192,7 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
             .subscribe(onNext: { [unowned self] result in
                 let roomClosed = result.data
                 if (!result.success) {
-                    self.show(message: result.message ?? "出错了！", type: .error)
+                    self.show(message: result.message ?? "unknown error".localized, type: .error)
                 } else if (roomClosed == true) {
                     self.leaveAction?(.leave, self.viewModel.room)
                     self.disconnect()
@@ -245,6 +245,10 @@ class RoomController: BaseViewContoller, DialogDelegate, RoomDelegate {
         subcribeRoomEvent()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
     static func instance(leaveAction: @escaping ((LeaveRoomAction, Room?) -> Void)) -> RoomController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "RoomController") as! RoomController
@@ -291,5 +295,11 @@ extension RoomController: ListAdapterDataSource {
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return nil
+    }
+}
+
+extension RoomController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        false
     }
 }

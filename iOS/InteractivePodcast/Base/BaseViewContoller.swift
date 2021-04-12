@@ -37,6 +37,7 @@ class BaseViewContoller: UIViewController {
     let disposeBag = DisposeBag()
     private var dialogBackgroundMaskView: UIView?
     private var onDismiss: (() -> Void)? = nil
+    var enableSwipeGesture: Bool = true
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -45,6 +46,13 @@ class BaseViewContoller: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if (enableSwipeGesture) {
+            self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        }
     }
 
     private func _showMaskView(dialog: UIView, alpha: CGFloat = 0.3) {
@@ -287,11 +295,11 @@ class BaseViewContoller: UIViewController {
     func showAlert(title: String, message: String) -> Observable<Bool> {
         return Single.create { single in
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "取消", style: .cancel) { _ in
+            let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel) { _ in
                 single(.success(false))
             }
             alertController.addAction(cancel)
-            let ok = UIAlertAction(title: "确定", style: .default) { _ in
+            let ok = UIAlertAction(title: "Ok".localized, style: .default) { _ in
                 single(.success(true))
             }
             alertController.addAction(ok)
