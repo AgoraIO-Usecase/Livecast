@@ -122,7 +122,10 @@ class HomeController: BaseViewContoller, DialogDelegate {
                     self.avatarView.image = UIImage(named: user.getLocalAvatar())
                 }
                 if (result.success) {
-                    self.refreshControl.sendActions(for: .valueChanged)
+                    //self.refreshControl.sendActions(for: .valueChanged)
+                    // UIRefreshControl bug?
+                    self.refreshControl.tintColor = UIColor(hex: Colors.White)
+                    self.refreshControl.refreshManually()
                 } else {
                     self.show(message: result.message ?? "unknown error".localized, type: .error)
                 }

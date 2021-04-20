@@ -26,6 +26,8 @@ class HomeViewModel {
     
     func setup() -> Observable<Result<Void>> {
         return Server.shared().getAccount().map { $0.transform() }
+            // UIRefreshControl bug?
+            .delay(DispatchTimeInterval.microseconds(200), scheduler: scheduler)
     }
     
     func account() -> User? {

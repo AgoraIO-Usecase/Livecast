@@ -180,18 +180,15 @@ final class HomeCardView: UICollectionViewCell {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        self.alpha = 0.65
+        self.highlight()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        self.alpha = 1
+        self.unhighlight()
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesCancelled(touches, with: event)
-        self.alpha = 1
+        self.unhighlight()
     }
     
     class AvatarView: UIView {

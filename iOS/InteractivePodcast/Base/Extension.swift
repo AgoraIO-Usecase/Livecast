@@ -36,12 +36,34 @@ extension UIColor {
     }
 }
 
+extension UIRefreshControl {
+    func refreshManually() {
+        if let scrollView = superview as? UIScrollView {
+            scrollView.setContentOffset(CGPoint(x: 0, y: scrollView.contentOffset.y - frame.height), animated: false)
+        }
+        //beginRefreshing()
+        sendActions(for: .valueChanged)
+    }
+}
+
 extension UIView {
     
     enum Relation {
         case equal
         case greaterOrEqual
         case lessOrEqual
+    }
+    
+    func highlight() {
+        UIView.animate(withDuration: 0.1) {
+            self.alpha = 0.5
+        }
+    }
+    
+    func unhighlight() {
+        UIView.animate(withDuration: 0.1) {
+            self.alpha = 1
+        }
     }
     
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {

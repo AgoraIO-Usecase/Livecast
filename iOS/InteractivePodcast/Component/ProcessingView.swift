@@ -19,8 +19,8 @@ class ProcessingView: UIView {
         return view
     }()
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         backgroundColor = UIColor(hex: "#000", alpha: 0.85)
         rounded(radius: 10)
         addSubview(indeicator)
@@ -31,6 +31,14 @@ class ProcessingView: UIView {
             .centerY(anchor: centerYAnchor)
             .active()
         indeicator.startAnimating()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
     static func create() -> ProcessingView {
