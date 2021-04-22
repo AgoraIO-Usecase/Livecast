@@ -80,7 +80,8 @@ class RoomSpeakerToolbar: UIView {
             .disposed(by: disposeBag)
         
         onMicView.rx.tap
-            .throttle(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance)
+            .debounce(RxTimeInterval.microseconds(300), scheduler: MainScheduler.instance)
+            .throttle(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
             .filter {
                 return !self.delegate.viewModel.member.isMuted
             }

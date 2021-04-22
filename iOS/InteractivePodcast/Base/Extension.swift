@@ -216,6 +216,16 @@ extension UIView {
 }
 
 extension UIViewController {
+    public func addViewTop(_ view: UIView) -> UIView {
+            if let window: UIWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first {
+                window.addSubview(view)
+                return window
+            } else {
+                self.view.addSubview(view)
+                return self.view
+            }
+        }
+    
     func showToast(message: String?, type: Notification = .info, duration: CGFloat = 1.5) {
         DispatchQueue.main.async {[unowned self] in
             guard let _message = message else {
@@ -235,41 +245,41 @@ extension UIView {
     }
 }
 
-extension UILabel {
-    private struct AssociatedKeys {
-        static var padding = UIEdgeInsets()
-    }
-    
-    var padding: UIEdgeInsets? {
-        get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.padding) as? UIEdgeInsets
-        }
-        set {
-            if let newValue = newValue {
-                objc_setAssociatedObject(self, &AssociatedKeys.padding, newValue as UIEdgeInsets?, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            }
-        }
-    }
-    
-    open override func draw(_ rect: CGRect) {
-        if let insets = padding {
-            self.drawText(in: rect.inset(by: insets))
-        } else {
-            self.drawText(in: rect)
-        }
-    }
-    
-    open override var intrinsicContentSize: CGSize {
-        get {
-            var contentSize = super.intrinsicContentSize
-            if let insets = padding {
-                contentSize.height += insets.top + insets.bottom
-                contentSize.width += insets.left + insets.right
-            }
-            return contentSize
-        }
-    }
-}
+//extension UILabel {
+//    private struct AssociatedKeys {
+//        static var padding = UIEdgeInsets()
+//    }
+//    
+//    var padding: UIEdgeInsets? {
+//        get {
+//            return objc_getAssociatedObject(self, &AssociatedKeys.padding) as? UIEdgeInsets
+//        }
+//        set {
+//            if let newValue = newValue {
+//                objc_setAssociatedObject(self, &AssociatedKeys.padding, newValue as UIEdgeInsets?, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+//            }
+//        }
+//    }
+//    
+//    open override func draw(_ rect: CGRect) {
+//        if let insets = padding {
+//            self.drawText(in: rect.inset(by: insets))
+//        } else {
+//            self.drawText(in: rect)
+//        }
+//    }
+//    
+//    open override var intrinsicContentSize: CGSize {
+//        get {
+//            var contentSize = super.intrinsicContentSize
+//            if let insets = padding {
+//                contentSize.height += insets.top + insets.bottom
+//                contentSize.width += insets.left + insets.right
+//            }
+//            return contentSize
+//        }
+//    }
+//}
 
 extension UIColor {
 

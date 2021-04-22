@@ -61,7 +61,9 @@ class BaseViewContoller: UIViewController {
             self.dialogBackgroundMaskView!.backgroundColor = UIColor.black
             self.dialogBackgroundMaskView!.center = self.view.center
             self.dialogBackgroundMaskView!.alpha = 0
-            self.view.addSubview(self.dialogBackgroundMaskView!)
+            
+            let root = addViewTop(self.dialogBackgroundMaskView!)
+            self.dialogBackgroundMaskView!.fill(view: root).active()
         }
         if let mask = dialogBackgroundMaskView {
             let tapGesture = UITapGestureRecognizer()
@@ -95,13 +97,15 @@ class BaseViewContoller: UIViewController {
         return Single.create { [unowned self] single in
             self.onDismiss = onDismiss
             dialog.tag = style.rawValue
+            
             switch style {
             case .bottom:
                 _showMaskView(dialog: dialog)
-                self.view.addSubview(dialog)
-                dialog.marginLeading(anchor: self.view.leadingAnchor, constant: padding)
-                    .centerX(anchor: self.view.centerXAnchor)
-                    .marginBottom(anchor: self.view.bottomAnchor)
+                let root = addViewTop(dialog)
+                //self.view.addSubview(dialog)
+                dialog.marginLeading(anchor: root.leadingAnchor, constant: padding)
+                    .centerX(anchor: root.centerXAnchor)
+                    .marginBottom(anchor: root.bottomAnchor)
                     .active()
                 
                 dialog.alpha = 0
@@ -115,10 +119,11 @@ class BaseViewContoller: UIViewController {
                 })
             case .center:
                 _showMaskView(dialog: dialog, alpha: 0.65)
-                self.view.addSubview(dialog)
-                dialog.marginLeading(anchor: self.view.leadingAnchor, constant: padding, relation: .greaterOrEqual)
-                    .centerX(anchor: self.view.centerXAnchor)
-                    .centerY(anchor: self.view.centerYAnchor, constant: -50)
+                let root = addViewTop(dialog)
+                //self.view.addSubview(dialog)
+                dialog.marginLeading(anchor: root.leadingAnchor, constant: padding, relation: .greaterOrEqual)
+                    .centerX(anchor: root.centerXAnchor)
+                    .centerY(anchor: root.centerYAnchor, constant: -50)
                     .active()
 
                 dialog.alpha = 0
@@ -131,10 +136,11 @@ class BaseViewContoller: UIViewController {
                 })
             case .top:
                 _showMaskView(dialog: dialog)
-                self.view.addSubview(dialog)
-                dialog.marginLeading(anchor: self.view.leadingAnchor, constant: padding)
-                    .centerX(anchor: self.view.centerXAnchor)
-                    .marginTop(anchor: self.view.safeAreaLayoutGuide.topAnchor, constant: padding)
+                let root = addViewTop(dialog)
+                //self.view.addSubview(dialog)
+                dialog.marginLeading(anchor: root.leadingAnchor, constant: padding)
+                    .centerX(anchor: root.centerXAnchor)
+                    .marginTop(anchor: root.safeAreaLayoutGuide.topAnchor, constant: padding)
                     .active()
                 
                 dialog.alpha = 0
@@ -147,10 +153,11 @@ class BaseViewContoller: UIViewController {
                     single(.success(finish))
                 })
             case .topNoMask:
-                self.view.addSubview(dialog)
-                dialog.marginLeading(anchor: self.view.leadingAnchor, constant: padding)
-                    .centerX(anchor: self.view.centerXAnchor)
-                    .marginTop(anchor: self.view.safeAreaLayoutGuide.topAnchor, constant: padding)
+                let root = addViewTop(dialog)
+                //self.view.addSubview(dialog)
+                dialog.marginLeading(anchor: root.leadingAnchor, constant: padding)
+                    .centerX(anchor: root.centerXAnchor)
+                    .marginTop(anchor: root.safeAreaLayoutGuide.topAnchor, constant: padding)
                     .active()
                 
                 dialog.alpha = 0
@@ -163,16 +170,17 @@ class BaseViewContoller: UIViewController {
                     single(.success(finish))
                 })
             case .bottomNoMask:
-                self.view.addSubview(dialog)
+                let root = addViewTop(dialog)
+                //self.view.addSubview(dialog)
                 if (padding > 0) {
-                    dialog.marginLeading(anchor: self.view.leadingAnchor, constant: padding)
-                        .centerX(anchor: self.view.centerXAnchor)
-                        .marginBottom(anchor: self.view.safeAreaLayoutGuide.bottomAnchor, constant: padding)
+                    dialog.marginLeading(anchor: root.leadingAnchor, constant: padding)
+                        .centerX(anchor: root.centerXAnchor)
+                        .marginBottom(anchor: root.safeAreaLayoutGuide.bottomAnchor, constant: padding)
                         .active()
                 } else {
-                    dialog.marginLeading(anchor: self.view.leadingAnchor)
-                        .centerX(anchor: self.view.centerXAnchor)
-                        .marginBottom(anchor: self.view.bottomAnchor)
+                    dialog.marginLeading(anchor: root.leadingAnchor)
+                        .centerX(anchor: root.centerXAnchor)
+                        .marginBottom(anchor: root.bottomAnchor)
                         .active()
                 }
                 

@@ -18,10 +18,10 @@ extension UIViewController {
         DispatchQueue.main.async {[unowned self] in
             let view = NotificationView.create(message: message, type: type)
             view.alpha = 0
-            self.view.addSubview(view)
-            view.marginLeading(anchor: self.view.leadingAnchor, constant: 16)
-                .centerX(anchor: self.view.centerXAnchor)
-                .marginTop(anchor: self.view.safeAreaLayoutGuide.topAnchor, constant: 16)
+            let root = self.addViewTop(view)
+            view.marginLeading(anchor: root.leadingAnchor, constant: 16)
+                .centerX(anchor: root.centerXAnchor)
+                .marginTop(anchor: root.safeAreaLayoutGuide.topAnchor, constant: 16)
                 .active()
             let translationY: CGFloat = 40
             view.transform = CGAffineTransform(translationX: 0, y: -translationY)

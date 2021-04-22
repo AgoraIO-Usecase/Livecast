@@ -97,8 +97,9 @@ class RoomManagerToolbar: UIView {
             .disposed(by: disposeBag)
         
         onMicView.rx.tap
-            .throttle(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance)
-            .flatMap { [unowned self] _ in
+            .debounce(RxTimeInterval.microseconds(300), scheduler: MainScheduler.instance)
+            .throttle(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+            .flatMapLatest { [unowned self] _ in
                 return self.delegate.viewModel.selfMute(mute: !self.delegate.viewModel.muted())
             }
             .subscribe(onNext: { [unowned self] result in
