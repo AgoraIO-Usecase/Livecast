@@ -25,7 +25,7 @@
     <string name="room_name_exit">Leave quietly</string>
     <string name="room_dialog_hand_up_title">Raise hands list</string>
     <string name="room_dialog_hand_up_agree">Agree</string>
-    <string name="room_dialog_hand_up_refuse">Reject</string>
+    <string name="room_dialog_hand_up_refuse">Decline</string>
     <string name="room_dialog_seat_off">Become audience</string>
     <string name="room_dialog_open_audio">Turn on mic</string>
     <string name="room_dialog_close_audio">Turn off mic</string>
@@ -43,7 +43,7 @@
 
     <string name="user_info_name">Profile name</string>
     <string name="user_info_about">About</string>
-    <string name="user_info_1">极速直播</string>
+    <string name="user_info_1">Interactive Live Streaming Standard</string>
     <string name="about_title">About</string>
     <string name="about_menu1">Privacy policy</string>
     <string name="about_menu2">"Product disclaimer "</string>
