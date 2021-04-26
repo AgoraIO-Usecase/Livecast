@@ -16,7 +16,22 @@
 - InteractivePodcast_Firebase, 数据源基于 Firebase, 实现参考 [Firebase.swift](./InteractivePodcast/Server/Firebase.swift)
 
 ##### 注册Leancloud
-前往 [Leancloud官网](https://www.leancloud.cn/) 注册项目，生产 appId、appKey、server_url，然后替换 **Config.swift** 中 **LeanCloudAppId**、**LeanCloudAppKey**、**LeanCloudServerUrl**。
+1. 前往 [Leancloud官网](https://www.leancloud.cn/) 注册项目，生产 appId、appKey、server_url。
+- 替换 **Config.swift** 中 **LeanCloudAppId**、**LeanCloudAppKey**、**LeanCloudServerUrl**。
+- 替换 [LeanCloudHelp.py](./LeanCloudHelp.py) 中 **appid** 和 **appkey**。
+2. 安装 [Python](https://www.python.org/)，如果已经安装请忽略。
+3. Python安装之后，控制台执行以下命令。
+```
+pip install leancloud
+或者
+pip3 install leancloud
+```
+4. Terminal 中执行文件 [LeanCloudHelp.py](./LeanCloudHelp.py)。
+```
+python ./LeanCloudHelp.py
+或者
+python3 ./LeanCloudHelp.py
+```
 
 ##### 注册Firebase
 前往 [Firebase官网](https://firebase.google.com/) 注册项目，生成文件 **GoogleService-Info.plist**，然后放到 InteractivePodcast 根目录下面。
