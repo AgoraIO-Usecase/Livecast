@@ -14,10 +14,25 @@
 - 本项目目前提供了2种数据接入：**leancloud** 和 **firebase**，可以在 Android Studio 的 Build Variants 中进行切换。
 - 如果需要自己实现数据源，请参考项目 **data** 代码中实现，主要继承接口 **IDataProvider** 实现具体方法。
 
-##### 注册Leanclould
-前往 [Leancloud官网](https://www.leancloud.cn/) 注册项目，生产 appId、appKey、server_url，然后替换工程**data**中  **strings_config.xml** 中 **leancloud_app_id**、**leancloud_app_key**、**leancloud_server_url**。
+##### Leanclould
+1. 前往 [Leancloud官网](https://www.leancloud.cn/) 注册项目，生产 appId、appKey、server_url。
+- 替换工程 **data** 中  **strings_config.xml** 中 **leancloud_app_id**、**leancloud_app_key**、**leancloud_server_url**。
+- 替换 [LeanCloudHelp.py](./LeanCloudHelp.py) 中 **appid** 和 **appkey**。
+2. 安装 [Python](https://www.python.org/)，如果已经安装请忽略。
+3. Python安装之后，控制台执行以下命令。
+```
+pip install leancloud
+或者
+pip3 install leancloud
+```
+4. Android Studio Terminal 中执行文件 [LeanCloudHelp.py](./LeanCloudHelp.py)。
+```
+python ./LeanCloudHelp.py
+或者
+python3 ./LeanCloudHelp.py
+```
 
-##### 注册Firebase
+##### Firebase
 前往 [Firebase官网](https://firebase.google.com/) 注册项目，生成文件 **google-services.json**，然后放到app工程下面。
 
 #### 运行示例项目
