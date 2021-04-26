@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
+if (!getGradle().getStartParameter().getTaskRequests()
+        .toString().contains("firebase")) {
+    apply plugin: 'com.google.gms.google-services'
+}
 
 android {
     compileSdkVersion COMPILESDKVERSION
@@ -36,9 +39,11 @@ android {
     flavorDimensions "test"
     productFlavors {
         leancloud {
+
         }
 
         firebase {
+
         }
     }
 }
