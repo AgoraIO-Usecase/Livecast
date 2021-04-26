@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-if (!getGradle().getStartParameter().getTaskRequests()
+if (getGradle().getStartParameter().getTaskRequests()
         .toString().contains("firebase")) {
     apply plugin: 'com.google.gms.google-services'
 }
