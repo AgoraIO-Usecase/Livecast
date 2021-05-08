@@ -8,7 +8,7 @@
 前往 GitHub 下载或克隆 [Livecast](https://github.com/AgoraIO-Usecase/Livecast) 示例项目。
 
 #### 注册Agora
-前往 [Agora官网](https://console.agora.io/) 注册项目，生产appId，然后替换工程**data**中 **strings_config.xml** 中 **app_id**，如果启用了token模式，需要替换**token**。
+前往 [Agora官网](https://console.agora.io/) 注册项目，生产appId，然后替换工程**data**中 **strings_config.xml** 中 **app_id**，如果启用了token模式，需要替换 **token**。
 
 #### 数据源
 - 本项目目前提供了2种数据接入：**leancloud** 和 **firebase**，可以在 Android Studio 的 Build Variants 中进行切换。
@@ -18,7 +18,7 @@
 1. 前往 [Leancloud官网](https://www.leancloud.cn/) 注册项目，生产 appId、appKey、server_url。
 - 替换工程 **data** 中  **strings_config.xml** 中 **leancloud_app_id**、**leancloud_app_key**、**leancloud_server_url**。
 - 替换 [LeanCloudHelp.py](./LeanCloudHelp.py) 中 **appid** 和 **appkey**。
-2. 启用LiveQuery，前往[Leancloud控制台](https://www.leancloud.cn/)，打开[数据存储]-[服务设置]-[启用 LiveQuery]。
+2. 启用LiveQuery，前往 [Leancloud控制台](https://www.leancloud.cn/)，打开**数据存储**-**服务设置**-**启用 LiveQuery**。
 3. 安装 [Python](https://www.python.org/)，如果已经安装请忽略。
 4. Python安装之后，控制台执行以下命令。
 ```
